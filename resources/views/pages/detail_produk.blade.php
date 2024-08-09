@@ -76,6 +76,57 @@
                                     <div class="_215b05">
                                         Last updated 1/2024
                                     </div>
+
+                                       <div class="input-group my-2 " style="width: 15%; ">
+                                        <span class="input-group-text  "
+                                            style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
+                                            id="decrement">-</span>
+                                        <input type="text" class="form-control text-center " disabled name="quantity"
+                                            id="quantity" value="1" min="1">
+                                        <span class="input-group-text "    style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; " id="increment">+</span>
+                                    </div>
+                                         <script>
+                                        $(document).ready(function() {
+                                            $('#increment').click(function() {
+                                                var quantity = parseInt($('#quantity').val());
+                                                $('#quantity').val(quantity + 1);
+                                            });
+
+                                            $('#decrement').click(function() {
+                                                var quantity = parseInt($('#quantity').val());
+                                                if (quantity > 1) {
+                                                    $('#quantity').val(quantity - 1);
+                                                }
+                                            });
+
+                                            // Set up AJAX headers to include CSRF token
+                                            $.ajaxSetup({
+                                                headers: {
+                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                }
+                                            });
+
+                                            $('#productForm').submit(function(e) {
+                                                e.preventDefault();
+
+                                                $.ajax({
+                                                    url: "",
+                                                    method: "POST",
+                                                    data: $(this).serialize(),
+                                                    success: function(response) {
+                                                        alert(response.success);
+                                                        $('#productList').append('<li>' + response.product.name +
+                                                            ' - Quantity: ' + response.product.quantity + '</li>');
+                                                        $('#productForm')[0].reset(); // Reset the form
+                                                    },
+                                                    error: function(response) {
+                                                        alert('Something went wrong. Please try again.');
+                                                        console.log(response.responseText);
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    </script>
                                     <ul class="_215b31">
                                         <li><button class="btn_adcart">Add to Cart</button></li>
                                         <li><button class="btn_buy">Buy Now</button></li>

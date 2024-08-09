@@ -24,3 +24,16 @@ Route::get('/detail/produk', function () {
 Route::get('/produk', function () {
     return view('pages.produk');
 });
+Route::get('/checkout', function () {
+    return view('pages.checkout');
+});
+
+Route::get('/keranjang', function () {
+    return view('pages.keranjang');
+});
+Route::get('/register', function () {
+    return view('auth.register');
+});
+Route::get('/login', function () {
+    return view('auth.login');
+});
