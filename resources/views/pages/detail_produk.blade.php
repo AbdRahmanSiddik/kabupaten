@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="wrapper _bg4586">
+    <div class="">
         <div class="_215b01">
             <div class="container-fluid">
                 <div class="row">
