@@ -59,7 +59,7 @@
 		<div class="header_right">
 			<ul>
 				<li>
-					<a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
+					<a href="create_new_course.html" class="upload_btn" title="Create New Course">Jual Produk Baru</a>
 				</li>
 				<li>
 					<a href="shopping_cart.html" class="option_links" title="cart"><i class='uil uil-shopping-cart-alt'></i><span class="noti_count">2</span></a>
@@ -270,12 +270,12 @@
 										<li>
 											<a href="index.html">
 												<div class="footer_logo">
-													<img src="{{ asset('assets') }}/images/logo1.svg" alt="">
+													<img src="{{ asset('assets') }}/images/" alt="">
 												</div>
 											</a>
 										</li>
 										<li>
-											<p>© 2024 <strong>Cursus</strong>. All Rights Reserved.</p>
+											<p>© 2024 <strong>Turbo-Main</strong>. All Rights Reserved.</p>
 										</li>
 									</ul>
 								</div>

@@ -132,25 +132,26 @@
                                     <thead class="thead-s">
                                         <tr>
                                             <th class="text-center" scope="col">Item No.</th>
-                                            <th class="cell-ta" scope="col">Title</th>
-                                            <th class="cell-ta" scope="col">Vendor</th>
-                                            <th class="cell-ta" scope="col">Category</th>
-                                            <th class="text-center" scope="col">Delivery Type</th>
-                                            <th class="text-center" scope="col">Price</th>
-                                            <th class="text-center" scope="col">Purchase Date</th>
+                                            <th class="cell-ta" scope="col">Nama Produk</th>
+                                            <th class="cell-ta" scope="col">Nama Pembali</th>
+                                            <th class="cell-ta" scope="col">Kategori</th>
+                                            <th class="text-center" scope="col">Status</th>
+                                            <th class="text-center" scope="col">Harga</th>
+                                            <th class="text-center" scope="col">Tanggal Pembelian</th>
                                             <th class="text-center" scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="text-center">001</td>
-                                            <td class="cell-ta">Course Title Here</td>
-                                            <td class="cell-ta"><a href="#">Zoena Singh</a></td>
-                                            <td class="cell-ta"><a href="#">Web Development</a></td>
-                                            <td class="text-center"><b class="course_active">Download</b></td>
-                                            <td class="text-center">$15</td>
-                                            <td class="text-center">25 March 2020</td>
+                                            <td class="cell-ta">Copeman</td>
+                                            <td class="cell-ta"><a href="#">Deliana Agustina</a></td>
+                                            <td class="cell-ta"><a href="#">Makanan Ringan</a></td>
+                                            <td class="text-center"><b class="text-success">Diterima</b></td>
+                                            <td class="text-center">Rp 8.999</td>
+                                            <td class="text-center">30 Juli 2024</td>
                                             <td class="text-center">
+                                                <a href="#" title="Detail" class="gray-s"><i class="uil uil-edit-alt"></i></a>
                                                 <a href="#" title="Download" class="gray-s"><i class="uil uil-download-alt"></i></a>
                                                 <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
                                                 <a href="#" title="Print" class="gray-s"><i class="uil uil-print"></i></a>
@@ -158,13 +159,14 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center">002</td>
-                                            <td class="cell-ta">Course Title Here</td>
-                                            <td class="cell-ta"><a href="#">Rock William</a></td>
-                                            <td class="cell-ta"><a href="#">C++</a></td>
-                                            <td class="text-center"><b class="course_active">Download</b></td>
-                                            <td class="text-center">$20</td>
-                                            <td class="text-center">20 March 2020</td>
+                                            <td class="cell-ta">Copeman</td>
+                                            <td class="cell-ta"><a href="#">Rahmat Syafri</a></td>
+                                            <td class="cell-ta"><a href="#">Makanan Ringan</a></td>
+                                            <td class="text-center"><b class="text-success">Diterima</b></td>
+                                            <td class="text-center">Rp 8.999</td>
+                                            <td class="text-center">30 Juli 2024</td>
                                             <td class="text-center">
+                                                <a href="#" title="Detail" class="gray-s"><i class="uil uil-edit-alt"></i></a>
                                                 <a href="#" title="Download" class="gray-s"><i class="uil uil-download-alt"></i></a>
                                                 <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
                                                 <a href="#" title="Print" class="gray-s"><i class="uil uil-print"></i></a>
