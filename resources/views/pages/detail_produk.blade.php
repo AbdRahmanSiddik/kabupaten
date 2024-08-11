@@ -13,7 +13,7 @@
                                     <div class="preview_video">
                                         <a href="#" class="fcrse_img" data-bs-toggle="modal"
                                             data-bs-target="#videoModal">
-                                            <img src="{{ asset('') }}assets/images/courses/img-2.jpg" alt="">
+                                            <img src="{{ asset('') }}assets/images/courses/img-1.png" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
                                                 <span class="play_btn1"><i class="uil uil-play"></i></span>
@@ -32,9 +32,8 @@
                                 </div>
                                 <div class="col-xl-8 col-lg-7 col-md-6">
                                     <div class="_215b03">
-                                        <h2>The Web Developer Bootcamp</h2>
-                                        <span class="_215b04">The only course you need to learn web development - HTML, CSS,
-                                            JS, Node, and More!</span>
+                                        <h2>COPEMAN : Coklat Pedas Manual</h2>
+                                        <span class="_215b04">Makanan, Cemilan</span>
                                     </div>
                                     <div class="_215b05">
                                         <div class="crse_reviews mr-2">
@@ -43,14 +42,30 @@
                                         (81,665 ratings)
                                     </div>
                                     <div class="_215b05">
-                                        114,521 students enrolled
+                                        114,521 Terjual
                                     </div>
                                     <div class="_215b06">
-                                        <div class="_215b07">
-                                            <span><i class='uil uil-comment'></i></span>
-                                            English
+                                        {{-- <div class="_215b07">
+                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewBox="0 0 48 48">
+                                                    <path fill="currentColor"
+                                                        d="M11.25 8.5a4.75 4.75 0 0 0-4.75 4.75v15.5a4.75 4.75 0 0 0 4.75 4.75h3.25v7.838L25.603 33.5H36.75a4.75 4.75 0 0 0 4.75-4.75v-15.5a4.75 4.75 0 0 0-4.75-4.75zM4 13.25A7.25 7.25 0 0 1 11.25 6h25.5A7.25 7.25 0 0 1 44 13.25v15.5A7.25 7.25 0 0 1 36.75 36H26.397l-10.85 7.658C14.058 44.71 12 43.644 12 41.82V36h-.75A7.25 7.25 0 0 1 4 28.75z" />
+                                                </svg></span>
+                                            2
                                         </div>
-                                        <div class="_215b08">
+                                        <div class="_215b07">
+                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewBox="0 0 24 24">
+                                                    <g fill="none">
+                                                        <path fill="currentColor"
+                                                            d="m15 10l-.986-.164A1 1 0 0 0 15 11zM4 10V9a1 1 0 0 0-1 1zm16.522 2.392l.98.196zM6 21h11.36v-2H6zM18.56 9H15v2h3.56zm-2.573 1.164l.805-4.835L14.82 5l-.806 4.836zM14.82 3h-.214v2h.214zm-3.543 1.781L8.763 8.555l1.664 1.11l2.516-3.774zM7.93 9H4v2h3.93zM3 10v8h2v-8zm17.302 8.588l1.2-6l-1.96-.392l-1.2 6zM8.762 8.555A1 1 0 0 1 7.93 9v2a3 3 0 0 0 2.496-1.336zm8.03-3.226A2 2 0 0 0 14.82 3v2zM18.56 11a1 1 0 0 1 .981 1.196l1.961.392A3 3 0 0 0 18.561 9zm-1.2 10a3 3 0 0 0 2.942-2.412l-1.96-.392a1 1 0 0 1-.982.804zM14.606 3a4 4 0 0 0-3.328 1.781l1.664 1.11A2 2 0 0 1 14.606 5zM6 19a1 1 0 0 1-1-1H3a3 3 0 0 0 3 3z" />
+                                                        <path stroke="currentColor" stroke-width="2" d="M8 10v10" />
+                                                    </g>
+                                                </svg></span>
+                                            20
+                                        </div> --}}
+
+                                        {{-- <div class="_215b08">
                                             <span><i class='uil uil-closed-captioning'></i></span>
                                             <span>English, Dutch
                                                 <span class="caption_tooltip">
@@ -71,21 +86,23 @@
                                                     </span>
                                                 </span>
                                             </span>
-                                        </div>
+                                        </div> --}}
                                     </div>
-                                    <div class="_215b05">
+                                    {{-- <div class="_215b05">
                                         Last updated 1/2024
-                                    </div>
+                                    </div> --}}
 
-                                       <div class="input-group my-2 " style="width: 15%; ">
+                                    <div class="input-group my-2 " style="width: 15%; ">
                                         <span class="input-group-text  "
                                             style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
                                             id="decrement">-</span>
                                         <input type="text" class="form-control text-center " disabled name="quantity"
                                             id="quantity" value="1" min="1">
-                                        <span class="input-group-text "    style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; " id="increment">+</span>
+                                        <span class="input-group-text "
+                                            style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
+                                            id="increment">+</span>
                                     </div>
-                                         <script>
+                                    <script>
                                         $(document).ready(function() {
                                             $('#increment').click(function() {
                                                 var quantity = parseInt($('#quantity').val());
@@ -131,9 +148,9 @@
                                         <li><button class="btn_adcart">Add to Cart</button></li>
                                         <li><button class="btn_buy">Buy Now</button></li>
                                     </ul>
-                                    <div class="_215fgt1">
+                                    {{-- <div class="_215fgt1">
                                         30-Day Money-Back Guarantee
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -153,8 +170,8 @@
                                                 alt=""></a>
                                     </div>
                                     <div class="user_cntnt">
-                                        <a href="#" class="_df7852">Johnson Smith</a>
-                                        <button class="subscribe-btn">Subscribe</button>
+                                        <a href="#" class="_df7852">Ananda Maulana Wahyudi</a>
+                                        <button class="subscribe-btn">+ Ikuti</button>
                                     </div>
                                 </div>
                             </div>
@@ -183,8 +200,8 @@
                                 <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-about-tab" data-bs-toggle="tab"
                                         href="#nav-about" role="tab" aria-selected="true">About</a>
-                                    <a class="nav-item nav-link" id="nav-courses-tab" data-bs-toggle="tab"
-                                        href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
+                                    {{-- <a class="nav-item nav-link" id="nav-courses-tab" data-bs-toggle="tab"
+                                        href="#nav-courses" role="tab" aria-selected="false">Courses Content</a> --}}
                                     <a class="nav-item nav-link" id="nav-reviews-tab" data-bs-toggle="tab"
                                         href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
                                 </div>
@@ -203,7 +220,8 @@
                                 <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
                                     <div class="_htg451">
                                         <div class="_htg452">
-                                            <h3>Requirements</h3>
+                                            <h3>Spesifikasi Produk
+                                            </h3>
                                             <ul>
                                                 <li><span class="_5f7g11">Have a computer with Internet</span></li>
                                                 <li><span class="_5f7g11">Be ready to learn an insane amount of awesome
@@ -212,7 +230,8 @@
                                             </ul>
                                         </div>
                                         <div class="_htg452 mt-35">
-                                            <h3>Description</h3>
+                                            <h3>Deskripsi Produk
+                                            </h3>
                                             <span class="_abc123">Just updated to include Bootstrap 4.1.3!</span>
                                             <p>Hi! Welcome to the Web Developer Bootcamp, the <strong>only course you need
                                                     to learn web development</strong>. There are a lot of options for online
@@ -302,142 +321,10 @@
                                                         course</span></li>
                                             </ul>
                                         </div>
-                                        <div class="_htgdrt mt-35">
-                                            <h3>What you'll learn</h3>
-                                            <div class="_scd123">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <ul class="_htg452 _abcd145">
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Lorem ipsum
-                                                                        dolor sit amet, consectetur adipiscing elit.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Donec
-                                                                        ultricies elit porttitor, ultrices enim a, commodo
-                                                                        dolor.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nunc dapibus
-                                                                        ligula sed justo porta, id volutpat odio
-                                                                        iaculis.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        pharetra mi quis nisl mollis, molestie imperdiet
-                                                                        lorem molestie.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        ultricies felis in pulvinar blandit.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Praesent ac
-                                                                        libero consequat, efficitur tortor et, interdum
-                                                                        sem.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nullam non
-                                                                        lacus nibh. Etiam et fringilla neque, ut vulputate
-                                                                        sapien. Sed vitae tortor gravida, interdum felis at,
-                                                                        pulvinar enim. Integer tempor urna leo.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Phasellus
-                                                                        ultrices tellus sed volutpat vestibulum. Curabitur
-                                                                        aliquet dictum leo non congue.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>In hac
-                                                                        habitasse platea dictumst. Aenean vel fermentum
-                                                                        neque.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Suspendisse
-                                                                        semper feugiat urna dictum interdum.</span></div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <ul class="_htg452 _abcd145">
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nullam non
-                                                                        lacus nibh. Etiam et fringilla neque, ut vulputate
-                                                                        sapien. Sed vitae tortor gravida, interdum felis at,
-                                                                        pulvinar enim. Integer tempor urna leo.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Phasellus
-                                                                        ultrices tellus sed volutpat vestibulum. Curabitur
-                                                                        aliquet dictum leo non congue.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>In hac
-                                                                        habitasse platea dictumst. Aenean vel fermentum
-                                                                        neque.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Suspendisse
-                                                                        semper feugiat urna dictum interdum.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Lorem ipsum
-                                                                        dolor sit amet, consectetur adipiscing elit.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Donec
-                                                                        ultricies elit porttitor, ultrices enim a, commodo
-                                                                        dolor.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nunc dapibus
-                                                                        ligula sed justo porta, id volutpat odio
-                                                                        iaculis.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        pharetra mi quis nisl mollis, molestie imperdiet
-                                                                        lorem molestie.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        ultricies felis in pulvinar blandit.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Praesent ac
-                                                                        libero consequat, efficitur tortor et, interdum
-                                                                        sem.</span></div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="nav-courses" role="tabpanel">
+                                {{-- <div class="tab-pane fade" id="nav-courses" role="tabpanel">
                                     <div class="crse_content">
                                         <h3>Course content</h3>
                                         <div class="_112456">
@@ -1885,7 +1772,7 @@
                                         </div>
                                         <a class="btn1458" href="#">20 More Sections</a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                                     <div class="student_reviews">
                                         <div class="row">
@@ -2000,8 +1887,8 @@
                                                             <img src="{{ asset('') }}assets/images/left-imgs/img-1.jpg"
                                                                 alt="">
                                                             <div class="rv1458">
-                                                                <h4 class="tutor_name1">John Doe</h4>
-                                                                <span class="time_145">2 hour ago</span>
+                                                                <h4 class="tutor_name1">Deliana Agustina</h4>
+                                                                <span class="time_145">10 Agustus 2024</span>
                                                             </div>
                                                         </div>
                                                         <div class="rating-box mt-20">
@@ -2011,175 +1898,24 @@
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star half-star"></span>
                                                         </div>
-                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex
-                                                            elementum. Interdum et malesuada fames ac ante ipsum primis in
-                                                            faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
+                                                        <p class="rvds10">Alhamdulillah.... Barang yang datang sesuai yang
+                                                            saya pesan </p>
                                                         <div class="rpt100">
                                                             <span>Was this review helpful?</span>
                                                             <div class="radio--group-inline-container">
                                                                 <div class="radio-item">
-                                                                    <input id="radio-1" name="radio"
-                                                                        type="radio">
-                                                                    <label for="radio-1"
-                                                                        class="radio-label">Yes</label>
+                                                                    <input id="radio-1" name="radio" type="radio">
+                                                                    <label for="radio-1" class="radio-label">Yes</label>
                                                                 </div>
                                                                 <div class="radio-item">
-                                                                    <input id="radio-2" name="radio"
-                                                                        type="radio">
+                                                                    <input id="radio-2" name="radio" type="radio">
                                                                     <label for="radio-2" class="radio-label">No</label>
                                                                 </div>
                                                             </div>
                                                             <a href="#" class="report145">Report</a>
                                                         </div>
                                                     </div>
-                                                    <div class="review_item">
-                                                        <div class="review_usr_dt">
-                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-2.jpg"
-                                                                alt="">
-                                                            <div class="rv1458">
-                                                                <h4 class="tutor_name1">Jassica William</h4>
-                                                                <span class="time_145">12 hour ago</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating-box mt-20">
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star empty-star"></span>
-                                                        </div>
-                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex
-                                                            elementum. Interdum et malesuada fames ac ante ipsum primis in
-                                                            faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                                        <div class="rpt100">
-                                                            <span>Was this review helpful?</span>
-                                                            <div class="radio--group-inline-container">
-                                                                <div class="radio-item">
-                                                                    <input id="radio-3" name="radio1"
-                                                                        type="radio">
-                                                                    <label for="radio-3"
-                                                                        class="radio-label">Yes</label>
-                                                                </div>
-                                                                <div class="radio-item">
-                                                                    <input id="radio-4" name="radio1"
-                                                                        type="radio">
-                                                                    <label for="radio-4" class="radio-label">No</label>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="report145">Report</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review_item">
-                                                        <div class="review_usr_dt">
-                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-3.jpg"
-                                                                alt="">
-                                                            <div class="rv1458">
-                                                                <h4 class="tutor_name1">Albert Dua</h4>
-                                                                <span class="time_145">5 days ago</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating-box mt-20">
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star half-star"></span>
-                                                            <span class="rating-star empty-star"></span>
-                                                        </div>
-                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex
-                                                            elementum. Interdum et malesuada fames ac ante ipsum primis in
-                                                            faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                                        <div class="rpt100">
-                                                            <span>Was this review helpful?</span>
-                                                            <div class="radio--group-inline-container">
-                                                                <div class="radio-item">
-                                                                    <input id="radio-5" name="radio2"
-                                                                        type="radio">
-                                                                    <label for="radio-5"
-                                                                        class="radio-label">Yes</label>
-                                                                </div>
-                                                                <div class="radio-item">
-                                                                    <input id="radio-6" name="radio2"
-                                                                        type="radio">
-                                                                    <label for="radio-6" class="radio-label">No</label>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="report145">Report</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review_item">
-                                                        <div class="review_usr_dt">
-                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-4.jpg"
-                                                                alt="">
-                                                            <div class="rv1458">
-                                                                <h4 class="tutor_name1">Zoena Singh</h4>
-                                                                <span class="time_145">15 days ago</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating-box mt-20">
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                        </div>
-                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex
-                                                            elementum. Interdum et malesuada fames ac ante ipsum primis in
-                                                            faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                                        <div class="rpt100">
-                                                            <span>Was this review helpful?</span>
-                                                            <div class="radio--group-inline-container">
-                                                                <div class="radio-item">
-                                                                    <input id="radio-7" name="radio3"
-                                                                        type="radio">
-                                                                    <label for="radio-7"
-                                                                        class="radio-label">Yes</label>
-                                                                </div>
-                                                                <div class="radio-item">
-                                                                    <input id="radio-8" name="radio3"
-                                                                        type="radio">
-                                                                    <label for="radio-8" class="radio-label">No</label>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="report145">Report</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review_item">
-                                                        <div class="review_usr_dt">
-                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-5.jpg"
-                                                                alt="">
-                                                            <div class="rv1458">
-                                                                <h4 class="tutor_name1">Joy Dua</h4>
-                                                                <span class="time_145">20 days ago</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="rating-box mt-20">
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star full-star"></span>
-                                                            <span class="rating-star empty-star"></span>
-                                                            <span class="rating-star empty-star"></span>
-                                                        </div>
-                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex
-                                                            elementum. Interdum et malesuada fames ac ante ipsum primis in
-                                                            faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                                        <div class="rpt100">
-                                                            <span>Was this review helpful?</span>
-                                                            <div class="radio--group-inline-container">
-                                                                <div class="radio-item">
-                                                                    <input id="radio-9" name="radio4"
-                                                                        type="radio">
-                                                                    <label for="radio-9"
-                                                                        class="radio-label">Yes</label>
-                                                                </div>
-                                                                <div class="radio-item">
-                                                                    <input id="radio-10" name="radio4"
-                                                                        type="radio">
-                                                                    <label for="radio-10" class="radio-label">No</label>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="report145">Report</a>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="review_item">
                                                         <a href="#" class="more_reviews">See More Reviews</a>
                                                     </div>
@@ -2194,203 +1930,6 @@
                 </div>
             </div>
         </div>
-        <footer class="footer mt-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="about_us.html">About</a>
-                            <a href="our_blog.html">Blog</a>
-                            <a href="career.html">Careers</a>
-                            <a href="press.html">Press</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="help.html">Help</a>
-                            <a href="coming_soon.html">Advertise</a>
-                            <a href="coming_soon.html">Developers</a>
-                            <a href="contact_us.html">Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="terms_of_use.html">Copyright Policy</a>
-                            <a href="terms_of_use.html">Terms</a>
-                            <a href="terms_of_use.html">Privacy Policy</a>
-                            <a href="sitemap.html">Sitemap</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f3">
-                            <a href="#" class="btn1542">Teach on Cursus</a>
-                            <div class="lng_btn">
-                                <div class="ui language bottom right pointing dropdown floating" id="languages"
-                                    data-content="Select Language">
-                                    <a href="#"><i class='uil uil-globe lft'></i>Language<i
-                                            class='uil uil-angle-down rgt'></i></a>
-                                    <div class="menu">
-                                        <div class="scrolling menu">
-                                            <div class="item" data-percent="100" data-value="en"
-                                                data-english="English">
-                                                <span class="description">English</span>
-                                                English
-                                            </div>
-                                            <div class="item" data-percent="94" data-value="da"
-                                                data-english="Danish">
-                                                <span class="description">dansk</span>
-                                                Danish
-                                            </div>
-                                            <div class="item" data-percent="94" data-value="es"
-                                                data-english="Spanish">
-                                                <span class="description">Español</span>
-                                                Spanish
-                                            </div>
-                                            <div class="item" data-percent="34" data-value="zh"
-                                                data-english="Chinese">
-                                                <span class="description">简体中文</span>
-                                                Chinese
-                                            </div>
-                                            <div class="item" data-percent="54" data-value="zh_TW"
-                                                data-english="Chinese (Taiwan)">
-                                                <span class="description">中文 (臺灣)</span>
-                                                Chinese (Taiwan)
-                                            </div>
-                                            <div class="item" data-percent="79" data-value="fa"
-                                                data-english="Persian">
-                                                <span class="description">پارسی</span>
-                                                Persian
-                                            </div>
-                                            <div class="item" data-percent="41" data-value="fr"
-                                                data-english="French">
-                                                <span class="description">Français</span>
-                                                French
-                                            </div>
-                                            <div class="item" data-percent="37" data-value="el"
-                                                data-english="Greek">
-                                                <span class="description">ελληνικά</span>
-                                                Greek
-                                            </div>
-                                            <div class="item" data-percent="37" data-value="ru"
-                                                data-english="Russian">
-                                                <span class="description">Русский</span>
-                                                Russian
-                                            </div>
-                                            <div class="item" data-percent="36" data-value="de"
-                                                data-english="German">
-                                                <span class="description">Deutsch</span>
-                                                German
-                                            </div>
-                                            <div class="item" data-percent="23" data-value="it"
-                                                data-english="Italian">
-                                                <span class="description">Italiano</span>
-                                                Italian
-                                            </div>
-                                            <div class="item" data-percent="21" data-value="nl"
-                                                data-english="Dutch">
-                                                <span class="description">Nederlands</span>
-                                                Dutch
-                                            </div>
-                                            <div class="item" data-percent="19" data-value="pt_BR"
-                                                data-english="Portuguese">
-                                                <span class="description">Português(BR)</span>
-                                                Portuguese
-                                            </div>
-                                            <div class="item" data-percent="17" data-value="id"
-                                                data-english="Indonesian">
-                                                <span class="description">Indonesian</span>
-                                                Indonesian
-                                            </div>
-                                            <div class="item" data-percent="12" data-value="lt"
-                                                data-english="Lithuanian">
-                                                <span class="description">Lietuvių</span>
-                                                Lithuanian
-                                            </div>
-                                            <div class="item" data-percent="11" data-value="tr"
-                                                data-english="Turkish">
-                                                <span class="description">Türkçe</span>
-                                                Turkish
-                                            </div>
-                                            <div class="item" data-percent="10" data-value="kr"
-                                                data-english="Korean">
-                                                <span class="description">한국어</span>
-                                                Korean
-                                            </div>
-                                            <div class="item" data-percent="7" data-value="ar"
-                                                data-english="Arabic">
-                                                <span class="description">العربية</span>
-                                                Arabic
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="hu"
-                                                data-english="Hungarian">
-                                                <span class="description">Magyar</span>
-                                                Hungarian
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="vi"
-                                                data-english="Vietnamese">
-                                                <span class="description">tiếng Việt</span>
-                                                Vietnamese
-                                            </div>
-                                            <div class="item" data-percent="5" data-value="sv"
-                                                data-english="Swedish">
-                                                <span class="description">svenska</span>
-                                                Swedish
-                                            </div>
-                                            <div class="item" data-precent="4" data-value="pl"
-                                                data-english="Polish">
-                                                <span class="description">polski</span>
-                                                Polish
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="ja"
-                                                data-english="Japanese">
-                                                <span class="description">日本語</span>
-                                                Japanese
-                                            </div>
-                                            <div class="item" data-percent="0" data-value="ro"
-                                                data-english="Romanian">
-                                                <span class="description">românește</span>
-                                                Romanian
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="footer_bottm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="fotb_left">
-                                        <li>
-                                            <a href="index.html">
-                                                <div class="footer_logo">
-                                                    <img src="{{ asset('') }}assets/images/logo1.svg"
-                                                        alt="">
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>© 2024 <strong>Cursus</strong>. All Rights Reserved.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="edu_social_links">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-youtube"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
     </div>
 @endsection
