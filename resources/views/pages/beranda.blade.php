@@ -382,7 +382,7 @@
                     <li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
                     <li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
                   </ul>
-                  <a href="my_instructor_profile_view.html" class="prfle12link">Profil Saya</a>
+                  <a href="/admin" class="prfle12link">Profil Saya</a>
                 </div>
               </div>
               <div class="fcrse_3">
