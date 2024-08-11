@@ -37,3 +37,11 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/admin/produk', function () {
+    return view('admin.produk');
+});
