@@ -101,7 +101,7 @@
 
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
-                                    <a href="course_detail_view.html" class="fcrse_img">
+                                    <a href="/detail/produk" class="fcrse_img">
                                         <img src="{{ asset('assets') }}/images/courses/img-2.jpg" alt="">
                                         <div class="course-overlay">
                                             <div class="badge_seller">Bestseller</div>
@@ -128,7 +128,7 @@
                                             <span class="vdt14">5M views</span>
                                             <span class="vdt14">15 days ago</span>
                                         </div>
-                                        <a href="course_detail_view.html" class="crse14s">The Chips!</a>
+                                        <a href="/detail/produk" class="crse14s">The Chips!</a>
                                         <a href="#" class="crse-cate">Makanan, Cemilan</a>
                                         <div class="auth1lnkprce">
                                             <p class="cr1fot">By <a href="#">Someone</a></p>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
-                                    <a href="course_detail_view.html" class="fcrse_img">
+                                    <a href="/detail/produk" class="fcrse_img">
                                         <img src="{{ asset('assets') }}/images/courses/img-3.jpg" alt="">
                                         <div class="course-overlay">
                                             <div class="crse_reviews">
@@ -167,7 +167,7 @@
                                             <span class="vdt14">200 Views</span>
                                             <span class="vdt14">4 days ago</span>
                                         </div>
-                                        <a href="course_detail_view.html" class="crse14s">The Coffe</a>
+                                        <a href="/detail/produk" class="crse14s">The Coffe</a>
                                         <a href="#" class="crse-cate">Bubuk Kopi</a>
                                         <div class="auth1lnkprce">
                                             <p class="cr1fot">By <a href="#">Someone</a></p>
@@ -180,7 +180,7 @@
                             </div>
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
-                                    <a href="course_detail_view.html" class="fcrse_img">
+                                    <a href="/detail/produk" class="fcrse_img">
                                         <img src="{{ asset('assets') }}/images/courses/img-4.jpg" alt="">
                                         <div class="course-overlay">
                                             <div class="badge_seller">Bestseller</div>
@@ -207,7 +207,7 @@
                                             <span class="vdt14">153k views</span>
                                             <span class="vdt14">3 months ago</span>
                                         </div>
-                                        <a href="course_detail_view.html" class="crse14s">Batik Madura</a>
+                                        <a href="/detail/produk" class="crse14s">Batik Madura</a>
                                         <a href="#" class="crse-cate">Pakaian</a>
                                         <div class="auth1lnkprce">
                                             <p class="cr1fot">By <a href="#">Someone</a></p>
@@ -221,7 +221,7 @@
 
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
-                                    <a href="#" class="fcrse_img">
+                                    <a href="/detail/produk" class="fcrse_img">
                                         <img src="{{ asset('assets') }}/images/courses/img-1.png" alt="">
                                         <div class="course-overlay">
                                             <span class="play_btn1"><i class="uil uil-play"></i></span>
@@ -244,7 +244,7 @@
                                             <span class="vdt14">11 Views</span>
                                             <span class="vdt14">5 Days ago</span>
                                         </div>
-                                        <a href="course_detail_view.html" class="crse14s">COPEMAN : Coklat Pedas
+                                        <a href="/detail/produk" class="crse14s">COPEMAN : Coklat Pedas
                                             Manual</a>
                                         <a href="#" class="crse-cate">Makanan, Cemilan</a>
                                         <div class="auth1lnkprce">

@@ -1781,7 +1781,7 @@
                                 <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                                     <div class="student_reviews">
                                         <div class="row">
-                                            <div class="col-lg-5">
+                                            {{-- <div class="col-lg-5">
                                                 <div class="reviews_left">
                                                     <h3>Student Feedback</h3>
                                                     <div class="total_rating">
@@ -1793,7 +1793,7 @@
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star half-star"></span>
                                                         </div>
-                                                        <div class="_rate002">Course Rating</div>
+                                                        <div class="_rate002">Produk Rating</div>
                                                     </div>
                                                     <div class="_rate003">
                                                         <div class="_rate004">
@@ -1873,8 +1873,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-7">
+                                            </div> --}}
+                                            <div class="col-lg-12">
                                                 <div class="review_right">
                                                     <div class="review_right_heading">
                                                         <h3>Reviews</h3>
@@ -1889,11 +1889,49 @@
                                                 <div class="review_all120">
                                                     <div class="review_item">
                                                         <div class="review_usr_dt">
-                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-1.jpg"
+                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-2.jpg"
                                                                 alt="">
                                                             <div class="rv1458">
                                                                 <h4 class="tutor_name1">Deliana Agustina</h4>
-                                                                <span class="time_145">10 Agustus 2024</span>
+                                                                <span class="time_145">30 Juli 2024</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating-box mt-20">
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                            <span class="rating-star full-star"></span>
+                                                        </div>
+                                                        <p class="rvds10">Terimakaciiiiiiiii </p>
+                                                        <div class="rpt100">
+                                                            <span>Was this review helpful?</span>
+                                                            <div class="radio--group-inline-container">
+                                                                <div class="radio-item">
+                                                                    <input id="radio-1" name="radio" type="radio">
+                                                                    <label for="radio-1" class="radio-label">Yes</label>
+                                                                </div>
+                                                                <div class="radio-item">
+                                                                    <input id="radio-2" name="radio" type="radio">
+                                                                    <label for="radio-2" class="radio-label">No</label>
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="report145">Report</a>
+                                                        </div>
+                                                    </div>
+                                                    {{-- 
+                                                    <div class="review_item">
+                                                        <a href="#" class="more_reviews">See More Reviews</a>
+                                                    </div> --}}
+                                                </div>
+                                                <div class="review_all120">
+                                                    <div class="review_item">
+                                                        <div class="review_usr_dt">
+                                                            <img src="{{ asset('') }}assets/images/left-imgs/img-1.jpg"
+                                                                alt="">
+                                                            <div class="rv1458">
+                                                                <h4 class="tutor_name1">Rahmat Syafri</h4>
+                                                                <span class="time_145">30 Juli 2024</span>
                                                             </div>
                                                         </div>
                                                         <div class="rating-box mt-20">

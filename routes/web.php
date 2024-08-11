@@ -45,3 +45,6 @@ Route::get('/admin', function () {
 Route::get('/admin/produk', function () {
     return view('admin.produk');
 });
+Route::get('/admin/detail/produk', function () {
+    return view('admin.detail_penjualan');
+});
