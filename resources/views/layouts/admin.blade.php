@@ -187,7 +187,7 @@
 						</a>
 					</li>
 					<li class="menu--item">
-						<a href="instructor_courses.html" class="menu--link" title="Courses">
+						<a href="/admin/produk" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">Produk Saya</span>
 						</a>
