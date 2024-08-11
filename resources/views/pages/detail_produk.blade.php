@@ -220,13 +220,18 @@
                                 <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
                                     <div class="_htg451">
                                         <div class="_htg452">
-                                            <h3>Spesifikasi Produk
-                                            </h3>
+                                            <h3>Spesifikasi Produk</h3>
                                             <ul>
-                                                <li><span class="_5f7g11">Have a computer with Internet</span></li>
-                                                <li><span class="_5f7g11">Be ready to learn an insane amount of awesome
-                                                        stuff</span></li>
-                                                <li><span class="_5f7g11">Prepare to build real web apps!</span></li>
+                                                <li><span class="_5f7g11">Kategoti : </span></li>
+                                                <li><span class="_5f7g11">Stok :</span></li>
+                                                <li><span class="_5f7g11">Merek :</span></li>
+                                                <li><span class="_5f7g11">Masa Penyimpanan :</span></li>
+                                                <li><span class="_5f7g11">Kondisi Penyimpanan :</span></li>
+                                                <li><span class="_5f7g11">Rasa :</span></li>
+                                                <li><span class="_5f7g11">No. Izin Edar (BPOM, PIRT) :</span></li>
+                                                <li><span class="_5f7g11">No. Sertifikasi (Halal) :</span></li>
+                                                <li><span class="_5f7g11">No.Sertifikat (SNI,K3L,UTTP) :</span></li>
+                                                <li><span class="_5f7g11">Dikirim Dari :</span></li>
                                             </ul>
                                         </div>
                                         <div class="_htg452 mt-35">
