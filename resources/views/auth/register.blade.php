@@ -92,7 +92,7 @@
                             kami.
                         </p>
                         <p class="mb-0 mt-30">
-                            Sudah punya akun? <a href="login">Masuk</a>
+                            Sudah punya akun? <a href="/">Masuk</a>
                         </p>
                     </div>
                     <div class="sign_footer">

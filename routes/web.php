@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,44 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.beranda');
-});
+Route::middleware(['guest'])->group(function () {
 
-Route::get('/detail/produk', function () {
-    return view('pages.detail_produk');
-});
-
-Route::get('/produk', function () {
-    return view('pages.produk');
-});
-Route::get('/checkout', function () {
-    return view('pages.checkout');
-});
-
-Route::get('/keranjang', function () {
-    return view('pages.keranjang');
-});
-Route::get('/register', function () {
-    return view('auth.register');
-});
-Route::get('/login', function () {
-    return view('auth.login');
+    Route::get('/', [AuthController::class, 'index'])->name('login');
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'register_action']);
 });
 
 
-
-
-// ADMIN 
-
-
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-
-Route::get('/admin/produk', function () {
-    return view('admin.produk');
-});
-Route::get('/admin/detail/produk', function () {
-    return view('admin.detail_penjualan');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 });

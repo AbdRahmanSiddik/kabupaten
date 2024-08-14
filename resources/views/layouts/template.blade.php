@@ -174,7 +174,16 @@
                         <a href="setting.html" class="item channel_item">Setting</a>
                         <a href="help.html" class="item channel_item">Help</a>
                         <a href="feedback.html" class="item channel_item">Send Feedback</a>
-                        <a href="sign_in.html" class="item channel_item">Sign Out</a>
+
+
+                        @if (Auth::check())
+                            <a href="logout" class="item channel_item">Sign Out</a>
+                        @else
+                            <div class="item channel_item" style="cursor: pointer;" data-bs-toggle="modal"
+                                data-bs-target="#modalLogin">
+                                Login</div>
+                        @endif
+
                     </div>
                 </li>
             </ul>
