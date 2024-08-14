@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_users')->autoIncrement();
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('no_telepon');
-            $table->string('role');
+        Schema::create('varians', function (Blueprint $table) {
+            $table->unsignedBigInteger("id_varians")->autoIncrement();
+            $table->string("nama_varian");
+
+            $table->unsignedBigInteger("produks_id");
+            $table->foreign("produks_id")->references("id_produks")->on('produks');
+
+
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('varians');
     }
 };
