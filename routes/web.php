@@ -66,8 +66,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/produk', [ProduksController::class, 'index']);
         Route::get('/admin/produk-baru', [ProduksController::class, 'create']);
         Route::get('/admin/ukuran', [UkuransController::class, 'index']);
-        Route::get('/admin/kategori', [KategorisController::class, 'index']);
         Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
+
+        Route::get('/admin/kategori', [KategorisController::class, 'index']);
+        Route::post('/admin/kategori', [KategorisController::class, 'create_action']);
+        Route::post('/admin/kategori/{id}/edit', [KategorisController::class, 'update']);
+        Route::get('/admin/kategori/{id}/hapus', [KategorisController::class, 'delete']);
+
     });
 
 
