@@ -33,6 +33,10 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/vendor/semantic/semantic.min.css">
 
+
+    <link href="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -45,25 +49,30 @@
             <div class="left_section">
                 <ul>
                     <li class="menu--item">
-                        <a href="/admin/dashboard" class="menu--link active" title="Dashboard">
+                        <a href="/admin/dashboard"
+                            class="menu--link {{ Request::is('admin/dashboard') ? 'active' : '' }}" title="Dashboard">
                             <i class="uil uil-apps menu--icon"></i>
                             <span class="menu--label">Dashboard</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/produk" class="menu--link" title="Courses">
+                        <a href="/admin/produk" class="menu--link {{ Request::is('admin/produk') ? 'active' : '' }}"
+                            title="Courses">
                             <i class='uil uil-book-alt menu--icon'></i>
                             <span class="menu--label">Produk Saya</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/ukuran" class="menu--link" title="Analyics">
+                        <a href="/admin/ukuran" class="menu--link {{ Request::is('admin/ukuran') ? 'active' : '' }}"
+                            title="Analyics">
                             <i class='uil uil-analysis menu--icon'></i>
                             <span class="menu--label">Ukuran</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/kategori" class="menu--link" title="Create Course">
+                        <a href="/admin/kategori"
+                            class="menu--link {{ Request::is('admin/kategori') ? 'active' : '' }}"
+                            title="Create Course">
                             <i class='uil uil-plus-circle menu--icon'></i>
                             <span class="menu--label">Kategori</span>
                         </a>
@@ -163,6 +172,8 @@
     </div>
     <!-- Body End -->
 
+
+    <script src="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.js"></script>
     <script src="{{ asset('assets') }}/js/vertical-responsive-menu.min.js"></script>
     <script src="{{ asset('assets') }}/js/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
