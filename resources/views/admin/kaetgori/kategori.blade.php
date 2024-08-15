@@ -58,10 +58,8 @@
                                             <tr>
                                                 <th class="text-center" scope="col">No.</th>
                                                 <th class="text-center" scope="col">Nama Produk</th>
-                                                <th class="text-center" scope="col">Harga</th>
-                                                <th class="text-center" scope="col">Deskripsi</th>
-                                                <th class="text-center" scope="col">Stok</th>
                                                 <th class="text-center" scope="col">Category</th>
+                                                <th class="text-center" scope="col">Stok</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
                                             </tr>
@@ -71,9 +69,7 @@
                                                 <td class="text-center">IT-001</td>
                                                 <td>Course Title Here</td>
                                                 <td class="text-center">06 April 2020 | 08:31</td>
-                                                <td class="text-center">15</td>
-                                                <td class="text-center">5</td>
-                                                <td class="text-center"><a href="#">Web Development</a></td>
+                                                <td class="text-center">55</td>
                                                 <td class="text-center"><b class="course_active">Active</b></td>
                                                 <td class="text-center">
                                                     <a href="#" title="Edit" class="gray-s"><i

@@ -60,7 +60,8 @@
                                                 <th class="text-center" scope="col">No.</th>
                                                 <th class="text-center" scope="col">Nama Produk</th>
                                                 <th class="text-center" scope="col">Harga</th>
-                                                <th class="text-center" scope="col">Deskripsi</th>
+                                                <th class="text-center" scope="col">Deskripsi
+                                                </th>
                                                 <th class="text-center" scope="col">Stok</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
@@ -71,8 +72,11 @@
                                                 <td class="text-center">1</td>
                                                 <td>Course Title Here</td>
                                                 <td class="text-center">06 April 2020 | 08:31</td>
-                                                <td class="text-center">15</td>
-                                                <td class="text-center"><a href="#">Web Development</a></td>
+                                                <td class="text-center " style="max-width: 15rem;">Lorem ipsum, dolor sit
+                                                    amet consectetur adipisicing
+                                                    elit. Quis, laboriosam dolor cupiditate harum quas facere sint quisquam
+                                                    optio magni natus?</td>
+                                                <td class="text-center"><a href="#">12</a></td>
                                                 <td class="text-center"><b class="course_active">Active</b></td>
                                                 <td class="text-center">
                                                     <a href="#" title="Edit" class="gray-s"><i
