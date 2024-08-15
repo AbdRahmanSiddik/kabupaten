@@ -78,6 +78,14 @@
                         </a>
                     </li>
                     <li class="menu--item">
+                        <a href="/admin/foto-produk"
+                            class="menu--link {{ Request::is('/admin/foto-produk') ? 'active' : '' }}"
+                            title="Create Course">
+                            <i class='uil uil-picture menu--icon'></i>
+                            <span class="menu--label">Foto Produk</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
                         <a href="instructor_messages.html" class="menu--link" title="Messages">
                             <i class='uil uil-comments menu--icon'></i>
                             <span class="menu--label">Chat</span>

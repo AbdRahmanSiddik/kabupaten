@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProduksController;
+use App\Http\Controllers\UkuransController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
-use App\Http\Controllers\ProduksController;
-use App\Http\Controllers\UkuransController;
+use App\Http\Controllers\FotoProduksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,20 +57,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/produk', [ProduksController::class, 'index']);
         Route::get('/admin/ukuran', [UkuransController::class, 'index']);
         Route::get('/admin/kategori', [KategorisController::class, 'index']);
+        Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
     });
 
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
     Route::middleware(['userAkses:mitra'])->group(function () {
         Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
     });

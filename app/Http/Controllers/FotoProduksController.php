@@ -9,7 +9,7 @@ class FotoProduksController extends Controller
     public function index()
     {
 
-        return view();
+        return view('admin.foto_produk.foto_produk');
     }
     public function create()
     {
