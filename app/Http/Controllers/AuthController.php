@@ -30,9 +30,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($cridentials)) {
             if (auth()->user()->role == 'admin') {
-                return redirect('/dashboard/admin');
+                return redirect('/admin/dashboard');
             } elseif (auth()->user()->role == 'mitra') {
-                return redirect('/dashboard/mitra');
+                return redirect('/mitra/dashboard');
             } elseif (auth()->user()->role == 'customer') {
                 return redirect('/page');
             } else {
