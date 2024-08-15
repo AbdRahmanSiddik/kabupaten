@@ -145,8 +145,24 @@
                                         });
                                     </script>
                                     <ul class="_215b31">
-                                        <li><button class="btn_adcart">Add to Cart</button></li>
-                                        <li><button class="btn_buy">Buy Now</button></li>
+
+                                        @if (Auth::check())
+                                            <li><button class="btn_adcart">Add to Cart</button></li>
+                                        @else
+                                            <li><button class="btn_adcart" data-bs-toggle="modal"
+                                                    data-bs-target="#modalLogin">Add to Cart</button></li>
+                                        @endif
+
+
+                                        @if (Auth::check())
+                                            <li><button class="btn_buy">Buy Now</button></li>
+                                        @else
+                                            <li><button class="btn_buy" data-bs-toggle="modal"
+                                                    data-bs-target="#modalLogin">Buy Now</button></li>
+                                        @endif
+
+
+
                                     </ul>
                                     {{-- <div class="_215fgt1">
                                         30-Day Money-Back Guarantee
@@ -1975,4 +1991,6 @@
         </div>
 
     </div>
+
+    @include('auth.login')
 @endsection

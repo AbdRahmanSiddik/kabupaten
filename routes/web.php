@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\ProduksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
+    Route::get('/keranjang', [KeranjangController::class, 'index']);
+    Route::get('/detail/produk', [ProduksController::class, 'index']);
 });
 
 
@@ -38,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['userAkses:admin'])->group(function () {
 
-
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
+        // Route::get('/keranjang', [KeranjangController::class, 'index']);
 
         Route::middleware(['userAkses:mitra'])->group(function () {
             Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);

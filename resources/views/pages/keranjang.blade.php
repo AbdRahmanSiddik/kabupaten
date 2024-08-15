@@ -42,11 +42,23 @@
                                 <div class="order_price5">Rp8.999</div>
                             </div>
 
-                            <a href="#" class="chck-btn22">Checkout Now</a>
+
+
+                            @if (Auth::check())
+                                <a href="#" class="chck-btn22">Checkout Now</a>
+                            @else
+                                <div class="chck-btn22" data-bs-toggle="modal" data-bs-target="#modalLogin">Checkout Now
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    @include('auth.login')
 @endsection
