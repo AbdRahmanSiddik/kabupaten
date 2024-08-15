@@ -23,12 +23,11 @@ Route::middleware(['guest'])->group(function () {
     // Route::get('/', [AuthController::class, 'index']);
     Route::get('/', function () {
         return redirect('/Berung-Madhure');
-    });
+    })->name('login');
 
-    Route::get('/Berung-Madhure', [AuthController::class, 'index']);
+    Route::get('/berung-madhure', [AuthController::class, 'index']);
 
 
-    Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
@@ -50,9 +49,12 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::middleware(['userAkses:admin'])->group(function () {
-
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
         // Route::get('/keranjang', [KeranjangController::class, 'index']);
+
+
+        Route::get('/produk', [ProduksController::class, 'index']);
+
 
         Route::middleware(['userAkses:mitra'])->group(function () {
             Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
