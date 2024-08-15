@@ -33,6 +33,8 @@ Route::middleware(['guest'])->group(function () {
         return view('admin.form_produk');
     });
 
+    Route::get('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
+
 
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
@@ -65,15 +67,15 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
     Route::middleware(['userAkses:mitra'])->group(function () {
         Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
     });
