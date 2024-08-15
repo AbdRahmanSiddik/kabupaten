@@ -46,6 +46,142 @@
   @include('layouts.components.header')
 
 
+<<<<<<< HEAD
+    <!-- Left Sidebar Start -->
+    <nav class="vertical_nav">
+        <div class="left_section menu_left" id="js-menu">
+            <div class="left_section">
+                <ul>
+                    <li class="menu--item">
+                        <a href="/admin/dashboard"
+                            class="menu--link {{ Request::is('admin/dashboard') ? 'active' : '' }}" title="Dashboard">
+                            <i class="uil uil-apps menu--icon"></i>
+                            <span class="menu--label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/admin/produk" class="menu--link {{ Request::is('admin/produk') ? 'active' : '' }}"
+                            title="Courses">
+                            <i class='uil uil-book-alt menu--icon'></i>
+                            <span class="menu--label">Produk Saya</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/admin/ukuran" class="menu--link {{ Request::is('admin/ukuran') ? 'active' : '' }}"
+                            title="Analyics">
+                            <i class='uil uil-analysis menu--icon'></i>
+                            <span class="menu--label">Ukuran</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/admin/kategori"
+                            class="menu--link {{ Request::is('admin/kategori') ? 'active' : '' }}"
+                            title="Create Course">
+                            <i class='uil uil-plus-circle menu--icon'></i>
+                            <span class="menu--label">Kategori</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/admin/foto-produk"
+                            class="menu--link {{ Request::is('/admin/foto-produk') ? 'active' : '' }}"
+                            title="Create Course">
+                            <i class='uil uil-picture menu--icon'></i>
+                            <span class="menu--label">Foto Produk</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="instructor_messages.html" class="menu--link" title="Messages">
+                            <i class='uil uil-comments menu--icon'></i>
+                            <span class="menu--label">Chat</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="instructor_notifications.html" class="menu--link" title="Notifications">
+                            <i class='uil uil-bell menu--icon'></i>
+                            <span class="menu--label">Notifikasi</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
+                            <i class='uil uil-star menu--icon'></i>
+                            <span class="menu--label">Review</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="instructor_earning.html" class="menu--link" title="Earning">
+                            <i class='uil uil-dollar-sign menu--icon'></i>
+                            <span class="menu--label">Pendapatan</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="left_section pt-2">
+                <ul>
+                    <li class="menu--item">
+                        <a href="setting.html" class="menu--link" title="Setting">
+                            <i class='uil uil-cog menu--icon'></i>
+                            <span class="menu--label">Setting</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="feedback.html" class="menu--link" title="Send Feedback">
+                            <i class='uil uil-comment-alt-exclamation menu--icon'></i>
+                            <span class="menu--label">Send Feedback</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Left Sidebar End -->
+    <!-- Body Start -->
+    <div class="wrapper">
+        @yield('content')
+        <footer class="footer mt-40">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="item_f1">
+                            <a href="terms_of_use.html">Copyright Policy</a>
+                            <a href="terms_of_use.html">Terms</a>
+                            <a href="terms_of_use.html">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="footer_bottm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="fotb_left">
+                                        <li>
+                                            <a href="index.html">
+                                                <div class="footer_logo">
+                                                    <img src="{{ asset('assets') }}/images/" alt="">
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <p>© 2024 <strong>Turbo-Main</strong>. All Rights Reserved.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="edu_social_links">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-youtube"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+=======
   <!-- Left Sidebar Start -->
   <nav class="vertical_nav">
     <div class="left_section menu_left" id="js-menu">
@@ -121,6 +257,7 @@
           </li>
         </ul>
       </div>
+>>>>>>> 6d4886109770f3f889b6a8ec47fcc270aa588e32
     </div>
   </nav>
   <!-- Left Sidebar End -->
