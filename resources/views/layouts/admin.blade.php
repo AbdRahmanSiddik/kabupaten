@@ -182,44 +182,10 @@
   <script src="{{ asset('assets') }}/vendor/OwlCarousel/owl.carousel.js"></script>
   <script src="{{ asset('assets') }}/vendor/semantic/semantic.min.js"></script>
   <script src="{{ asset('assets') }}/vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js"></script>
-  <script src="{{ asset('assets') }}/vendor/ckeditor5/ckeditor.js"></script>
   <script src="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
   <script src="{{ asset('assets') }}/js/custom.js"></script>
   <script src="{{ asset('assets') }}/js/night-mode.js"></script>
   <script src="{{ asset('assets') }}/js/jquery-steps.min.js"></script>
-  <script>
-    ClassicEditor.create(document.querySelector('#editor1'))
-      .then(editor => {
-        window.editor1 = editor;
-      })
-      .catch(err => {
-        console.error(err.stack);
-      });
-
-    ClassicEditor.create(document.querySelector('#editor2'))
-      .then(editor => {
-        window.editor2 = editor;
-      })
-      .catch(err => {
-        console.error(err.stack);
-      });
-
-    ClassicEditor.create(document.querySelector('#editor3'))
-      .then(editor => {
-        window.editor3 = editor;
-      })
-      .catch(err => {
-        console.error(err.stack);
-      });
-
-    ClassicEditor.create(document.querySelector('#editor4'))
-      .then(editor => {
-        window.editor4 = editor;
-      })
-      .catch(err => {
-        console.error(err.stack);
-      });
-  </script>
   <script>
     $('#add-course-tab').steps({
       onFinish: function() {
@@ -244,19 +210,6 @@
       .catch(error => {
         console.error(error);
       });
-
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-          $('#blah')
-            .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
   </script>
 
 </body>

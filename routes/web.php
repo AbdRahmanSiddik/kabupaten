@@ -33,7 +33,7 @@ Route::middleware(['guest'])->group(function () {
         return view('admin.form_produk');
     });
 
-    Route::get('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
+    Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
 
 
     Route::post('/login', [AuthController::class, 'login']);
