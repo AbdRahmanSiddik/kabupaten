@@ -14,7 +14,7 @@
                             <h1>Jual Produk Baru Sekarang</h1>
                         </div>
                         <div class="card_dash_right1">
-                            <button class="create_btn_dash" onclick="window.location.href = 'create_new_course.html';">Jual
+                            <button class="create_btn_dash" onclick="window.location.href = '/admin/produk-baru';">Jual
                                 Produk</button>
                         </div>
                     </div>

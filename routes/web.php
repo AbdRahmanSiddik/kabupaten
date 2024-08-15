@@ -30,7 +30,9 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/berung-madhure', [AuthController::class, 'index']);
 
-
+    Route::get('/test', function () {
+        return view('admin.form_produk');
+    });
 
     Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
 
@@ -62,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
         // Route::get('/keranjang', [KeranjangController::class, 'index']);
 
         Route::get('/admin/produk', [ProduksController::class, 'index']);
+        Route::get('/admin/produk-baru', [ProduksController::class, 'create']);
         Route::get('/admin/ukuran', [UkuransController::class, 'index']);
         Route::get('/admin/kategori', [KategorisController::class, 'index']);
         Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);

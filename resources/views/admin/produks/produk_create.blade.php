@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="course_tabs_1">
-                        <form action="" method="POST" novalidate enctype="multipart/form-data" class="course__form">
+                        <form action="" method="POST" enctype="multipart/form-data" class="course__form">
                             @csrf
                             <div class="general_info10">
                                 <div class="row">
@@ -20,9 +20,8 @@
                                             <label>Nama Produk <small class="text-danger">*</small></label>
                                             <div class="ui left icon input swdh19">
                                                 <input class="prompt srch_explore" type="text"
-                                                    placeholder="Course title here" name="title"
-                                                    data-purpose="edit-course-title" maxlength="60" id="main[title]"
-                                                    value="">
+                                                    placeholder="Course title here" name="nama_produk"
+                                                    data-purpose="edit-course-title">
                                                 <div class="badge_num">60</div>
                                             </div>
                                             <div class="help-block">(Please make this a maximum of 100 characters and
@@ -34,9 +33,7 @@
                                             <label>Harga <small class="text-danger">*</small></label>
                                             <div class="ui left icon input swdh19">
                                                 <input class="prompt srch_explore" type="text"
-                                                    placeholder="Course title here" name="title"
-                                                    data-purpose="edit-course-title" maxlength="60" id="main[title]"
-                                                    value="">
+                                                    placeholder="Course title here" name="harga">
                                             </div>
                                             <div class="help-block">(masukkan harga produk ini.)</div>
                                         </div>
@@ -46,9 +43,7 @@
                                             <label>Stok <small class="text-danger">*</small></label>
                                             <div class="ui left icon input swdh19">
                                                 <input class="prompt srch_explore" type="text"
-                                                    placeholder="Course title here" name="title"
-                                                    data-purpose="edit-course-title" maxlength="60" id="main[title]"
-                                                    value="">
+                                                    placeholder="Course title here" name="stok">
                                             </div>
                                             <div class="help-block">(masukkan harga produk ini.)</div>
                                         </div>
@@ -56,7 +51,7 @@
                                     <div class="col-6">
                                         <div class="ui search focus mt-30 lbel25">
                                             <div class="mt-30 lbel25">
-                                                <label>Course Category*</label>
+                                                <label> Category*</label>
                                             </div>
                                             <select class="selectpicker" title="Select Category" name="selectcategory"
                                                 id="selectcategory" data-live-search="true">
