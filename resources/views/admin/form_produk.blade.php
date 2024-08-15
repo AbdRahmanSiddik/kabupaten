@@ -11,7 +11,8 @@
       <div class="row">
         <div class="col-12">
           <div class="course_tabs_1">
-            <form action="" class="course__form">
+            <form action="" method="POST" novalidate enctype="multipart/form-data" class="course__form">
+                @csrf
               <div class="general_info10">
                 <div class="row">
                   <div class="col-6">
