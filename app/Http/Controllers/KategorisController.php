@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KategorisController extends Controller
 {
     public function index()
     {
-
-        return view('admin.kaetgori.kategori');
+        $kategori = Kategori::get();
+        return view('admin.kategori.kategori', compact('kategori'));
     }
 
-  
+
     public function create()
     {
-        return view();
+
     }
     public function create_action(Request $request)
     {
