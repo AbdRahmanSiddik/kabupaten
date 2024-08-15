@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from gambolthemes.net/html-items/cursus-new-demo/instructor_dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Aug 2024 11:45:46 GMT -->
 
 <head>
     <meta charset="utf-8">
@@ -46,7 +45,7 @@
             <div class="left_section">
                 <ul>
                     <li class="menu--item">
-                        <a href="instructor_dashboard.html" class="menu--link active" title="Dashboard">
+                        <a href="/admin/dashboard" class="menu--link active" title="Dashboard">
                             <i class="uil uil-apps menu--icon"></i>
                             <span class="menu--label">Dashboard</span>
                         </a>
@@ -58,15 +57,15 @@
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="instructor_analyics.html" class="menu--link" title="Analyics">
+                        <a href="/admin/ukuran" class="menu--link" title="Analyics">
                             <i class='uil uil-analysis menu--icon'></i>
-                            <span class="menu--label">Analisis</span>
+                            <span class="menu--label">Ukuran</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="create_new_course.html" class="menu--link" title="Create Course">
+                        <a href="/admin/kategori" class="menu--link" title="Create Course">
                             <i class='uil uil-plus-circle menu--icon'></i>
-                            <span class="menu--label">Jual Produk</span>
+                            <span class="menu--label">Kategori</span>
                         </a>
                     </li>
                     <li class="menu--item">
@@ -224,6 +223,5 @@
 
 </body>
 
-<!-- Mirrored from gambolthemes.net/html-items/cursus-new-demo/instructor_dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Aug 2024 11:45:48 GMT -->
 
 </html>

@@ -22,7 +22,7 @@ Route::middleware(['guest'])->group(function () {
 
     // Route::get('/', [AuthController::class, 'index']);
     Route::get('/', function () {
-        return redirect('/Berung-Madhure');
+        return redirect('/berung-madhure');
     })->name('login');
 
     Route::get('/berung-madhure', [AuthController::class, 'index']);
@@ -53,11 +53,11 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::middleware(['userAkses:admin'])->group(function () {
-        Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
+        Route::get('/admin/dashboard', [DashboardController::class, 'dashboard']);
         // Route::get('/keranjang', [KeranjangController::class, 'index']);
 
 
-        Route::get('/produk', [ProduksController::class, 'index']);
+        Route::get('/admin/produk', [ProduksController::class, 'index']);
 
 
         Route::middleware(['userAkses:mitra'])->group(function () {

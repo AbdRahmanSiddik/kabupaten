@@ -56,11 +56,11 @@
                                     <table class="table ucp-table">
                                         <thead class="thead-s">
                                             <tr>
-                                                <th class="text-center" scope="col">Item No.</th>
-                                                <th>Title</th>
-                                                <th class="text-center" scope="col">Publish Date</th>
-                                                <th class="text-center" scope="col">Sales</th>
-                                                <th class="text-center" scope="col">Parts</th>
+                                                <th class="text-center" scope="col">No.</th>
+                                                <th class="text-center" scope="col">Nama Produk</th>
+                                                <th class="text-center" scope="col">Harga</th>
+                                                <th class="text-center" scope="col">Deskripsi</th>
+                                                <th class="text-center" scope="col">Stok</th>
                                                 <th class="text-center" scope="col">Category</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
@@ -74,66 +74,6 @@
                                                 <td class="text-center">15</td>
                                                 <td class="text-center">5</td>
                                                 <td class="text-center"><a href="#">Web Development</a></td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">IT-002</td>
-                                                <td>Course Title Here</td>
-                                                <td class="text-center">05 April 2020 | 05:15</td>
-                                                <td class="text-center">30</td>
-                                                <td class="text-center">3</td>
-                                                <td class="text-center"><a href="#">Graphic Design</a></td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">IT-003</td>
-                                                <td>Course Title</td>
-                                                <td class="text-center">03 April 2020 | 01:30</td>
-                                                <td class="text-center">14</td>
-                                                <td class="text-center">5</td>
-                                                <td class="text-center"><a href="#">Bootstrap</a></td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">IT-004</td>
-                                                <td>Course Title Here</td>
-                                                <td class="text-center">02 April 2020 | 05:15</td>
-                                                <td class="text-center">110</td>
-                                                <td class="text-center">9</td>
-                                                <td class="text-center"><a href="#">Game Development</a></td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">IT-002</td>
-                                                <td>Course Title Here</td>
-                                                <td class="text-center">28 March 2020 | 05:15</td>
-                                                <td class="text-center">185</td>
-                                                <td class="text-center">10</td>
-                                                <td class="text-center"><a href="#">C++</a></td>
                                                 <td class="text-center"><b class="course_active">Active</b></td>
                                                 <td class="text-center">
                                                     <a href="#" title="Edit" class="gray-s"><i

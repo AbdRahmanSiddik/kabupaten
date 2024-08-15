@@ -8,7 +8,7 @@ class ProduksController extends Controller
 {
     public function index()
     {
-        return view('pages.produk');
+        return view('admin.produks.produk');
     }
 
     public function produk()
