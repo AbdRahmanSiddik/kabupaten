@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Foto_produk;
+use App\Models\Produk;
+use App\Models\Varian;
+use App\Models\Kategori;
+use App\Models\Pivot_Produk_Kategori;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class ProduksController extends Controller
 {
@@ -37,11 +43,42 @@ class ProduksController extends Controller
 
     public function create()
     {
-        return view();
+        return view('admin.produks.produk_create');
     }
     public function create_action(Request $request)
     {
-        return redirect();
+
+        $dataVarian = [
+            "nama_varian" => $request->nama_varian,
+            "produks_id" => $request->produks_id,
+        ];
+
+
+        $dataProduk = [
+            "nama_produk" => $request->nama_produk,
+            "harga" => $request->harga,
+            "deskripsi" => $request->deskripsi,
+            "thumbnail" => $request->thumbnail,
+            "stok" => $request->stok,
+            "users_id" => $request->users_id,
+        ];
+
+        $dataFoto = [
+            "foto_produk" => $request->foto_produk,
+        ];
+
+        $dataKategori = [
+            "kategori_id" => $request->kategori_id,
+        ];
+
+
+
+        Foto_produk::create($dataFoto);
+        Produk::create($dataProduk);
+        Pivot_Produk_Kategori::create($dataKategori);
+        Varian::create($dataVarian);
+
+        return redirect("/admin/produk");
     }
     public function update($id)
     {
