@@ -130,6 +130,10 @@
                         <textarea name="deskripsi" id="editor" rows="100"></textarea>
                     </div>
                 </div>
+                <div class="flex gap-2 mt-4 mb-4">
+                    <a href="#" class="btn btn-default steps_btn">Cancel</a>
+                    <button type="submit" class="btn btn-default steps_btn">Submit</button>
+                </div>
               </div>
             </form>
           </div>
