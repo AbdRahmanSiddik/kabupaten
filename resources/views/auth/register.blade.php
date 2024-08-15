@@ -49,23 +49,31 @@
                         <h2>Selamat Datang di Berung Madure
                         </h2>
                         <p>Daftar untuk mulai belanja!</p>
-                        <form>
+                        <form action="/register" method="POST">
+                            @csrf
                             <div class="ui search focus">
                                 <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="text" name="fullname" value=""
-                                        id="id_fullname" required="" maxlength="64" placeholder="Full Name" />
+                                    <input class="prompt srch_explore" type="text" name="username" id="id_username"
+                                        placeholder="Username" autofocus />
                                 </div>
                             </div>
                             <div class="ui search focus mt-15">
                                 <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="email" name="emailaddress" value=""
-                                        id="id_email" required="" maxlength="64" placeholder="Email Address" />
+                                    <input class="prompt srch_explore" type="email" name="email" id="email"
+                                        placeholder="Email Address" />
                                 </div>
                             </div>
                             <div class="ui search focus mt-15">
                                 <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="password" name="password" value=""
-                                        id="id_password" required="" maxlength="64" placeholder="Password" />
+                                    <input class="prompt srch_explore" type="no_telepon" name="no_telepon"
+                                        id="no_telepon" placeholder="Phone Number" />
+                                </div>
+                            </div>
+
+                            <div class="ui search focus mt-15">
+                                <div class="ui left icon input swdh11 swdh19">
+                                    <input class="prompt srch_explore" type="password" name="password" id="password"
+                                        placeholder="Password" />
                                 </div>
                             </div>
                             <div class="ui form mt-30 checkbox_sign">

@@ -396,11 +396,15 @@
                                     <li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
                                     <li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
-                                {{-- <a href="/admin" class="prfle12link">Profil Saya</a> --}}
-                                <div type="button" class="prfle12link" data-bs-toggle="modal"
-                                    data-bs-target="#modalLogin">
-                                    Login
-                                </div>
+                                @if (Auth::check())
+                                    <a href="logout" class="prfle12link">Logout</a>
+                                @else
+                                    <div type="button" class="prfle12link" data-bs-toggle="modal"
+                                        data-bs-target="#modalLogin">
+                                        Login
+                                    </div>
+                                @endif
+
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel"

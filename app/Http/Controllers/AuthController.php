@@ -12,6 +12,7 @@ class AuthController extends Controller
     {
         return view('pages.beranda');
     }
+
     public function login(Request $request)
     {
         $request->validate(
@@ -25,17 +26,14 @@ class AuthController extends Controller
             ]
         );
 
-        $cridentials = $request->only(['email', 'password']);
+        $cridentials = $request->only(["email", "password"]);
 
         if (Auth::attempt($cridentials)) {
-
-            $role = auth()->user()->role;
-
-            if ($role == 'admin') {
+            if (auth()->user()->role == 'admin') {
                 return redirect('/dashboard/admin');
-            } elseif ($role == 'mitra') {
-                return redirect('/dashboard/admin/mitra');
-            } elseif ($role == 'customer') {
+            } elseif (auth()->user()->role == 'mitra') {
+                return redirect('/dashboard/mitra');
+            } elseif (auth()->user()->role == 'customer') {
                 return redirect('/page');
             } else {
                 return redirect('/')->with('error', 'Role Tidak Diketahui');
@@ -50,23 +48,34 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+
     public function register_action(Request $request)
     {
-        $request->validate([
-            "username" => "required",
-            "email" => "required|email|unique:users",
-            "password" => "required|min:8|confirmed",
-        ]);
+
+        // $request->validate([
+        //     "username" => "required",
+        //     "email" => "required|email|unique:users",
+        //     "password" => "required|min:8",
+        //     "no_telepon" => "required|accepted "
+        // ]);
 
         $dataRegister = [
             "username" => $request->username,
             "email" => $request->email,
             "password" => $request->password,
+            "no_telepon" => $request->no_telepon,
             "role" => "customer",
         ];
 
+        // dd($dataRegister);
         User::create($dataRegister);
 
-        return redirect('/login');
+        return redirect('/');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

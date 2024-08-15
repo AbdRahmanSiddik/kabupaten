@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string("deskripsi");
             $table->string("stok");
 
-            $table->unsignedBigInteger("users_id");
-            $table->foreign("users_id")->references("id_users")->on("users");
+            $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });
     }

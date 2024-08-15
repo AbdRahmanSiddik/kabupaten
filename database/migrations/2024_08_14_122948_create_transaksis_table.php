@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('total_transaksi');
             $table->enum('status', ["failed", "pending", "success", "complete"]);
 
-            $table->unsignedBigInteger("users_id");
-            $table->foreign("users_id")->references("id_users")->on('users');
-
+            $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });
     }

@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->unsignedBigInteger('id_settings')->autoIncrement();
-            $table->unsignedBigInteger("users_id");
-
-            $table->foreign("users_id")->references("id_users")->on("users");
+            $table->foreignId("users_id")->constrained();
 
             $table->string("username");
             $table->string("foto_profile");

@@ -19,7 +19,7 @@ class UsersAkses
         if (auth()->user()->role == $role) {
             return $next($request);
         }
-        
+
         return response("404 ERRORS");
     }
 }

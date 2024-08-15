@@ -19,30 +19,31 @@
                     <button class="social_lnk_btn mt-15 color_btn_go">
                         <i class="uil uil-google"></i>Continue with Google
                     </button> --}}
-                    <form>
+                    <form action="/login" method="POST">
+                        @csrf
                         <div class="ui search focus mt-15">
                             <div class="ui left icon input swdh95">
-                                <input class="prompt srch_explore" type="email" name="emailaddress" value=""
-                                    id="id_email" required="" maxlength="64" placeholder="Email" />
+                                <input class="prompt srch_explore" type="email" name="email" id="email"
+                                    placeholder="Email" />
                                 <i class="uil uil-envelope icon icon2"></i>
                             </div>
                         </div>
                         <div class="ui search focus mt-15">
                             <div class="ui left icon input swdh95">
-                                <input class="prompt srch_explore" type="password" name="password" value=""
-                                    id="id_password" required="" maxlength="64" placeholder="Password" />
+                                <input class="prompt srch_explore" type="password" name="password" id="password"
+                                    placeholder="Password" />
                                 <i class="uil uil-key-skeleton-alt icon icon2"></i>
                             </div>
                         </div>
-                        <div class="ui form mt-30 checkbox_sign">
+                        {{-- <div class="ui form mt-30 checkbox_sign">
                             <div class="inline field">
                                 <div class="ui checkbox mncheck">
                                     <input type="checkbox" tabindex="0" class="hidden" />
                                     <label>ingatkan Saya </label>
                                 </div>
                             </div>
-                        </div>
-                        <button class="login-btn" type="submit">Sign In</button>
+                        </div> --}}
+                        <button type="submit" class="login-btn">Masuk</button>
                     </form>
                     <p class="sgntrm145">
                         Klik untuk <a href="#">Lupa Password</a>.

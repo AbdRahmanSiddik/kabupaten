@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("token_keranjang");
 
-            $table->unsignedBigInteger("users_id");
-            $table->foreign("users_id")->references("id_users")->on('users');
+            $table->foreignId("users_id")->constrained();
 
             $table->unsignedBigInteger("produks_id");
             $table->foreign("produks_id")->references("id_produks")->on('produks');
