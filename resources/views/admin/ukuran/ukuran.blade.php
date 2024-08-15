@@ -47,21 +47,18 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-promotions-tab" data-bs-toggle="pill" href="#pills-promotions"
                                     role="tab" aria-controls="pills-promotions" aria-selected="false"><i
-                                        class="uil uil-megaphone">
-                                    </i>Promosi</a>
+                                        class="uil uil-megaphone"></i>Promosi</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-my-courses" role="tabpanel">
                                 <div class="table-responsive mt-30">
-                                    <table class="table ucp-table display" id="myTable">
+                                    <table class="table ucp-table">
                                         <thead class="thead-s">
                                             <tr>
                                                 <th class="text-center" scope="col">No.</th>
                                                 <th class="text-center" scope="col">Nama Produk</th>
-                                                <th class="text-center" scope="col">Harga</th>
-                                                <th class="text-center" scope="col">Deskripsi
-                                                </th>
+                                                <th class="text-center" scope="col">Ukuran</th>
                                                 <th class="text-center" scope="col">Stok</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
@@ -72,11 +69,7 @@
                                                 <td class="text-center">1</td>
                                                 <td>Course Title Here</td>
                                                 <td class="text-center">06 April 2020 | 08:31</td>
-                                                <td class="text-center " style="max-width: 15rem;">Lorem ipsum, dolor sit
-                                                    amet consectetur adipisicing
-                                                    elit. Quis, laboriosam dolor cupiditate harum quas facere sint quisquam
-                                                    optio magni natus?</td>
-                                                <td class="text-center"><a href="#">12</a></td>
+                                                <td class="text-center">33</td>
                                                 <td class="text-center"><b class="course_active">Active</b></td>
                                                 <td class="text-center">
                                                     <a href="#" title="Edit" class="gray-s"><i
