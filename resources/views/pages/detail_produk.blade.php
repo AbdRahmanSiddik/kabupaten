@@ -147,7 +147,7 @@
                                     <ul class="_215b31">
 
                                         @if (Auth::check())
-                                            <li><button class="btn_adcart">Add to Cart</button></li>
+                                            <li><a href="/keranjang" class="btn_adcart">Tambah Keranjang</a></li>
                                         @else
                                             <li><button class="btn_adcart" data-bs-toggle="modal"
                                                     data-bs-target="#modalLogin">Add to Cart</button></li>

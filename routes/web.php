@@ -20,19 +20,28 @@ use App\Http\Controllers\ProduksController;
 
 Route::middleware(['guest'])->group(function () {
 
-    Route::get('/', [AuthController::class, 'index']);
+    // Route::get('/', [AuthController::class, 'index']);
+    Route::get('/', function () {
+        return redirect('/Berung-Madhure');
+    });
+
+    Route::get('/Berung-Madhure', [AuthController::class, 'index']);
+
+
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
     Route::get('/keranjang', [KeranjangController::class, 'index']);
-    Route::get('/detail/produk', [ProduksController::class, 'index']);
+    Route::get('/produk/detail', [ProduksController::class, 'index']);
+    Route::get('/produk', [ProduksController::class, 'produk']);
 });
 
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', function () {
+
         return redirect('/dashboard');
     });
     Route::get('/dashboard', function () {

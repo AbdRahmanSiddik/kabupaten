@@ -102,7 +102,7 @@
 
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
-                                        <a href="/detail/produk" class="fcrse_img">
+                                        <a href="/produk/detail" class="fcrse_img">
                                             <img src="{{ asset('assets') }}/images/courses/img-1.png" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -125,7 +125,7 @@
                                                 <span class="vdt14">100 Tersisa</span>
                                                 <span class="vdt14">20 Terjual</span>
                                             </div>
-                                            <a href="/detail/produk" class="crse14s">Copeman : Coklat Pedas Manual</a>
+                                            <a href="/produk/detail" class="crse14s">Copeman : Coklat Pedas Manual</a>
                                             <a href="#" class="crse-cate">Makanan</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
@@ -139,7 +139,7 @@
 
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
-                                        <a href="/detail/produk" class="fcrse_img">
+                                        <a href="/produk/detail" class="fcrse_img">
                                             <img src="{{ asset('assets') }}/images/courses/img-2.jpg" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -162,7 +162,7 @@
                                                 <span class="vdt14">15 Tersisa</span>
                                                 <span class="vdt14">15 Terjual</span>
                                             </div>
-                                            <a href="/detail/produk" class="crse14s">The Chips!</a>
+                                            <a href="/produk/detail" class="crse14s">The Chips!</a>
                                             <a href="#" class="crse-cate">Makanan</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Someone</a></p>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
-                                        <a href="/detail/produk" class="fcrse_img">
+                                        <a href="/produk/detail" class="fcrse_img">
                                             <img src="{{ asset('assets') }}/images/courses/img-3.jpg" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -198,7 +198,7 @@
                                                 <span class="vdt14">10 Tersisa</span>
                                                 <span class="vdt14">18 Terjual</span>
                                             </div>
-                                            <a href="/detail/produk" class="crse14s">The Coffee</a>
+                                            <a href="/produk/detail" class="crse14s">The Coffee</a>
                                             <a href="#" class="crse-cate">Minuman</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Someone</a></p>
@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
-                                        <a href="/detail/produk" class="fcrse_img">
+                                        <a href="/produk/detail" class="fcrse_img">
                                             <img src="{{ asset('assets') }}/images/courses/img-4.jpg" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
@@ -234,7 +234,7 @@
                                                 <span class="vdt14">153 Tersisa</span>
                                                 <span class="vdt14">3 Terjual</span>
                                             </div>
-                                            <a href="/detail/produk" class="crse14s">Batik Madura</a>
+                                            <a href="/produk/detail" class="crse14s">Batik Madura</a>
                                             <a href="#" class="crse-cate">Pakaian Tradisional</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Someone</a></p>

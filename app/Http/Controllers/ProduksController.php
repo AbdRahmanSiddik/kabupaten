@@ -10,4 +10,10 @@ class ProduksController extends Controller
     {
         return view('pages.detail_produk');
     }
+
+    public function produk()
+    {
+
+        return view('pages.produk');
+    }
 }
