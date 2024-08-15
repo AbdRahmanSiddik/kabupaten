@@ -30,6 +30,12 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/berung-madhure', [AuthController::class, 'index']);
 
+    Route::get('/test', function(){
+        return view('admin.form_produk');
+    });
+
+    Route::get('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
+
 
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
