@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->unsignedBigInteger("id_produks")->autoIncrement();
+            $table->string("token_produk");
             $table->string("nama_produk");
             $table->string("harga");
             $table->string("deskripsi");

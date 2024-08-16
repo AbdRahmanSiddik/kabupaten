@@ -62,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/admin/produk', [ProduksController::class, 'index']);
         Route::get('/admin/produk-baru', [ProduksController::class, 'create']);
+        Route::post('/admin/produk-baru', [ProduksController::class, 'create_action']);
         Route::get('/admin/ukuran', [UkuransController::class, 'index']);
         Route::get('/admin/kategori', [KategorisController::class, 'index']);
         Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);

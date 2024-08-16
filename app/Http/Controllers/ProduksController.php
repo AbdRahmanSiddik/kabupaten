@@ -48,13 +48,13 @@ class ProduksController extends Controller
     public function create_action(Request $request)
     {
 
-        $dataVarian = [
-            "nama_varian" => $request->nama_varian,
-            "produks_id" => $request->produks_id,
-        ];
+        // dd($request->all());
+
+        $token_produk = uniqid(12);
 
 
         $dataProduk = [
+            "token_produk" => $token_produk,
             "nama_produk" => $request->nama_produk,
             "harga" => $request->harga,
             "deskripsi" => $request->deskripsi,
@@ -72,11 +72,16 @@ class ProduksController extends Controller
         ];
 
 
+        Produk::create($dataProduk);
+
+        $produk = Produk::where('token_produk', $request->token_produk)->first()->id;
+
+        Varian::create(['produk_id' => $produk])->sync($request->input("nama_varian", []));
+
+
 
         Foto_produk::create($dataFoto);
-        Produk::create($dataProduk);
         Pivot_Produk_Kategori::create($dataKategori);
-        Varian::create($dataVarian);
 
         return redirect("/admin/produk");
     }

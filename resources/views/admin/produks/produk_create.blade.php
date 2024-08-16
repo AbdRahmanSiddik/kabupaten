@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="course_tabs_1">
-                        <form action="" method="POST" enctype="multipart/form-data" class="course__form">
+                        <form action="/admin/produk-baru" method="POST" enctype="multipart/form-data" class="course__form">
                             @csrf
                             <div class="general_info10">
                                 <div class="row">
@@ -53,8 +53,8 @@
                                             <div class="mt-30 lbel25">
                                                 <label> Category*</label>
                                             </div>
-                                            <select class="selectpicker" title="Select Category" name="selectcategory"
-                                                id="selectcategory" data-live-search="true">
+                                            <select class="selectpicker" title="Select Category" name="kategori"
+                                                id="kategori" data-live-search="true">
                                                 <optgroup label="Makanan">
                                                     <option value="1">Makanan Ringan</option>
                                                     <option value="2">Makanan Berat</option>
@@ -90,7 +90,7 @@
                                             <div id="input-container">
                                                 <div class="ui left icon input swdh19 mt-2 mb-2">
                                                     <input class="prompt srch_explore" type="text"
-                                                        placeholder="Varian: Original, Pedas" name="input[]"
+                                                        placeholder="Varian: Original, Pedas" name="nama_varian[]"
                                                         data-purpose="edit-course-title" id="main[title]" value="">
                                                 </div>
                                             </div>
@@ -104,7 +104,7 @@
                                             <div id="input-containers">
                                                 <div class="ui left icon input swdh19 mt-2 mb-2">
                                                     <input class="prompt srch_explore" type="text"
-                                                        placeholder="Ukuran: XL, 100g, 1kg" name="inputs[]"
+                                                        placeholder="Ukuran: XL, 100g, 1kg" name="ukuran[]"
                                                         data-purpose="edit-course-title" id="main[title]" value="">
                                                 </div>
                                             </div>
@@ -125,7 +125,7 @@
                                                 <div class="upload-btn">
                                                     <!-- Input file -->
                                                     <input class="uploadBtn-main-input" type="file"
-                                                        id="ThumbFile__input--source" accept="image/*">
+                                                        id="ThumbFile__input--source" name="thumbnail" accept="image/*">
                                                     <label for="ThumbFile__input--source" title="Zip">Choose
                                                         Thumbnail</label>
                                                 </div>
@@ -181,7 +181,7 @@
             var newInput = document.createElement('input');
             newInput.classList.add('prompt', 'srch_explore');
             newInput.type = 'text';
-            newInput.name = 'input[]';
+            newInput.name = 'nama_varian[]';
             newInput.placeholder = 'Varian Baru';
             newInput.setAttribute('data-purpose', 'edit-course-title');
             newInput.maxLength = 60;
@@ -218,7 +218,7 @@
             var newInput = document.createElement('input');
             newInput.classList.add('prompt', 'srch_explore');
             newInput.type = 'text';
-            newInput.name = 'inputs[]';
+            newInput.name = 'ukuran[]';
             newInput.placeholder = 'Ukuran baru';
             newInput.setAttribute('data-purpose', 'edit-course-title');
             newInput.maxLength = 60;
