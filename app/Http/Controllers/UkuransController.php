@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ukuran;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -9,11 +10,14 @@ class UkuransController extends Controller
 {
     public function index()
     {
+        $dataUkuran = [
+            "getUkuran" => Ukuran::ukuranJoinProduk()
 
+        ];
 
-        return view('admin.ukuran.ukuran');
+        return view('admin.ukuran.ukuran', $dataUkuran);
     }
-  
+
     public function create()
     {
         return view();

@@ -65,19 +65,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Course Title Here</td>
-                                                <td class="text-center">06 April 2020 | 08:31</td>
-                                                <td class="text-center">33</td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
+
+                                            @foreach ($getUkuran as $item)
+                                                <tr>
+                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td class="text-center">{{ $item->nama_produk }}</td>
+                                                    <td>{{ $item->nama_ukuran }}</td>
+                                                    <td class="text-center">{{ $item->stok }}</td>
+                                                    <td class="text-center"><b class="course_active">Active</b></td>
+                                                    <td class="text-center">
+                                                        <a href="#" title="Edit" class="gray-s"><i
+                                                                class="uil uil-edit-alt"></i></a>
+                                                        <a href="#" title="Delete" class="gray-s"><i
+                                                                class="uil uil-trash-alt"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
