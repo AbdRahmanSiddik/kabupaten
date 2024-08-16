@@ -31,13 +31,6 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/berung-madhure', [AuthController::class, 'index']);
 
-    Route::get('/test', function () {
-        return view('admin.form_produk');
-    });
-
-    Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
-
-
 
     Route::get('/admin/kategori', [KategorisController::class, 'register']);
 
@@ -79,6 +72,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
         Route::post('/admin/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/admin/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
+
+        Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
+
     });
 
 
