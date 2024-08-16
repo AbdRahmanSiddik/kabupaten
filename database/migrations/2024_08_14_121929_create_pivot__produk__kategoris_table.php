@@ -16,10 +16,10 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger("produks_id");
-            $table->unsignedBigInteger("kategoris_id");
+            $table->unsignedBigInteger("sub_kategori_id");
 
             $table->foreign("produks_id")->references("id_produks")->on("produks");
-            $table->foreign("kategoris_id")->references("id_kategoris")->on("kategoris");
+            $table->foreign("sub_kategori_id")->references("id_sub_kategori")->on("sub_kategoris");
 
             $table->timestamps();
         });

@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\SubKategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/kategori', [KategorisController::class, 'create_action']);
         Route::post('/admin/kategori/{id}/edit', [KategorisController::class, 'update']);
         Route::get('/admin/kategori/{id}/hapus', [KategorisController::class, 'delete']);
+
+        Route::get('/admin/kategori/{id}/subs', [SubKategoriController::class, 'index']);
+        Route::post('/admin/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
+        Route::post('/admin/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
+        Route::get('/admin/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
 
     });
 
