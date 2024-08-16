@@ -17,7 +17,8 @@ class SubKategoriController extends Controller
         return view('admin.kategori.subs.subs_kategori', compact('semua_sub', 'kategori'));
     }
 
-    public function store(Request $request, $id){
+    public function store(Request $request, $id)
+    {
         $request->validate([
             'nama_kategori' => 'required|unique:sub_kategoris,nama_sub_kategori'
         ]);
@@ -27,35 +28,36 @@ class SubKategoriController extends Controller
             'nama_sub_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/admin/kategori/'.$id.'/subs')->with(['success' => 'Berhasil Hore']);
+        return redirect('/admin/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
     }
 
-    public function update(Request $request, $id, $sub_id){
+    public function update(Request $request, $id, $sub_id)
+    {
         $request->validate([
             'nama_kategori' => 'required|unique:sub_kategoris,nama_sub_kategori'
         ]);
 
         SubKategori::where('id_sub_kategori', $sub_id)
-        ->update([
-            'kategori_id' => $id,
-            'nama_sub_kategori' => $request->nama_kategori,
-        ]);
-        return redirect('/admin/kategori/'.$id.'/subs')->with(['success' => 'Berhasil Hore']);
+            ->update([
+                'kategori_id' => $id,
+                'nama_sub_kategori' => $request->nama_kategori,
+            ]);
+        return redirect('/admin/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
     }
 
     public function destroy($sub_id)
     {
         $cek_sub = Pivot_Produk_Kategori::join('sub_kategoris', 'pivot__produk__kategoris.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')
-        ->where('sub_kategori_id', $sub_id)->first();
-        if(isset($cek_sub)){
-            return redirect('/admin/kategori/'.$cek_sub->kategori_id.'/subs')
-            ->with(['success' => 'Sub Kategori ini masih digunakan di produk']);
+            ->where('sub_kategori_id', $sub_id)->first();
+        if (isset($cek_sub)) {
+            return redirect('/admin/kategori/' . $cek_sub->kategori_id . '/subs')
+                ->with(['success' => 'Sub Kategori ini masih digunakan di produk']);
         }
 
         $id = SubKategori::where('id_sub_kategori', $sub_id)->first();
 
         SubKategori::where('id_sub_kategori', $sub_id)->delete();
-        return redirect('/admin/kategori/'.$id->kategori_id.'/subs')
+        return redirect('/admin/kategori/' . $id->kategori_id . '/subs')
             ->with(['success' => 'Berhasil menghapus data']);
     }
 }

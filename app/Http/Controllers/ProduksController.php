@@ -60,7 +60,7 @@ class ProduksController extends Controller
             "deskripsi" => $request->deskripsi,
             "thumbnail" => $request->thumbnail,
             "stok" => $request->stok,
-            "users_id" => $request->users_id,
+            "users_id" => auth()->user()->id,
         ];
 
         $dataFoto = [
@@ -71,12 +71,9 @@ class ProduksController extends Controller
             "kategori_id" => $request->kategori_id,
         ];
 
-
         Produk::create($dataProduk);
-
-        $produk = Produk::where('token_produk', $request->token_produk)->first()->id;
-
-        Varian::create(['produk_id' => $produk])->sync($request->input("nama_varian", []));
+        $produk = Produk::where('token_produk', $request->token_produk)->first()->id_produks;
+        Varian::create(['produks_id' => $produk])->sync($request->input("nama_varian", []));
 
 
 

@@ -139,6 +139,8 @@
                                         <textarea name="deskripsi" id="editor" rows="100"></textarea>
                                     </div>
                                 </div>
+                                {{-- <input type="text" name="{{ auth()->user()->name }}"> --}}
+
                                 <div class="flex gap-2 mt-4 mb-4">
                                     <button class="btn btn-default steps_btn "><a href="" class=" btn-default">
                                             Cancel </a> </button>
