@@ -43,15 +43,21 @@ class ProduksController extends Controller
 
     public function create()
     {
-        return view('admin.produks.produk_create');
+        $kategoris = kategori::with('subs')->get();
+
+        return view('admin.produks.produk_create', compact('kategoris'));
     }
+
     public function create_action(Request $request)
     {
-
-        // dd($request->all());
+        $request->validate([
+            'nama_produk' => 'required',
+            'harga' => 'required',
+            'stok' => 'required',
+            'kategori' => 'required'
+        ]);
 
         $token_produk = uniqid(12);
-
 
         $dataProduk = [
             "token_produk" => $token_produk,
@@ -75,13 +81,12 @@ class ProduksController extends Controller
         $produk = Produk::where('token_produk', $request->token_produk)->first()->id_produks;
         Varian::create(['produks_id' => $produk])->sync($request->input("nama_varian", []));
 
-
-
         Foto_produk::create($dataFoto);
         Pivot_Produk_Kategori::create($dataKategori);
 
         return redirect("/admin/produk");
     }
+
     public function update($id)
     {
         return view();

@@ -10,4 +10,9 @@ class SubKategori extends Model
     use HasFactory;
     protected $table = 'sub_kategoris';
     protected $guarded = [];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'id_kategoris');
+    }
 }

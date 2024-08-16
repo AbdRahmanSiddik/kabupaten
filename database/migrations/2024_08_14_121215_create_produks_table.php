@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
         Schema::create('produks', function (Blueprint $table) {
@@ -16,6 +14,7 @@ return new class extends Migration
             $table->string("token_produk");
             $table->string("nama_produk");
             $table->string("harga");
+            $table->string("thumbnail");
             $table->string("deskripsi");
             $table->string("stok");
 
