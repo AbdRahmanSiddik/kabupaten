@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategori extends Model
+class SubKategori extends Model
 {
     use HasFactory;
-    protected $table = 'kategoris';
+    protected $table = 'sub_kategoris';
     protected $guarded = [];
 }

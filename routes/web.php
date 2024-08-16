@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\SubKategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
 
 
+
+    Route::get('/admin/kategori', [KategorisController::class, 'register']);
+
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
@@ -64,8 +68,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/produk-baru', [ProduksController::class, 'create']);
         Route::post('/admin/produk-baru', [ProduksController::class, 'create_action']);
         Route::get('/admin/ukuran', [UkuransController::class, 'index']);
-        Route::get('/admin/kategori', [KategorisController::class, 'index']);
         Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
+
+        Route::get('/admin/kategori', [KategorisController::class, 'index']);
+        Route::post('/admin/kategori', [KategorisController::class, 'create_action']);
+        Route::post('/admin/kategori/{id}/edit', [KategorisController::class, 'update']);
+        Route::get('/admin/kategori/{id}/hapus', [KategorisController::class, 'delete']);
+
+        Route::get('/admin/kategori/{id}/subs', [SubKategoriController::class, 'index']);
+        Route::post('/admin/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
+        Route::post('/admin/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
+        Route::get('/admin/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
+
     });
 
 
