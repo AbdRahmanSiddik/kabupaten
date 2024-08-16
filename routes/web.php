@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SubKategoriController;
 
 /*
@@ -32,7 +33,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/berung-madhure', [AuthController::class, 'index']);
 
 
-    Route::get('/admin/kategori', [KategorisController::class, 'register']);
+    Route::get('/kategori', [KategorisController::class, 'register']);
 
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
@@ -54,27 +55,40 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::middleware(['userAkses:admin'])->group(function () {
-        Route::get('/admin/dashboard', [DashboardController::class, 'dashboard']);
-        // Route::get('/keranjang', [KeranjangController::class, 'index']);
+        Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+        // PRODUK
+        Route::get('/produk', [ProduksController::class, 'index']);
+        Route::get('/produk-baru', [ProduksController::class, 'create']);
+        Route::post('/produk-baru', [ProduksController::class, 'create_action']);
+        Route::get('/ukuran', [UkuransController::class, 'index']);
+        Route::get('/foto-produk', [FotoProduksController::class, 'index']);
+        // KATEGORI
+        Route::get('/kategori', [KategorisController::class, 'index']);
+        Route::post('/kategori', [KategorisController::class, 'create_action']);
+        Route::post('/kategori/{id}/edit', [KategorisController::class, 'update']);
+        Route::get('/kategori/{id}/hapus', [KategorisController::class, 'delete']);
+        // SUB KATEGORI
+        Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
+        Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
+        Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
+        Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
+        // SETTINGS 
+        Route::get('/setting', [SettingsController::class, 'index']);
 
-        Route::get('/admin/produk', [ProduksController::class, 'index']);
-        Route::get('/admin/produk-baru', [ProduksController::class, 'create']);
-        Route::post('/admin/produk-baru', [ProduksController::class, 'create_action']);
-        Route::get('/admin/ukuran', [UkuransController::class, 'index']);
-        Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
 
-        Route::get('/admin/kategori', [KategorisController::class, 'index']);
-        Route::post('/admin/kategori', [KategorisController::class, 'create_action']);
-        Route::post('/admin/kategori/{id}/edit', [KategorisController::class, 'update']);
-        Route::get('/admin/kategori/{id}/hapus', [KategorisController::class, 'delete']);
 
-        Route::get('/admin/kategori/{id}/subs', [SubKategoriController::class, 'index']);
-        Route::post('/admin/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
-        Route::post('/admin/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
-        Route::get('/admin/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
+
+
+
+
+
+
+
+
+
+
 
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
-
     });
 
 
@@ -90,22 +104,12 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::middleware(['userAkses:mitra'])->group(function () {
-        Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
+        Route::get('/dashboard', [DashboardController::class, 'dashboard']);
     });
-
-
-
-
-
-
 
     Route::middleware(['userAkses:customer'])->group(function () {
         Route::get('/page', [CustomerController::class, 'index']);
     });
-
-
-    // Route::get('/dashboard', [DashboardController::class, 'dashboard']);
-
 
 
     Route::get('/logout', [AuthController::class, 'logout']);

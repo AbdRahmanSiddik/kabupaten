@@ -52,37 +52,35 @@
             <div class="left_section">
                 <ul>
                     <li class="menu--item">
-                        <a href="/admin/dashboard"
-                            class="menu--link {{ Request::is('admin/dashboard') ? 'active' : '' }}" title="Dashboard">
+                        <a href="/dashboard" class="menu--link {{ Request::is('/dashboard') ? 'active' : '' }}"
+                            title="Dashboard">
                             <i class="uil uil-apps menu--icon"></i>
                             <span class="menu--label">Dashboard</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/produk" class="menu--link {{ Request::is('admin/produk') ? 'active' : '' }}"
+                        <a href="/produk" class="menu--link {{ Request::is('/produk') ? 'active' : '' }}"
                             title="Courses">
                             <i class='uil uil-book-alt menu--icon'></i>
                             <span class="menu--label">Produk Saya</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/ukuran" class="menu--link {{ Request::is('admin/ukuran') ? 'active' : '' }}"
+                        <a href="/ukuran" class="menu--link {{ Request::is('/ukuran') ? 'active' : '' }}"
                             title="Analyics">
                             <i class='uil uil-analysis menu--icon'></i>
                             <span class="menu--label">Ukuran</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/kategori"
-                            class="menu--link {{ Request::is('admin/kategori') ? 'active' : '' }}"
+                        <a href="/kategori" class="menu--link {{ Request::is('/kategori') ? 'active' : '' }}"
                             title="Create Course">
                             <i class='uil uil-plus-circle menu--icon'></i>
                             <span class="menu--label">Kategori</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/admin/foto-produk"
-                            class="menu--link {{ Request::is('/admin/foto-produk') ? 'active' : '' }}"
+                        <a href="/foto-produk" class="menu--link {{ Request::is('/foto-produk') ? 'active' : '' }}"
                             title="Create Course">
                             <i class='uil uil-picture menu--icon'></i>
                             <span class="menu--label">Foto Produk</span>
@@ -117,7 +115,7 @@
             <div class="left_section pt-2">
                 <ul>
                     <li class="menu--item">
-                        <a href="setting.html" class="menu--link" title="Setting">
+                        <a href="/setting" class="menu--link" title="Setting">
                             <i class='uil uil-cog menu--icon'></i>
                             <span class="menu--label">Setting</span>
                         </a>

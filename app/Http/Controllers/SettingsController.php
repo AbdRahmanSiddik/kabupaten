@@ -9,7 +9,7 @@ class SettingsController extends Controller
     public function index()
     {
 
-        return view();
+        return view('admin.settings.setting');
     }
     public function create()
     {
