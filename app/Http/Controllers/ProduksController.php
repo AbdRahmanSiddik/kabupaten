@@ -7,6 +7,7 @@ use App\Models\Produk;
 use App\Models\Varian;
 use App\Models\Kategori;
 use App\Models\Pivot_Produk_Kategori;
+use App\Models\Ukuran;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -86,9 +87,11 @@ class ProduksController extends Controller
 
         // Mengambil ID produk yang baru dibuat
         $produkId = Produk::latest()->first()->id_produks;
-        $rawData = Varian::rawData($request->input('nama_varian', []), $produkId);
+        $rawDataVarian = Varian::rawData($request->input('nama_varian', []), $produkId);
+        $rawDataUkuran = Ukuran::rawData($request->input('ukuran', []), $produkId);
 
-        Varian::insert($rawData);
+        Varian::insert($rawDataVarian);
+        Ukuran::insert($rawDataUkuran);
 
         // Foto_produk::create($dataFoto);
         // Pivot_Produk_Kategori::create($dataKategori);

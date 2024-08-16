@@ -20,4 +20,19 @@ class Ukuran extends Model
     {
         return DB::Table("ukurans")->join("produks", "ukurans.produks_id", "=", "produks.id_produks")->get();
     }
+
+    public static function rawData($request, $produkId)
+    {
+        $ukurans = [];
+        foreach ($request as $ukuran) {
+            $ukurans[] = [
+                'produks_id' => $produkId,
+                'nama_ukuran' => $ukuran,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        return $ukurans;
+    }
 }
