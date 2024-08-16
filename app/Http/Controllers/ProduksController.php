@@ -83,11 +83,15 @@ class ProduksController extends Controller
         ];
 
         Produk::create($dataProduk);
-        $produk = Produk::where('token_produk', $request->token_produk)->first()->id_produks;
-        Varian::create(['produks_id' => $produk])->sync($request->input("nama_varian", []));
 
-        Foto_produk::create($dataFoto);
-        Pivot_Produk_Kategori::create($dataKategori);
+        // Mengambil ID produk yang baru dibuat
+        $produkId = Produk::latest()->first()->id_produks;
+        $rawData = Varian::rawData($request->input('nama_varian', []), $produkId);
+
+        Varian::insert($rawData);
+
+        // Foto_produk::create($dataFoto);
+        // Pivot_Produk_Kategori::create($dataKategori);
 
         return redirect("/admin/produk");
     }
