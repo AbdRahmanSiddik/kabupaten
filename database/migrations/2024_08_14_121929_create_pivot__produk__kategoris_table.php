@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pivot__produk__kategoris', function (Blueprint $table) {
-            $table->unsignedBigInteger("id_kategoris")->autoIncrement();
+            $table->unsignedBigInteger("id_pivot_produk_kategori")->autoIncrement();
 
 
             $table->unsignedBigInteger("produks_id");
