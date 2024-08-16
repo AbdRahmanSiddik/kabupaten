@@ -32,7 +32,12 @@ class ProduksController extends Controller
 
     public function index()
     {
-        return view('admin.produks.produk');
+
+        $dataProduk = [
+            "dataProduk" => Produk::ProdukJoinUsers()->get()
+        ];
+
+        return view('admin.produks.produk', $dataProduk);
     }
 
     public function produk()

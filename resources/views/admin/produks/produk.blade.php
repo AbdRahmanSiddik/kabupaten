@@ -68,23 +68,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Course Title Here</td>
-                                                <td class="text-center">06 April 2020 | 08:31</td>
-                                                <td class="text-center " style="max-width: 15rem;">Lorem ipsum, dolor sit
-                                                    amet consectetur adipisicing
-                                                    elit. Quis, laboriosam dolor cupiditate harum quas facere sint quisquam
-                                                    optio magni natus?</td>
-                                                <td class="text-center"><a href="#">12</a></td>
-                                                <td class="text-center"><b class="course_active">Active</b></td>
-                                                <td class="text-center">
-                                                    <a href="#" title="Edit" class="gray-s"><i
-                                                            class="uil uil-edit-alt"></i></a>
-                                                    <a href="#" title="Delete" class="gray-s"><i
-                                                            class="uil uil-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
+
+                                            @foreach ($dataProduk as $get)
+                                                <tr>
+                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td>{{ $get->nama_produk }}</td>
+                                                    <td class="text-center">{{ $get->harga }}</td>
+                                                    <td class="text-center " style="max-width: 15rem;">{{ $get->deskripsi }}
+                                                    </td>
+                                                    <td class="text-center"><a href="#">{{ $get->stok }}</a></td>
+                                                    <td class="text-center"><b class="course_active">Active</b></td>
+                                                    <td class="text-center">
+                                                        <a href="#" title="Edit" class="gray-s"><i
+                                                                class="uil uil-edit-alt"></i></a>
+                                                        <a href="#" title="Delete" class="gray-s"><i
+                                                                class="uil uil-trash-alt"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
