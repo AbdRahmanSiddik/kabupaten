@@ -35,6 +35,7 @@
     <link href="{{ asset('assets') }}/vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/vendor/semantic/semantic.min.css">
+	<link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
 
 
     <link href="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.css" rel="stylesheet">
@@ -178,6 +179,7 @@
                 </div>
             </div>
         </footer>
+    </div>
 
 
         <script src="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.js"></script>
@@ -191,19 +193,6 @@
         <script src="{{ asset('assets') }}/js/custom.js"></script>
         <script src="{{ asset('assets') }}/js/night-mode.js"></script>
         <script src="{{ asset('assets') }}/js/jquery-steps.min.js"></script>
-        <script>
-            $('#add-course-tab').steps({
-                onFinish: function() {
-                    alert('Wizard Completed');
-                }
-            });
-        </script>
-        <script>
-            $(function() {
-                $(".sortable").sortable();
-                $(".sortable").disableSelection();
-            });
-        </script>
 
         <script name="editor">
             ClassicEditor
@@ -216,6 +205,19 @@
                     console.error(error);
                 });
         </script>
+        <script>
+            $('#add-course-tab').steps({
+              onFinish: function() {
+                alert('Wizard Completed');
+              }
+            });
+          </script>
+          <script>
+            $(function() {
+              $(".sortable").sortable();
+              $(".sortable").disableSelection();
+            });
+          </script>
 
 </body>
 

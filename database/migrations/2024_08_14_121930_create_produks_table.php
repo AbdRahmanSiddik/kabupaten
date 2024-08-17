@@ -15,8 +15,10 @@ return new class extends Migration
             $table->string("nama_produk");
             $table->string("thumbnail");
             $table->string("deskripsi");
-            
-            $table->foreignId("sub_kategori_id")->constrained();
+            $table->unsignedBigInteger("sub_kategori_id");
+
+            $table->foreign('sub_kategori_id')->references('id_sub_kategori')->on('sub_kategoris')
+            ->onDelete('cascade');
             $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });

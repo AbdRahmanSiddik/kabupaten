@@ -3,129 +3,156 @@
 @section('content')
   <div class="sa4d25">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
+      <div class="row mb-0">
+        <div class="col-12">
           <h2 class="st_title"><i class="uil uil-analysis"></i> Jual Produk Baru</h2>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-0">
         <div class="col-12">
           <div class="course_tabs_1">
-            <form action="/admin/produk-baru" method="POST" enctype="multipart/form-data" class="course__form">
-              @csrf
-              <div class="general_info10">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <label>Nama Produk <small class="text-danger">*</small></label>
-                      <div class="ui left icon input swdh19">
-                        <input class="prompt srch_explore" type="text" placeholder="Course title here"
-                          name="nama_produk" data-purpose="edit-course-title">
-                        <div class="badge_num">60</div>
+            <div class="step-app">
+              <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                @csrf
+                <div class="step-content">
+                  <div class="step-tab-panel step-tab-info active">
+                    <div class="tab-from-content">
+                      <div class="title-icon">
+                        <h3 class="title"><i class="uil uil-info-circle"></i>Detail Produk</h3>
                       </div>
-                      <div class="help-block">(Please make this a maximum of 100 characters and
-                        unique.)</div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <label>Harga <small class="text-danger">*</small></label>
-                      <div class="ui left icon input swdh19">
-                        <input class="prompt srch_explore" type="text" placeholder="Course title here" name="harga">
-                      </div>
-                      <div class="help-block">(masukkan harga produk ini.)</div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <label>Stok <small class="text-danger">*</small></label>
-                      <div class="ui left icon input swdh19">
-                        <input class="prompt srch_explore" type="text" placeholder="Course title here" name="stok">
-                      </div>
-                      <div class="help-block">(masukkan harga produk ini.)</div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <div class="mt-30 lbel25">
-                        <label> Category*</label>
-                      </div>
-                      <select class="selectpicker" title="Select Category" name="kategori" id="kategori"
-                        data-live-search="true">
-                        <option disabled selected>Pilih Kategori</option>
-                        @foreach ($kategoris as $item)
-                          <optgroup label="{{ $item->nama_kategori }}">
-                            @foreach ($item->subs as $get)
-                              <option value="{{ $get->id_sub_kategori }}">{{ $get->nama_sub_kategori }}</option>
-                            @endforeach
-                          </optgroup>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <label>Varian Produk</label>
-                      <div id="input-container">
-                        <div class="ui left icon input swdh19 mt-2 mb-2">
-                          <input class="prompt srch_explore" type="text" placeholder="Varian: Original, Pedas"
-                            name="nama_varian[]" data-purpose="edit-course-title" id="main[title]" value="">
+                      <div class="course__form">
+                        <div class="general_info10">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                              <div class="ui search focus mt-30 lbel25">
+                                <label>Nama produk*</label>
+                                <div class="ui left icon input swdh19">
+                                  <input class="prompt srch_explore" type="text" placeholder="Course title here"
+                                    name="nama_produk" data-purpose="edit-course-title" maxlength="60" id="main[title]"
+                                    value="">
+                                  <div class="badge_num">60</div>
+                                </div>
+                                <div class="help-block">(Please make this a maximum of 100 characters and unique.)</div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                              <div class="mt-30 lbel25">
+                                <label>Produk Kategori*</label>
+                              </div>
+                              <select class="selectpicker" title="Pilih Kategori" name="sub_kategori" id="selectcategory"
+                                data-live-search="true">
+                                @foreach ($kategoris as $item)
+                                  <optgroup label="{{ $item->nama_kategori }}">
+                                    @foreach ($item->subs as $get)
+                                      <option value="{{ $get->id_sub_kategori }}">{{ $get->nama_sub_kategori }}</option>
+                                    @endforeach
+                                  </optgroup>
+                                @endforeach
+                              </select>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                              <div class="ui search focus lbel25 mt-15">
+                                <label>Deskripsi Produk*</label>
+                                <div class="ui form swdh30">
+                                  <div class="field">
+                                    <textarea rows="3" name="deskripsi" id="editor" placeholder="Item description here..."></textarea>
+                                  </div>
+                                </div>
+                                <div class="help-block">3000 kata</div>
+                              </div>
+                            </div>
+                            <div class="col-lg-5 col-md-6 mb-2">
+                              <div class="ui search focus lbel25 mt-15">
+                                <label class="label25 text-left">Thumbnail Produk <small>*</small></label>
+                                <div class="thumb-item">
+                                  <!-- Gambar default -->
+                                  <img id="thumbnail-preview" src="{{ asset('') }}assets/images/thumbnail-demo.jpg"
+                                    alt="Thumbnail Produk" style="width: 100%; height: auto;">
+                                  <div class="thumb-dt">
+                                    <div class="upload-btn">
+                                      <!-- Input file -->
+                                      <input class="uploadBtn-main-input" type="file" id="ThumbFile__input--source"
+                                        name="thumbnail" accept="image/*">
+                                      <label for="ThumbFile__input--source" title="Zip">Choose
+                                        Thumbnail</label>
+                                    </div>
+                                    <span class="uploadBtn-main-file">Size: 590x300 pixels. Supports: jpg,
+                                      jpeg, or png</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <button class="btn btn-danger rounded mt-2 mb-2" id="add-input-btn"
-                        type="button"><strong>+</strong></button>
                     </div>
                   </div>
-                  <div class="col-6">
-                    <div class="ui search focus mt-30 lbel25">
-                      <label>Ukuran Produk</label>
-                      <div id="input-containers">
-                        <div class="ui left icon input swdh19 mt-2 mb-2">
-                          <input class="prompt srch_explore" type="text" placeholder="Ukuran: XL, 100g, 1kg"
-                            name="ukuran[]" data-purpose="edit-course-title" id="main[title]" value="">
-                        </div>
-                      </div>
-                      <button class="btn btn-danger rounded mt-2 mb-2" id="add-input-btnn"
-                        type="button"><strong>+</strong></button>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-5 col-md-6 mb-2">
-                    <label class="label25 text-left">Thumbnail Produk <small>*</small></label>
-                    <div class="thumb-item">
-                      <!-- Gambar default -->
-                      <img id="thumbnail-preview" src="{{ asset('') }}assets/images/thumbnail-demo.jpg"
-                        alt="Thumbnail Produk" style="width: 100%; height: auto;">
-                      <div class="thumb-dt">
-                        <div class="upload-btn">
-                          <!-- Input file -->
-                          <input class="uploadBtn-main-input" type="file" id="ThumbFile__input--source"
-                            name="thumbnail" accept="image/*">
-                          <label for="ThumbFile__input--source" title="Zip">Choose
-                            Thumbnail</label>
-                        </div>
-                        <span class="uploadBtn-main-file">Size: 590x300 pixels. Supports: jpg,
-                          jpeg, or png</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <label for="editor" class="label25 text-left">Deskripsi Produk</label>
-                    <textarea name="deskripsi" id="editor" rows="100"></textarea>
-                  </div>
-                </div>
-                {{-- <input type="text" name="{{ auth()->user()->name }}"> --}}
 
-                <div class="flex gap-2 mt-4 mb-4">
-                  <button class="btn btn-default steps_btn "><a href="" class=" btn-default">
-                      Cancel </a> </button>
-                  <button type="submit" class="btn btn-default steps_btn">Submit</button>
+                  <div class="step-tab-panel step-tab-gallery mt-4">
+                    <div class="tab-from-content">
+                      <div class="title-icon">
+                        <h3 class="title"><i class="uil uil-notebooks"></i>Atribut</h3>
+                      </div>
+                      <div class="curriculum-section">
+                        <div class="row" id="varian-container">
+                          <div class="col-lg-3 col-md-6">
+                            <div class="ui search focus mt-30 lbel25">
+                              <label>Nama Varian*</label>
+                              <div class="ui left icon input swdh19">
+                                <input class="prompt srch_explore" type="text"
+                                  placeholder="Ex: Coklat, Vanila, Lengan Panjang, ..." name="varian[]"
+                                  data-purpose="edit-course-title" maxlength="60" id="main[title]" value="">
+                              </div>
+                              <div class="help-block">(Isikan varian)</div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                            <div class="ui search focus mt-30 lbel25">
+                              <label>Ukuran*</label>
+                              <div class="ui left icon input swdh19">
+                                <input class="prompt srch_explore" type="text" placeholder="Ex: 100gr, 100ml, XL, ..."
+                                  name="ukuran[]" data-purpose="edit-course-title" maxlength="60" id="main[title]"
+                                  value="">
+                              </div>
+                              <div class="help-block">(Isikan ukuran)</div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                            <div class="ui search focus mt-30 lbel25">
+                              <label>Harga*</label>
+                              <div class="ui left icon input swdh19">
+                                <input class="prompt srch_explore" type="text" inputmode="numeric"
+                                  placeholder="Rp. ..." name="harga[]" data-purpose="edit-course-title" maxlength="60"
+                                  id="main[title]" value="">
+                              </div>
+                              <div class="help-block">(Isikan Harga dalam Rp.)</div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6">
+                            <div class="ui search focus mt-30 lbel25">
+                              <label>Stok*</label>
+                              <div class="ui left icon input swdh19">
+                                <input class="prompt srch_explore" type="text" inputmode="numeric"
+                                  placeholder="Stok Produk" name="stok[]" data-purpose="edit-course-title"
+                                  maxlength="60" id="main[title]" value="">
+                              </div>
+                              <div class="help-block">(Isikan Stok Produk)</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button id="add-varian" type="button" class="btn btn_default rounded mt-4">+</button>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-              </div>
-            </form>
+                <div class="step-footer step-tab-pager mt-4 text-end">
+                  <button class="btn btn-default steps_btn">Cancel</button>
+                  <button class="create_btn_dash">Submit for Review</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -150,79 +177,71 @@
         reader.readAsDataURL(file);
       }
     });
+  </script>
 
-    document.getElementById('add-input-btn').addEventListener('click', function() {
-      // Buat elemen baru untuk inputan dan tombol 'x'
-      var newInputGroup = document.createElement('div');
-      newInputGroup.classList.add('ui', 'left', 'icon', 'input', 'swdh19');
-      newInputGroup.style.position = "relative";
-
-      // Buat elemen input
-      var newInput = document.createElement('input');
-      newInput.classList.add('prompt', 'srch_explore');
-      newInput.type = 'text';
-      newInput.name = 'nama_varian[]';
-      newInput.placeholder = 'Varian Baru';
-      newInput.setAttribute('data-purpose', 'edit-course-title');
-      newInput.maxLength = 60;
-
-      // Buat tombol 'x' untuk menghapus inputan di sebelah kanan
-      var deleteButton = document.createElement('button');
-      deleteButton.innerHTML = 'x';
-      deleteButton.classList.add('btn', 'btn-danger', 'mx-4');
-      deleteButton.style.position = 'absolute';
-      deleteButton.style.right = '-40px';
-      deleteButton.style.top = '50%';
-      deleteButton.style.transform = 'translateY(-50%)';
-
-      // Tambahkan event listener untuk menghapus input group ketika tombol 'x' diklik
-      deleteButton.addEventListener('click', function() {
-        newInputGroup.remove();
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Fungsi untuk menambahkan struktur HTML baru
+      $('#add-varian').click(function() {
+        let newRow = `
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="ui search focus mt-30 lbel25">
+            <label>Nama Varian*</label>
+            <div class="ui left icon input swdh19">
+              <input class="prompt srch_explore" type="text"
+                placeholder="Ex: Coklat, Vanila, Lengan Panjang, ..." name="varian[]"
+                data-purpose="edit-course-title" maxlength="60" id="main[title]" value="">
+            </div>
+            <div class="help-block">(Isikan varian)</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="ui search focus mt-30 lbel25">
+            <label>Ukuran*</label>
+            <div class="ui left icon input swdh19">
+              <input class="prompt srch_explore" type="text" placeholder="Ex: 100gr, 100ml, XL, ..."
+                name="ukuran[]" data-purpose="edit-course-title" maxlength="60" id="main[title]"
+                value="">
+            </div>
+            <div class="help-block">(Isikan ukuran)</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="ui search focus mt-30 lbel25">
+            <label>Harga*</label>
+            <div class="ui left icon input swdh19">
+              <input class="prompt srch_explore" type="text" inputmode="numeric"
+                placeholder="Rp. ..." name="harga[]" data-purpose="edit-course-title" maxlength="60"
+                id="main[title]" value="">
+            </div>
+            <div class="help-block">(Isikan Harga dalam Rp.)</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="ui search focus mt-30 lbel25">
+            <label>Stok*</label>
+            <div class="ui left icon input swdh19">
+              <input class="prompt srch_explore" type="text" inputmode="numeric"
+                placeholder="Stok Produk" name="stok[]" data-purpose="edit-course-title"
+                maxlength="60" id="main[title]" value="">
+            </div>
+            <div class="help-block">(Isikan Stok Produk)</div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 text-center">
+                <button type="button" class="remove-row create_btn_dash" style="width: 70%">x</button>
+        </div>
+      </div>
+      `;
+        $('#varian-container').append(newRow); // Menambahkan struktur di akhir container
       });
 
-      // Masukkan input dan tombol 'x' ke dalam newInputGroup
-      newInputGroup.appendChild(newInput);
-      newInputGroup.appendChild(deleteButton);
-
-      // Tambahkan elemen baru ke container
-      document.getElementById('input-container').appendChild(newInputGroup);
-    });
-
-    document.getElementById('add-input-btnn').addEventListener('click', function() {
-      // Buat elemen baru untuk inputan dan tombol 'x'
-      var newInputGroup = document.createElement('div');
-      newInputGroup.classList.add('ui', 'left', 'icon', 'input', 'swdh19');
-      newInputGroup.style.position = "relative";
-
-      // Buat elemen input
-      var newInput = document.createElement('input');
-      newInput.classList.add('prompt', 'srch_explore');
-      newInput.type = 'text';
-      newInput.name = 'ukuran[]';
-      newInput.placeholder = 'Ukuran baru';
-      newInput.setAttribute('data-purpose', 'edit-course-title');
-      newInput.maxLength = 60;
-
-      // Buat tombol 'x' untuk menghapus inputan di sebelah kanan
-      var deleteButton = document.createElement('button');
-      deleteButton.innerHTML = 'x';
-      deleteButton.classList.add('btn', 'btn-danger', 'mx-4');
-      deleteButton.style.position = 'absolute';
-      deleteButton.style.right = '-40px';
-      deleteButton.style.top = '50%';
-      deleteButton.style.transform = 'translateY(-50%)';
-
-      // Tambahkan event listener untuk menghapus input group ketika tombol 'x' diklik
-      deleteButton.addEventListener('click', function() {
-        newInputGroup.remove();
+      // Fungsi untuk menghapus row ketika tombol x ditekan
+      $(document).on('click', '.remove-row', function() {
+        $(this).closest('.row').remove();
       });
-
-      // Masukkan input dan tombol 'x' ke dalam newInputGroup
-      newInputGroup.appendChild(newInput);
-      newInputGroup.appendChild(deleteButton);
-
-      // Tambahkan elemen baru ke container
-      document.getElementById('input-containers').appendChild(newInputGroup);
     });
   </script>
 @endsection

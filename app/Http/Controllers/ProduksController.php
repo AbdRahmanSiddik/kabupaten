@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AtributProduk;
 use App\Models\Foto_produk;
 use App\Models\Produk;
 use App\Models\Varian;
@@ -56,57 +57,43 @@ class ProduksController extends Controller
 
     public function create_action(Request $request)
     {
-        $request->validate([
-            'nama_produk' => 'required',
-            'harga' => 'required',
-            'stok' => 'required',
-            'kategori' => 'required'
+        // $request->validate([
+
+        // ]);
+        $token = uniqid('', true);
+        $userId = auth()->user()->id;
+        $produk = [
+            'token_produk' => $token,
+            'nama_produk' => $request->nama_produk,
+            'deskripsi' => $request->deskripsi,
+            'thumbnail' => $request->thumbnail,
+            'sub_kategori_id' => $request->sub_kategori,
+            'users_id' => $userId,
+        ];
+
+        $produk = Produk::insertGetId($produk);
+
+        $rawDataAtribut = AtributProduk::rawData($produk, [
+            'varians' => $request->input('varian', []),
+            'ukurans' => $request->input('ukuran', []),
+            'hargas' => $request->input('harga', []),
+            'stoks' => $request->input('stok', []),
         ]);
+        AtributProduk::insert($rawDataAtribut);
 
-        $token_produk = uniqid(12);
-
-        $dataProduk = [
-            "token_produk" => $token_produk,
-            "nama_produk" => $request->nama_produk,
-            "harga" => $request->harga,
-            "deskripsi" => $request->deskripsi,
-            "thumbnail" => $request->thumbnail,
-            "stok" => $request->stok,
-            "users_id" => auth()->user()->id,
-        ];
-
-        $dataFoto = [
-            "foto_produk" => $request->foto_produk,
-        ];
-
-        $dataKategori = [
-            "kategori_id" => $request->kategori_id,
-        ];
-
-        Produk::create($dataProduk);
-
-        // Mengambil ID produk yang baru dibuat
-        $produkId = Produk::latest()->first()->id_produks;
-        $rawDataVarian = Varian::rawData($request->input('nama_varian', []), $produkId);
-        $rawDataUkuran = Ukuran::rawData($request->input('ukuran', []), $produkId);
-
-        Varian::insert($rawDataVarian);
-        Ukuran::insert($rawDataUkuran);
-
-        // Foto_produk::create($dataFoto);
-        // Pivot_Produk_Kategori::create($dataKategori);
-
-        return redirect("/admin/produk");
+        return redirect("/produk");
     }
 
     public function update($id)
     {
         return view();
     }
+
     public function update_action(Request $request, $id)
     {
         return redirect();
     }
+
     public function delete($id)
     {
         return redirect();

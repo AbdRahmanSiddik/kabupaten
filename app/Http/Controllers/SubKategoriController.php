@@ -28,7 +28,7 @@ class SubKategoriController extends Controller
             'nama_sub_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect('/admin/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
+        return redirect('/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
     }
 
     public function update(Request $request, $id, $sub_id)

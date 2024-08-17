@@ -72,7 +72,7 @@
                     <tr>
                       <td class="text-start ms-2" style="width: 25%;">{{ $get->created_at->format('yms') }}</td>
                       <td style="width: 30%">{{ $get->nama_kategori }}</td>
-                      <td ><a href="/admin/kategori/{{ $get->id_kategoris }}/subs">/<i
+                      <td ><a href="/kategori/{{ $get->id_kategoris }}/subs">/<i
                         class="uil uil-forward"></i>{{ $get->nama_kategori }}</a></td>
                       <td class="text-center">
                         <button type="button" title="Edit" data-bs-toggle="modal"

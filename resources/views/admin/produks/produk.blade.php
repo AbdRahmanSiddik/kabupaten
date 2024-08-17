@@ -14,8 +14,7 @@
                             <h1>Jual Produk Baru Sekarang</h1>
                         </div>
                         <div class="card_dash_right1">
-                            <button class="create_btn_dash" onclick="window.location.href = '/admin/produk-baru';">Jual
-                                Produk</button>
+                            <button class="create_btn_dash" onclick="window.location.href = '/admin/produk-baru';">Jual Produk</button>
                         </div>
                     </div>
                 </div>
@@ -73,10 +72,10 @@
                                                 <tr>
                                                     <td class="text-center">{{ $loop->iteration }}</td>
                                                     <td>{{ $get->nama_produk }}</td>
-                                                    <td class="text-center">{{ $get->harga }}</td>
+                                                    <td class="text-center">default</td>
                                                     <td class="text-center " style="max-width: 15rem;">{{ $get->deskripsi }}
                                                     </td>
-                                                    <td class="text-center"><a href="#">{{ $get->stok }}</a></td>
+                                                    <td class="text-center"><a href="#">default</a></td>
                                                     <td class="text-center"><b class="course_active">Active</b></td>
                                                     <td class="text-center">
                                                         <a href="#" title="Edit" class="gray-s"><i

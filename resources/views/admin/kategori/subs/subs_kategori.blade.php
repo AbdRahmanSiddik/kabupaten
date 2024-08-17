@@ -24,7 +24,7 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                    <form action="{{ route('admin.kategori-subs', $kategori->id_kategoris) }}" method="POST">
+                    <form action="', $kategori->id_kategoris) }}" method="POST">
                       @csrf
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Sub Kategori {{ $kategori->nama_kategori }}</h1>

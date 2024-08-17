@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/kategori/{id}/edit', [KategorisController::class, 'update']);
         Route::get('/kategori/{id}/hapus', [KategorisController::class, 'delete']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
-        Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
+        Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
         Route::get('/settings', [SettingsController::class, 'index']);
