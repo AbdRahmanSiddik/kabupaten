@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId("users_id")->constrained();
 
             $table->string("username");
-            $table->string("foto_profile");
+            $table->string("foto_profile")->nullable();
             $table->string("alamat_users");
             $table->timestamps();
         });

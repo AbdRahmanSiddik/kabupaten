@@ -45,7 +45,6 @@ Route::middleware('auth')->group(function () {
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
 
-
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
         Route::get('/produk', [ProduksController::class, 'index']);
         Route::get('/produk-baru', [ProduksController::class, 'create']);
@@ -60,7 +59,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store'])->name('admin.kategori-subs');
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
-        Route::get('/setting', [SettingsController::class, 'index']);
+        Route::get('/settings', [SettingsController::class, 'index']);
+        Route::get('/settings', [SettingsController::class, 'index']);
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
     });
 

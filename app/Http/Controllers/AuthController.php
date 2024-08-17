@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -52,24 +54,27 @@ class AuthController extends Controller
     public function register_action(Request $request)
     {
 
+
         // $request->validate([
-        //     "username" => "required",
-        //     "email" => "required|email|unique:users",
-        //     "password" => "required|min:8",
-        //     "no_telepon" => "required|accepted "
+        //     'username' => 'required|string|max:255',
+        //     "email" => 'required|string|max:255',
+        //     'no_telepon' => 'nullable|string|max:255',
+        //     'passwords' => 'required',
         // ]);
 
         $dataRegister = [
             "username" => $request->username,
             "email" => $request->email,
-            "password" => $request->password,
+            "password" => bcrypt($request->password),
             "no_telepon" => $request->no_telepon,
             "role" => "customer",
+            "name" => "none",
+            "alamat_users" => "none",
+            "foto_profile" => "none"
+
+
         ];
-
-        // dd($dataRegister);
         User::create($dataRegister);
-
         return redirect('/');
     }
 
