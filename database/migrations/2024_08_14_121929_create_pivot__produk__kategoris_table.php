@@ -13,13 +13,9 @@ return new class extends Migration
     {
         Schema::create('pivot__produk__kategoris', function (Blueprint $table) {
             $table->unsignedBigInteger("id_pivot_produk_kategori")->autoIncrement();
-
-
             $table->unsignedBigInteger("produks_id");
-            $table->unsignedBigInteger("sub_kategori_id");
 
             $table->foreign("produks_id")->references("id_produks")->on("produks");
-            $table->foreign("sub_kategori_id")->references("id_sub_kategori")->on("sub_kategoris");
 
             $table->timestamps();
         });

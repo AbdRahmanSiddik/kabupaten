@@ -6,18 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
+
     public function up(): void
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->unsignedBigInteger("id_produks")->autoIncrement();
             $table->string("token_produk");
             $table->string("nama_produk");
-            $table->string("harga");
             $table->string("thumbnail");
             $table->string("deskripsi");
-            $table->string("stok");
-
+            
+            $table->foreignId("sub_kategori_id")->constrained();
             $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });
