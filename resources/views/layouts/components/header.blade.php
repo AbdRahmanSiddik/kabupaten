@@ -140,7 +140,7 @@
 
 
                      @if (Auth::check())
-                         <a href="logout" class="item channel_item">Sign Out</a>
+                         <a href="/logout" class="item channel_item">Sign Out</a>
                      @else
                          <div class="item channel_item" style="cursor: pointer;" data-bs-toggle="modal"
                              data-bs-target="#modalLogin">

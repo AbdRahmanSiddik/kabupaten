@@ -30,9 +30,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($cridentials)) {
             if (auth()->user()->role == 'admin') {
-                return redirect('/admin/dashboard');
+                return redirect('/dashboard/admin');
             } elseif (auth()->user()->role == 'mitra') {
-                return redirect('/mitra/dashboard');
+                return redirect('/dashboard/mitra');
             } elseif (auth()->user()->role == 'customer') {
                 return redirect('/page');
             } else {
@@ -77,5 +77,20 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+
+    public function AuthRole__()
+    {
+
+        $authrole =  auth()->user()->role;
+
+        if ($authrole == "admin") {
+            return redirect('/dashboard/admin');
+        } elseif ($authrole == "mitra") {
+            return redirect('/dashboard/mitra');
+        } elseif ($authrole == 'customer') {
+            return redirect('/page');
+        }
     }
 }
