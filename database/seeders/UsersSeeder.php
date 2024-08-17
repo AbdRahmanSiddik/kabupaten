@@ -17,31 +17,14 @@ class UsersSeeder extends Seeder
             [
                 "username" => "anandamw",
                 "email" => "ananda@gmail.com",
-                "password" => bcrypt("ananda"),
+                "password" => bcrypt("123"),
                 "no_telepon" => "087740505052",
+                "name" => "",
                 "role" => "admin",
+                "alamat_users" => '',
+                'foto_profile' => ''
             ],
-            [
-                "username" => "rahman",
-                "email" => "rahman@gmail.com",
-                "password" => bcrypt("rahman"),
-                "no_telepon" => "087740505052",
-                "role" => "admin",
-            ],
-            [
-                "username" => "yanto",
-                "email" => "yanto@gmail.com",
-                "password" => bcrypt("yanto"),
-                "no_telepon" => "087454545676",
-                "role" => "customer",
-            ],
-            [
-                "username" => "yanti",
-                "email" => "yanti@gmail.com",
-                "password" => bcrypt("yanti"),
-                "no_telepon" => "0823545553333",
-                "role" => "mitra",
-            ],
+
 
         ];
 

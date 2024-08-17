@@ -115,7 +115,7 @@
             <div class="left_section pt-2">
                 <ul>
                     <li class="menu--item">
-                        <a href="/setting" class="menu--link" title="Setting">
+                        <a href="/settings" class="menu--link" title="Setting">
                             <i class='uil uil-cog menu--icon'></i>
                             <span class="menu--label">Setting</span>
                         </a>

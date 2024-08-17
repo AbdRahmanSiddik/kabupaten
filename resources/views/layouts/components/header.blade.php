@@ -134,13 +134,13 @@
                      </div>
                      <a href="instructor_dashboard.html" class="item channel_item">Cursus dashboard</a>
                      <a href="membership.html" class="item channel_item">Paid Memberships</a>
-                     <a href="setting.html" class="item channel_item">Setting</a>
+                     <a href="/settings" class="item channel_item">Setting</a>
                      <a href="help.html" class="item channel_item">Help</a>
                      <a href="feedback.html" class="item channel_item">Send Feedback</a>
 
 
                      @if (Auth::check())
-                         <a href="logout" class="item channel_item">Sign Out</a>
+                         <a href="/logout" class="item channel_item">Sign Out</a>
                      @else
                          <div class="item channel_item" style="cursor: pointer;" data-bs-toggle="modal"
                              data-bs-target="#modalLogin">
