@@ -395,7 +395,7 @@
 
                                     @if (Auth::check())
                                         <a href="/profile/{{ auth()->user()->token_users }} "
-                                            class="tutor_name">{{ auth()->user()->name }}</a>
+                                            class="tutor_name">{{ auth()->user()->username }}</a>
                                     @else
                                         <a href=" " class="tutor_name">Guest</a>
                                     @endif
@@ -438,7 +438,7 @@
                         <div class="strttech120">
                             <h4>Daftarkan UMKM</h4>
                             <p>Daftarkan UMKM anda dan mulai promosikan dan jual di Website E-Commerce Resmi Kami</p>
-                            <button class="Get_btn" onclick="window.location.href = '#';">Mulai Jualan</button>
+                            <button class="Get_btn" onclick="window.location.href = '/daftar/umkm';">Mulai Jualan</button>
                         </div>
                     </div>
                 </div>

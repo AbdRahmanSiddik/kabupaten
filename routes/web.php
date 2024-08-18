@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SubKategoriController;
 
@@ -79,6 +80,9 @@ Route::middleware('auth')->group(function () {
         // Route::get('/home', function () {
         //     return redirect('/page');
         // });
+
+        Route::get('/daftar/umkm', [MitraUmkmController::class, 'daftar']);
+        Route::post('/daftar/umkm', [MitraUmkmController::class, 'daftar_action']);
 
         // profile 
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);

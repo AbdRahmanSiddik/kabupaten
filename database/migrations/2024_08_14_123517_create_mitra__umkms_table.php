@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string("file_facecame");
             $table->string("logo_umkm");
             $table->enum("status", ["failed", "pending", "success", "complete"]);
+
+            $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });
     }

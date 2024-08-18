@@ -132,8 +132,9 @@
 
                                      @if (Auth::check())
                                          <h6>{{ auth()->user()->username }}</h6>
+                                     @else
+                                         <h6>Guest</h6>
                                      @endif
-                                     <h6>Guest</h6>
 
                                      <div class="mef78" title="Verify">
                                          <i class='uil uil-check-circle'></i>
