@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
         // profile 
         Route::get('/settings', [SettingsController::class, 'index']);
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
+        Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
+        Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
         // end profile
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
     });
@@ -77,6 +79,12 @@ Route::middleware('auth')->group(function () {
         // Route::get('/home', function () {
         //     return redirect('/page');
         // });
+
+        // profile 
+        Route::get('/profile/{token}', [SettingsController::class, 'profile']);
+        Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
+        Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
+        // end profile
 
         Route::get('/page', [CustomerController::class, 'index']);
     });

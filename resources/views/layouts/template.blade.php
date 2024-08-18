@@ -34,6 +34,9 @@
 </head>
 
 <body>
+
+    @include('sweetalert::alert')
+
     @include('layouts.components.header')
 
     <!-- Left Sidebar Start -->

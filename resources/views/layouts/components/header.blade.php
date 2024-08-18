@@ -106,20 +106,44 @@
              <li class="profile-dropdown">
                  <a href="#" class="opts_account" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                      aria-expanded="false">
-                     <img src="{{ asset('assets') }}/images/hd_dp.jpg" alt="">
+
+                     @if (Auth::check())
+                         <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}" width="50"
+                             height="35" alt="">
+                     @else
+                         <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
+                     @endif
                  </a>
                  <div class="dropdown-menu dropdown_account drop-down dropdown-menu-end">
                      <div class="channel_my">
                          <div class="profile_link">
-                             <img src="{{ asset('assets') }}/images/hd_dp.jpg" alt="">
+
+                             @if (Auth::check())
+                                 <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
+                                     alt="">
+                             @else
+                                 <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
+                             @endif
+
+
+
                              <div class="pd_content">
                                  <div class="rhte85">
-                                     <h6>{{ auth()->user()->username }}</h6>
+
+                                     @if (Auth::check())
+                                         <h6>{{ auth()->user()->username }}</h6>
+                                     @endif
+                                     <h6>Guest</h6>
+
                                      <div class="mef78" title="Verify">
                                          <i class='uil uil-check-circle'></i>
                                      </div>
                                  </div>
-                                 <span>{{ auth()->user()->email }}</span>
+
+                                 @if (Auth::check())
+                                     <span>{{ auth()->user()->email }}</span>
+                                 @endif
+
                              </div>
                          </div>
                          <a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>

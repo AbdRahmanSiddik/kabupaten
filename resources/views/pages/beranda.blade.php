@@ -380,12 +380,26 @@
                     <div class="right_side">
                         <div class="fcrse_2 mb-30">
                             <div class="tutor_img">
-                                <a href="my_instructor_profile_view.html"><img
-                                        src="{{ asset('assets') }}/images/left-imgs/img-10.jpg" alt=""></a>
+
+                                @if (Auth::check())
+                                    <a href="/profile/{{ auth()->user()->token_users }} "><img
+                                            src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
+                                            alt=""></a>
+                                @else
+                                    <a href=""><img src="{{ asset('assets/images/no-profile.jpg') }}"
+                                            alt=""></a>
+                                @endif
                             </div>
                             <div class="tutor_content_dt">
                                 <div class="tutor150 mb-3">
-                                    <a href="my_instructor_profile_view.html" class="tutor_name">Someone</a>
+
+                                    @if (Auth::check())
+                                        <a href="/profile/{{ auth()->user()->token_users }} "
+                                            class="tutor_name">{{ auth()->user()->name }}</a>
+                                    @else
+                                        <a href=" " class="tutor_name">Guest</a>
+                                    @endif
+
                                     <div class="mef78" title="Verify">
                                         <i class="uil uil-check-circle"></i>
                                     </div>

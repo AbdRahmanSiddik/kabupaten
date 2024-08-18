@@ -44,6 +44,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     @include('layouts.components.header')
 
 

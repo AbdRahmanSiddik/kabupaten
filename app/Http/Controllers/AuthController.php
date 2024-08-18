@@ -93,6 +93,8 @@ class AuthController extends Controller
         $authrole =  auth()->user()->role;
 
         if ($authrole == "admin") {
+            toast('Berhasil Melakukan Perubahan', 'info');
+
             return redirect('/dashboard/admin');
         } elseif ($authrole == "mitra") {
             return redirect('/dashboard/mitra');
