@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
         "no_telepon",
         'role',
+        'token_users',
         'name',
         'alamat_users',
         'foto_profile',

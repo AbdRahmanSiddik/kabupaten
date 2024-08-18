@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Settings;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -67,6 +68,7 @@ class AuthController extends Controller
             "email" => $request->email,
             "password" => bcrypt($request->password),
             "no_telepon" => $request->no_telepon,
+            "token_users" => Str::random(100),
             "role" => "customer",
             "name" => "none",
             "alamat_users" => "none",

@@ -59,8 +59,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
+
+        // profile 
         Route::get('/settings', [SettingsController::class, 'index']);
-        Route::get('/settings', [SettingsController::class, 'index']);
+        Route::get('/profile/{token}', [SettingsController::class, 'profile']);
+        // end profile
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
     });
 

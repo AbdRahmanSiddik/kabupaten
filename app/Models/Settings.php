@@ -20,9 +20,11 @@ class Settings extends Model
         return DB::Table("settings")->join('users', 'settings.users_id', '=', 'users.id')->get();
     }
 
-
-
-
+    public static function tokenProfile($token)
+    {
+        $query = DB::table('users')->where("token_users", $token);
+        return $query;
+    }
 
     public function User()
     {

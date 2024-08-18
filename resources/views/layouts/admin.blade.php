@@ -35,7 +35,7 @@
     <link href="{{ asset('assets') }}/vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/vendor/semantic/semantic.min.css">
-	<link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
 
 
     <link href="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.css" rel="stylesheet">
@@ -53,8 +53,11 @@
             <div class="left_section">
                 <ul>
                     <li class="menu--item">
-                        <a href="/dashboard" class="menu--link {{ Request::is('/dashboard') ? 'active' : '' }}"
-                            title="Dashboard">
+
+
+
+                        <a href="/dashboard/{{ auth()->user()->role }}"
+                            class="menu--link {{ Request::is('/dashboard') ? 'active' : '' }}" title="Dashboard">
                             <i class="uil uil-apps menu--icon"></i>
                             <span class="menu--label">Dashboard</span>
                         </a>
@@ -182,42 +185,42 @@
     </div>
 
 
-        <script src="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.js"></script>
-        <script src="{{ asset('assets') }}/js/vertical-responsive-menu.min.js"></script>
-        <script src="{{ asset('assets') }}/js/jquery-3.7.1.min.js"></script>
-        <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ asset('assets') }}/vendor/OwlCarousel/owl.carousel.js"></script>
-        <script src="{{ asset('assets') }}/vendor/semantic/semantic.min.js"></script>
-        <script src="{{ asset('assets') }}/vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js"></script>
-        <script src="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
-        <script src="{{ asset('assets') }}/js/custom.js"></script>
-        <script src="{{ asset('assets') }}/js/night-mode.js"></script>
-        <script src="{{ asset('assets') }}/js/jquery-steps.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.js"></script>
+    <script src="{{ asset('assets') }}/js/vertical-responsive-menu.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery-3.7.1.min.js"></script>
+    <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets') }}/vendor/OwlCarousel/owl.carousel.js"></script>
+    <script src="{{ asset('assets') }}/vendor/semantic/semantic.min.js"></script>
+    <script src="{{ asset('assets') }}/vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js"></script>
+    <script src="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="{{ asset('assets') }}/js/custom.js"></script>
+    <script src="{{ asset('assets') }}/js/night-mode.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery-steps.min.js"></script>
 
-        <script name="editor">
-            ClassicEditor
-                .create(document.querySelector('#editor'), {
-                    ckfinder: {
-                        uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}"
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            $('#add-course-tab').steps({
-              onFinish: function() {
+    <script name="editor">
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        $('#add-course-tab').steps({
+            onFinish: function() {
                 alert('Wizard Completed');
-              }
-            });
-          </script>
-          <script>
-            $(function() {
-              $(".sortable").sortable();
-              $(".sortable").disableSelection();
-            });
-          </script>
+            }
+        });
+    </script>
+    <script>
+        $(function() {
+            $(".sortable").sortable();
+            $(".sortable").disableSelection();
+        });
+    </script>
 
 </body>
 

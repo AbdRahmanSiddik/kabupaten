@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class SettingsController extends Controller
 {
@@ -16,6 +17,20 @@ class SettingsController extends Controller
 
         return view('admin.settings.setting', $dataSettings);
     }
+
+    public function profile($token)
+    {
+
+        $detailUser = [
+            'Getdata' => Settings::tokenProfile($token)->first()
+
+        ];
+
+
+        return view('admin.settings.profile', $detailUser);
+    }
+
+
     public function create()
     {
     }

@@ -23,7 +23,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="my_courses_tabs">
-
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-my-courses" role="tabpanel">
                                 <div class="table-responsive mt-30">
@@ -51,6 +50,8 @@
                                                     <td class="text-center">{{ $item->no_telepon }}</td>
                                                     <td class="text-center"><b class="course_active">Active</b></td>
                                                     <td class="text-center">
+                                                        <a href="/profile/{{ $item->token_users }}" title="Profile"
+                                                            class="gray-s"><i class="uil uil-user-square"></i></a>
                                                         <a href="#" title="Edit" class="gray-s"><i
                                                                 class="uil uil-edit-alt"></i></a>
                                                         <a href="#" title="Delete" class="gray-s"><i
