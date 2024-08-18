@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('no_telepon');
             $table->string('name')->nullable();
             $table->string('alamat_users')->nullable();
-            $table->string('foto_profile');
+            $table->string('foto_profile')->nullable();
             $table->enum('role', ["admin", "mitra", "customer"]);
             $table->timestamps();
         });
@@ -31,6 +31,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+
+
         Schema::dropIfExists('users');
     }
 };

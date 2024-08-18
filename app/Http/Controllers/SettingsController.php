@@ -7,6 +7,7 @@ use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class SettingsController extends Controller
@@ -44,32 +45,55 @@ class SettingsController extends Controller
 
 
 
-    public function profile_edit_action(Request $request,  $token)
+    public function profile_edit_action(Request $request, $token)
     {
-        // ddd($request->all());
+        // Validasi input
+        $request->validate([
+            "foto_profile" => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            "username" => 'required|string',
+            "name" => 'nullable|string',
+            "email" => 'required|email',
+            "no_telepon" => 'required|string',
+            "alamat_users" => 'nullable|string',
+        ]);
 
-        $tokenfILE = Str::random(20);
+        // Temukan pengguna berdasarkan token
+        $user = User::where("token_users", $token)->firstOrFail();
 
-        $file = $request->file('foto_profile');
-        $getFile = $tokenfILE . '.' . $file->getClientOriginalExtension();
-
-
+        // Siapkan data yang akan diupdate
         $data = [
             "username" => $request->username,
             "name" => $request->name,
             "email" => $request->email,
             "no_telepon" => $request->no_telepon,
             "alamat_users" => $request->alamat_users,
-            "foto_profile" => $getFile
         ];
 
+        // Periksa apakah file foto_profile diupload
+        if ($request->hasFile('foto_profile')) {
+            $file = $request->file('foto_profile');
+            $tokenfILE = Str::random(20);
+            $filename = $tokenfILE . '.' . $file->getClientOriginalExtension();
 
+            // Hapus gambar lama jika ada
+            if ($user->foto_profile && Storage::exists('public/foto_profile/' . $user->foto_profile)) {
+                Storage::delete('public/foto_profile/' . $user->foto_profile);
+            }
 
-        $file->move(public_path('foto_profile'), $getFile);
-        User::where("token_users", $token)->update($data);
+            // Simpan gambar baru
+            $file->move(public_path('foto_profile'), $filename);
 
+            // Tambahkan path gambar ke data yang akan diupdate
+            $data['foto_profile'] = $filename;
+        }
+
+        // Perbarui data pengguna
+        $user->update($data);
+
+        // Berikan pesan sukses
         toast('Berhasil Melakukan Perubahan', 'success');
 
+        // Redirect ke halaman lain
         return redirect('/page');
     }
 
