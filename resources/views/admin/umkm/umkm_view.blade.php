@@ -55,11 +55,12 @@
                                         <thead class="thead-s">
                                             <tr>
                                                 <th class="text-center" scope="col">No.</th>
-                                                <th class="text-center" scope="col">Nama Produk</th>
-                                                <th class="text-center" scope="col">Harga</th>
-                                                <th class="text-center" scope="col">Deskripsi
-                                                </th>
-                                                <th class="text-center" scope="col">Stok</th>
+                                                <th class="text-center" scope="col">Nama</th>
+                                                <th class="text-center" scope="col">Nama UMKM</th>
+                                                <th class="text-center" scope="col">Alamat UMKM</th>
+                                                <th class="text-center" scope="col">Logo UMKM</th>
+                                                <th class="text-center" scope="col">Foto KTP</th>
+                                                <th class="text-center" scope="col">File FaceCame</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
                                             </tr>
@@ -69,11 +70,12 @@
                                             @foreach ($getdata as $get)
                                                 <tr>
                                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                                    <td>{{ $get->nama_produk }}</td>
-                                                    <td class="text-center">default</td>
-                                                    <td class="text-center " style="max-width: 15rem;">{{ $get->deskripsi }}
-                                                    </td>
-                                                    <td class="text-center"><a href="#">default</a></td>
+                                                    <td class="text-center">{{ $get->name }}</td>
+                                                    <td class="text-center">{{ $get->nama_umkm }}</td>
+                                                    <td class="text-center">{{ $get->alamat_umkm }}</td>
+                                                    <td class="text-center">{{ $get->logo_umkm }}</td>
+                                                    <td class="text-center">{{ $get->foto_ktp }}</td>
+                                                    <td class="text-center">{{ $get->file_facecame }}</td>
                                                     <td class="text-center"><b class="course_active">Active</b></td>
                                                     <td class="text-center">
                                                         <a href="#" title="Edit" class="gray-s"><i

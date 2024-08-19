@@ -76,7 +76,11 @@ class AuthController extends Controller
 
 
         ];
-        User::create($dataRegister);
+
+        $user = User::create($dataRegister);
+
+        Auth::login($user);
+
         return redirect('/');
     }
 
