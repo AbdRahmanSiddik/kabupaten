@@ -13,6 +13,7 @@ use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\SubKategoriController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Rute untuk pengguna tamu
+
 Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return redirect('/berung-madhure');
@@ -40,37 +41,56 @@ Route::middleware('guest')->group(function () {
     Route::get('/produk', [ProduksController::class, 'produk']);
 });
 
-// Rute untuk pengguna yang telah diautentikasi
+
+
+// Rute verifikasi email
 Route::middleware('auth')->group(function () {
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->name('verification.notice');
+
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        return redirect('/home');
+    })->middleware('signed')->name('verification.verify');
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link sent!');
+    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+});
 
 
 
 
+
+// Rute untuk pengguna yang telah diverifikasi
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/page', [CustomerController::class, 'index']);
+
+    // Rute untuk pengguna setelah login
     Route::get('/home', [AuthController::class, 'AuthRole__']);
+
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
-
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
-        Route::get('/produk', [ProduksController::class, 'index']);
-        Route::get('/produk-baru', [ProduksController::class, 'create']);
-        Route::post('/produk-baru', [ProduksController::class, 'create_action']);
-        Route::get('/ukuran', [UkuransController::class, 'index']);
-        Route::get('/foto-produk', [FotoProduksController::class, 'index']);
-        Route::get('/kategori', [KategorisController::class, 'index']);
-        Route::post('/kategori', [KategorisController::class, 'create_action']);
-        Route::post('/kategori/{id}/edit', [KategorisController::class, 'update']);
-        Route::get('/kategori/{id}/hapus', [KategorisController::class, 'delete']);
+        Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store']);
+        Route::resource('/ukuran', UkuransController::class)->only(['index']);
+        Route::resource('/foto-produk', FotoProduksController::class)->only(['index']);
+        Route::resource('/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
 
-        // profile 
+        // Profile
         Route::get('/settings', [SettingsController::class, 'index']);
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
-        // end profile
+
+        // Upload CKEditor
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
     });
 
@@ -79,40 +99,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
     });
 
-
+    // Rute untuk customer
     Route::middleware('userAkses:customer')->group(function () {
-
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
-        Route::get('/page', [CustomerController::class, 'index']);
-        // End profile
 
-        // Halaman utama untuk customer
-
-
-
-
+        // UMKM
         Route::get('/daftar/umkm', [MitraUmkmController::class, 'daftar']);
         Route::post('/daftar/umkm', [MitraUmkmController::class, 'daftar_action']);
     });
 
-
-    // Route untuk email sudah dikirimkan
-    Route::get('/email/verify', function () {
-        return view('auth.verify-email');
-    })->name('verification.notice');
-
-
-
-
-    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-        $request->fulfill();
-
-        return redirect('/hello');
-    })->middleware(['signed'])->name('verification.verify');
-
-
-    Route::get('/logout', [AuthController::class, 'logout']);
+    // Logout
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\EmailVariy;
 use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -63,7 +66,8 @@ class AuthController extends Controller
         //     'passwords' => 'required',
         // ]);
 
-        $dataRegister = [
+
+        $user = User::create([
             "username" => $request->username,
             "email" => $request->email,
             "password" => bcrypt($request->password),
@@ -73,15 +77,15 @@ class AuthController extends Controller
             "name" => "none",
             "alamat_users" => "none",
             "foto_profile" => "none"
+        ]);
 
-
-        ];
-
-        $user = User::create($dataRegister);
-
+        event(new Registered($user));
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/email/verify');
+
+
+        // Mail::to($dataRegister['email'])->send(new EmailVariy());
     }
 
     public function logout()
