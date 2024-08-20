@@ -16,7 +16,7 @@
             <div class="col-md-6">
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title text-success">Email Berhasil Dikirim!</h5>
+                        <h5 class="card-title text-success">Email Verifikasi Dibutuhkan</h5>
                         <p class="card-text">
                             Silakan cek email
                             <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"
@@ -27,18 +27,24 @@
                             ulang.
                         </p>
 
+                        <!-- Menampilkan pesan sukses jika ada -->
+                        @if (session('message'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
                         <div class="d-flex justify-content-center gap-2 mt-3">
                             <!-- Form untuk Resend Verification -->
-                            <form action="/email/verification-notification" method="POST">
+                            <form method="POST" action="{{ route('verification.send') }}">
+                                @csrf
                                 <button type="submit" class="btn btn-danger">Kirim Ulang Verifikasi</button>
                             </form>
 
-                            <!-- Form untuk Logout -->
+                            <!-- Tombol Logout -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="btn btn-dark">
-                                    {{ __('Log Out') }}
-                                </button>
+                                <button type="submit" class="btn btn-dark">Log Out</button>
                             </form>
                         </div>
                     </div>
