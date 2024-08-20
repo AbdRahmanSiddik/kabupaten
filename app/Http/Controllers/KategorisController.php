@@ -14,7 +14,7 @@ class KategorisController extends Controller
         return view('admin.kategori.kategori', compact('kategori'));
     }
 
-    public function create_action(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'nama_kategori' => 'required|unique:kategoris'
@@ -24,7 +24,7 @@ class KategorisController extends Controller
 
         Kategori::create(['nama_kategori' => $request->nama_kategori]);
 
-        return redirect('/admin/kategori');
+        return redirect()->route('kategori.index');
     }
 
     public function update(Request $request, $id)
@@ -40,7 +40,7 @@ class KategorisController extends Controller
         return redirect('/admin/kategori');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $data_produk = Pivot_Produk_Kategori::where('kategoris_id', $id)->first();
         if (isset($data_produk)) {

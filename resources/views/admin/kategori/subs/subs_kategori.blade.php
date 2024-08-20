@@ -15,7 +15,7 @@
               <h1>Bukan Sembarang Kategori {{ $kategori->nama_kategori }}</h1>
             </div>
             <div class="card_dash_right1">
-              <a class="btn btn-warning" href="/admin/kategori" >kembali</a>
+              <a class="btn btn-warning pt-2" href="/kategori" >kembali</a>
               <button class="create_btn_dash" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah
                 Sub Kategori</button>
 
@@ -24,7 +24,7 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                    <form action="', $kategori->id_kategoris) }}" method="POST">
+                    <form action="/kategori/{{ $kategori->id_kategoris }}/subs" method="POST">
                       @csrf
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Sub Kategori {{ $kategori->nama_kategori }}</h1>
@@ -98,7 +98,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="create_btn_dash"><a href="/admin/kategori/{{ $get->id_sub_kategori }}/subs_hapus" style="color: white;">Hapus</a></button>
+                            <button class="create_btn_dash"><a href="/kategori/{{ $get->id_sub_kategori }}/subs_hapus" style="color: white;">Hapus</a></button>
                           </div>
                         </div>
                       </div>
@@ -109,7 +109,7 @@
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                          <form action="/admin/kategori/{{ $get->kategori_id }}/{{ $get->id_sub_kategori }}/subs" method="POST">
+                          <form action="/kategori/{{ $get->kategori_id }}/{{ $get->id_sub_kategori }}/subs" method="POST">
                             @csrf
                             <div class="modal-header">
                               <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Kategori

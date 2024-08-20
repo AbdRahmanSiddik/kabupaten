@@ -55,23 +55,33 @@ class ProduksController extends Controller
         return view('admin.produks.produk_create', compact('kategoris'));
     }
 
-    public function create_action(Request $request)
+    public function store(Request $request)
     {
         // $request->validate([
 
         // ]);
         $token = uniqid('', true);
+        $token_file = uniqid(13);
         $userId = auth()->user()->id;
+        $file = $request->file('thumbnail');
+        if(isset($file)){
+            $file_name = $token_file.'.'.$file->getClientOriginalExtension();
+        } else {
+            $file_name = "default.png";
+        }
         $produk = [
             'token_produk' => $token,
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
-            'thumbnail' => $request->thumbnail,
+            'thumbnail' => $file_name,
             'sub_kategori_id' => $request->sub_kategori,
             'users_id' => $userId,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
 
         $produk = Produk::insertGetId($produk);
+        $file->move('thumbnail_produk', $file_name);
 
         $rawDataAtribut = AtributProduk::rawData($produk, [
             'varians' => $request->input('varian', []),
@@ -84,17 +94,17 @@ class ProduksController extends Controller
         return redirect("/produk");
     }
 
-    public function update($id)
+    public function edit($id)
     {
         return view();
     }
 
-    public function update_action(Request $request, $id)
+    public function update(Request $request, $id)
     {
         return redirect();
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         return redirect();
     }

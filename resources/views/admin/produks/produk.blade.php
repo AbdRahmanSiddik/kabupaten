@@ -14,8 +14,8 @@
                             <h1>Jual Produk Baru Sekarang</h1>
                         </div>
                         <div class="card_dash_right1">
-                            <button class="create_btn_dash" onclick="window.location.href = '/admin/produk-baru';">Jual
-                                Produk</button>
+                            <a class="create_btn_dash p-3" href="{{ route('produk.create') }}">Jual
+                                Produk</a>
                         </div>
                     </div>
                 </div>
