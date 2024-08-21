@@ -71,10 +71,12 @@
                         <tr>
                           <td class="text-center">{{ $loop->iteration }}</td>
                           <td>{{ $get->nama_produk }}</td>
-                          <td class="text-center"></td>
+                          <td class="text-center">
+                            Rp. {{ number_format($get->harga_terendah) }} - Rp. {{ number_format($get->harga_tertinggi) }}
+                          </td>
                           <td class="text-center " style="max-width: 15rem;">{{ $get->deskripsi }}
                           </td>
-                          <td class="text-center"><a href="#">default</a></td>
+                          <td class="text-center">{{ $get->total_stok }}</td>
                           <td class="text-center"><b class="course_active">Active</b></td>
                           <td class="text-center">
                             <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>

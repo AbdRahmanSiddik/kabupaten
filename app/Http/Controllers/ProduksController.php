@@ -12,6 +12,7 @@ use App\Models\Ukuran;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProduksController extends Controller
 {
@@ -35,8 +36,9 @@ class ProduksController extends Controller
     public function index()
     {
 
+        $data = Produk::ProdukJoinUsers();
         $dataProduk = [
-            "dataProduk" => Produk::ProdukJoinUsers()->get()
+            'dataProduk' => $data,
         ];
 
         return view('admin.produks.produk', $dataProduk);
