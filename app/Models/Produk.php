@@ -14,6 +14,7 @@ class Produk extends Model
 
     public static function ProdukJoinUsers()
     {
-        return  DB::Table("produks")->join("users", "produks.users_id", "=", "users.id");
+        return  DB::Table("produks")->join("users", "produks.users_id", "=", "users.id")
+            ->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id');
     }
 }
