@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Pivot_Produk_Kategori;
+use App\Models\SubKategori;
 use Illuminate\Http\Request;
 
 class KategorisController extends Controller
@@ -37,17 +38,17 @@ class KategorisController extends Controller
 
         Kategori::where('id_kategoris', $id)->update(['nama_kategori' => $request->nama_kategori]);
 
-        return redirect('/admin/kategori');
+        return redirect()->route('kategori.index');
     }
 
     public function destroy($id)
     {
-        $data_produk = Pivot_Produk_Kategori::where('kategoris_id', $id)->first();
+        $data_produk = SubKategori::where('kategori_id', $id)->first();
         if (isset($data_produk)) {
-            return redirect('/admin/kategori')->with(['success' => 'ada produk yang masih menggunakan kategori ini']);
+            return redirect('/kategori')->with(['success' => 'ada produk yang masih menggunakan kategori ini']);
         }
 
         Kategori::where('id_kategoris', $id)->delete();
-        return redirect('/admin/kategori')->with(['success' => 'Berhasil Menghapus Data']);
+        return redirect('/kategori')->with(['success' => 'Berhasil Menghapus Data']);
     }
 }

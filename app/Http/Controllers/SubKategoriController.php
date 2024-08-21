@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Pivot_Produk_Kategori;
+use App\Models\Produk;
 use App\Models\SubKategori;
 use Illuminate\Http\Request;
 
@@ -42,22 +43,21 @@ class SubKategoriController extends Controller
                 'kategori_id' => $id,
                 'nama_sub_kategori' => $request->nama_kategori,
             ]);
-        return redirect('/admin/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
+        return redirect('/kategori/' . $id . '/subs')->with(['success' => 'Berhasil Hore']);
     }
 
     public function destroy($sub_id)
     {
-        $cek_sub = Pivot_Produk_Kategori::join('sub_kategoris', 'pivot__produk__kategoris.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')
-            ->where('sub_kategori_id', $sub_id)->first();
+        $cek_sub = Produk::where('sub_kategori_id', $sub_id)->first();
         if (isset($cek_sub)) {
-            return redirect('/admin/kategori/' . $cek_sub->kategori_id . '/subs')
+            return redirect('/kategori/' . $cek_sub->kategori_id . '/subs')
                 ->with(['success' => 'Sub Kategori ini masih digunakan di produk']);
         }
 
         $id = SubKategori::where('id_sub_kategori', $sub_id)->first();
 
         SubKategori::where('id_sub_kategori', $sub_id)->delete();
-        return redirect('/admin/kategori/' . $id->kategori_id . '/subs')
+        return redirect('/kategori/' . $id->kategori_id . '/subs')
             ->with(['success' => 'Berhasil menghapus data']);
     }
 }
