@@ -27,11 +27,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return redirect('/berung-madhure');
-    })->name('login');
-
-    Route::get('/berung-madhure', [AuthController::class, 'index']);
+    Route::get('/', [AuthController::class, 'index'])->name('login');
     Route::get('/kategori', [KategorisController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
@@ -85,7 +81,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
         Route::get('/kategori/{sub_id}/subs_hapus', [SubKategoriController::class, 'destroy']);
-
         // Profile
         Route::get('/settings', [SettingsController::class, 'index']);
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);

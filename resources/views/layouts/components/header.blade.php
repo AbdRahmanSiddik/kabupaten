@@ -108,8 +108,13 @@
                      aria-expanded="false">
 
                      @if (Auth::check())
-                         <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}" width="50"
-                             height="35" alt="">
+                         @if (auth()->user()->foto_profile == null)
+                             <img src="{{ asset('') }}assets/images/no-profile.jpg " width="50"
+                                 height="35" alt="">
+                         @else
+                             <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}" width="50"
+                                 height="35" alt="">
+                         @endif
                      @else
                          <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
                      @endif
@@ -119,8 +124,13 @@
                          <div class="profile_link">
 
                              @if (Auth::check())
-                                 <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
-                                     alt="">
+                                 @if (auth()->user()->foto_profile == null)
+                                     <img src="{{ asset('') }}assets/images/no-profile.jpg " width="50"
+                                         height="35" alt="">
+                                 @else
+                                     <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
+                                         width="50" height="35" alt="">
+                                 @endif
                              @else
                                  <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
                              @endif

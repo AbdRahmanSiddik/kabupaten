@@ -64,8 +64,8 @@ class ProduksController extends Controller
         $token_file = uniqid(13);
         $userId = auth()->user()->id;
         $file = $request->file('thumbnail');
-        if(isset($file)){
-            $file_name = $token_file.'.'.$file->getClientOriginalExtension();
+        if (isset($file)) {
+            $file_name = $token_file . '.' . $file->getClientOriginalExtension();
         } else {
             $file_name = "default.png";
         }
