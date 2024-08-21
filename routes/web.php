@@ -73,7 +73,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
-        Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store']);
+        Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
         Route::resource('/ukuran', UkuransController::class)->only(['index']);
         Route::resource('/foto-produk', FotoProduksController::class)->only(['index']);
         Route::resource('/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);

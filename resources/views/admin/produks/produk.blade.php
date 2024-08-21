@@ -58,7 +58,7 @@
                         <th class="text-center" scope="col">No.</th>
                         <th class="text-center" scope="col">Nama Produk</th>
                         <th class="text-center" scope="col">Harga</th>
-                        <th class="text-center" scope="col">Deskripsi
+                        <th class="text-center" scope="col">Ukuran
                         </th>
                         <th class="text-center" scope="col">Stok</th>
                         <th class="text-center" scope="col">Status</th>
@@ -72,17 +72,58 @@
                           <td class="text-center">{{ $loop->iteration }}</td>
                           <td>{{ $get->nama_produk }}</td>
                           <td class="text-center">
-                            Rp. {{ number_format($get->harga_terendah) }} - Rp. {{ number_format($get->harga_tertinggi) }}
+                            @if ($get->harga_terendah == $get->harga_tertinggi)
+                              Rp. {{ number_format($get->harga_terendah, 0, ',', '.') }}
+                            @else
+                              Rp. {{ number_format($get->harga_terendah, 0, ',', '.') }} - Rp.
+                              {{ number_format($get->harga_tertinggi, 0, ',', '.') }}
+                            @endif
                           </td>
-                          <td class="text-center " style="max-width: 15rem;">{{ $get->deskripsi }}
+                          <td class="text-center " style="max-width: 15rem;">
+                            @if ($get->ukuran_terendah == $get->ukuran_tertinggi)
+                              {{ $get->ukuran_terendah }}
+                            @else
+                              {{ $get->ukuran_terendah }} - {{ $get->ukuran_tertinggi }}
+                            @endif
                           </td>
                           <td class="text-center">{{ $get->total_stok }}</td>
                           <td class="text-center"><b class="course_active">Active</b></td>
                           <td class="text-center">
-                            <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                            <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                            <a href="{{ route('produk.edit', $get->id_produks) }}" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
+                            <a role="button" title="Delete" data-bs-toggle="modal"
+                              data-bs-target="#staticBackdrop{{ $get->id_produks }}" class="gray-s"><i
+                                class="uil uil-trash-alt"></i></a>
                           </td>
                         </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop{{ $get->id_produks }}" data-bs-backdrop="static"
+                          data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                          aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Hapus Produk</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body text-center">
+                                Yakin ingin menghapus produk {{ $get->nama_produk }}<br>
+                                <span class="text-danger">Kategori ini akan terhapus jika produk dengan kategori ini
+                                  sudah tidak ada</span>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form action="{{ route('produk.destroy', $get->id_produks) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="create_btn_dash" type="submit"><a role="button"
+                                      style="color: white;">Hapus</a></button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       @endforeach
                     </tbody>
                   </table>
