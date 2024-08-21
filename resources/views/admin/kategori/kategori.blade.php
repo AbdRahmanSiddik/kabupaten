@@ -99,7 +99,11 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="create_btn_dash"><a href="/admin/kategori/{{ $get->id_kategoris }}/hapus" style="color: white;">Hapus</a></button>
+                            <form action="{{ route('kategori.destroy', $get->id_kategoris) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button class="create_btn_dash" type="submit"><a role="button" style="color: white;">Hapus</a></button>
+                            </form>
                           </div>
                         </div>
                       </div>
@@ -110,8 +114,9 @@
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                          <form action="/admin/kategori/{{ $get->id_kategoris }}/edit" method="POST">
+                          <form action="{{ route('kategori.update', $get->id_kategoris) }}/edit}}" method="POST">
                             @csrf
+                            @method("PUT")
                             <div class="modal-header">
                               <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Kategori
                                 {{ $get->nama_kategori }}</h1>
