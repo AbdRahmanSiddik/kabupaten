@@ -15,20 +15,23 @@ class Produk extends Model
     public static function ProdukJoinUsers()
     {
         return  DB::Table("produks")
-        ->select('produks.*', 'users.id', 'atribut_produk.*',
-                                  DB::raw('MIN(atribut_produk.harga) as harga_terendah'),
-                                  DB::raw('MAX(atribut_produk.harga) as harga_tertinggi'),
-                                  DB::raw('SUM(atribut_produk.stok) as total_stok'))
-                        ->join("users", "produks.users_id", "=", "users.id")
-                        ->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
-                        ->groupBy(
-                            'produks.id_produks',
-                            'produks.nama_produk',
-                            'produks.thumbnail',
-                            'produks.deskripsi',
-                            'produks.sub_kategori_id',
-                            'produks.users_id'
-                        )
-                        ->get();
+        ->select('produks.*',
+                DB::raw('MIN(atribut_produk.harga) as harga_terendah'),
+                DB::raw('MAX(atribut_produk.harga) as harga_tertinggi'),
+                DB::raw('SUM(atribut_produk.stok) as total_stok'),
+                DB::raw('MIN(atribut_produk.ukuran) as ukuran_terendah'),
+                DB::raw('MAX(atribut_produk.ukuran) as ukuran_tertinggi')
+                )
+                ->join("users", "produks.users_id", "=", "users.id")
+                ->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
+                ->groupBy(
+                    'produks.id_produks',
+                    'produks.nama_produk',
+                    'produks.thumbnail',
+                    'produks.deskripsi',
+                    'produks.sub_kategori_id',
+                    'produks.users_id'
+                )
+                ->get();
     }
 }

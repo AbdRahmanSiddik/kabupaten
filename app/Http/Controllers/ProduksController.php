@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProduksController extends Controller
 {
@@ -35,7 +36,6 @@ class ProduksController extends Controller
 
     public function index()
     {
-
         $data = Produk::ProdukJoinUsers();
         $dataProduk = [
             'dataProduk' => $data,
@@ -46,7 +46,6 @@ class ProduksController extends Controller
 
     public function produk()
     {
-
         return view('pages.produk');
     }
 
@@ -69,7 +68,7 @@ class ProduksController extends Controller
         if (isset($file)) {
             $file_name = $token_file . '.' . $file->getClientOriginalExtension();
         } else {
-            $file_name = "default.png";
+            $file_name = 'default.png';
         }
         $produk = [
             'token_produk' => $token,
@@ -93,21 +92,64 @@ class ProduksController extends Controller
         ]);
         AtributProduk::insert($rawDataAtribut);
 
-        return redirect("/produk");
+        return redirect('/produk');
     }
 
     public function edit($id)
     {
-        return view();
+        $detail = Produk::where('id_produks', $id)->first();
+        $atribut = AtributProduk::where('produks_id', $id)->get();
+        $kategoris = kategori::with('subs')->get();
+        return view('admin.produks.produk_edit', compact('kategoris', 'detail', 'atribut'));
     }
 
     public function update(Request $request, $id)
     {
-        return redirect();
+        // $request->validate([
+
+        // ]);
+        $token = uniqid('', true);
+        $token_file = uniqid(13);
+        $userId = auth()->user()->id;
+        $file = $request->file('thumbnail');
+        if (isset($file)) {
+            $file_name = $token_file . '.' . $file->getClientOriginalExtension();
+            $file->move('thumbnail_produk', $file_name);
+            $sebelumnya = Produk::where('id_produks', $id)->first()->thumbnail;
+            File::delete(asset('thumbnail_produk/'.$sebelumnya));
+        } else {
+            $file_name = Produk::where('id_produks', $id)->first()->thumbnail;
+        }
+        $produk = [
+            'token_produk' => $token,
+            'nama_produk' => $request->nama_produk,
+            'deskripsi' => $request->deskripsi,
+            'thumbnail' => $file_name,
+            'sub_kategori_id' => $request->sub_kategori,
+            'users_id' => $userId,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+
+        Produk::where('id_produks', $id)->update($produk);
+        AtributProduk::where('produks_id', $id)->delete();
+
+        $rawDataAtribut = AtributProduk::rawData($id, [
+            'varians' => $request->input('varian', []),
+            'ukurans' => $request->input('ukuran', []),
+            'hargas' => $request->input('harga', []),
+            'stoks' => $request->input('stok', []),
+        ]);
+        AtributProduk::insert($rawDataAtribut);
+
+        return redirect()->route('produk.index');
     }
 
     public function destroy($id)
     {
-        return redirect();
+        AtributProduk::where('produks_id', $id)->delete();
+        Produk::where('id_produks', $id)->delete();
+
+        return redirect()->route('produk.index');
     }
 }
