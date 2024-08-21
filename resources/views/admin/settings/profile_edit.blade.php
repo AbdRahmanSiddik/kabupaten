@@ -105,22 +105,43 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon input swdh11 swdh19">
-                                                                    <input class=" srch_explore" type="file"
-                                                                        name="foto_profile"
-                                                                        value="{{ $Getdata->foto_profile }}">
+                                                            <div class="ui search focus lbel25 mt-15">
+                                                                <label class="label25 text-left">Thumbnail Produk
+                                                                    <small>*</small></label>
+                                                                <div class="thumb-item">
+                                                                    <!-- Gambar default -->
+
+                                                                    @if (Auth::check())
+                                                                        @if (auth()->user()->foto_profile == null)
+                                                                            <img id="thumbnail-preview"
+                                                                                src="{{ asset('') }}assets/images/thumbnail-demo.jpg"
+                                                                                alt="Thumbnail Produk"
+                                                                                style="width: 100%; height: auto;">
+                                                                        @else
+                                                                            <img id="thumbnail-preview"
+                                                                                src="{{ asset('foto_profile/' . $Getdata->foto_profile) }}"
+                                                                                alt="Thumbnail Produk"
+                                                                                style="width: 100%; height: auto;">
+                                                                        @endif
+                                                                    @endif
+
+                                                                    <div class="thumb-dt">
+                                                                        <div class="upload-btn">
+                                                                            <!-- Input file -->
+                                                                            <input class="uploadBtn-main-input"
+                                                                                type="file"
+                                                                                id="ThumbFile__input--source"
+                                                                                name="foto_profile" accept="image/*">
+                                                                            <label for="ThumbFile__input--source"
+                                                                                title="Zip">Choose
+                                                                                Thumbnail</label>
+                                                                        </div>
+                                                                        <span class="uploadBtn-main-file">Size: 590x300
+                                                                            pixels. Supports: jpg, jpeg, or png</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <!-- Preview Gambar -->
-                                                            <div class="mt-3">
-                                                                <img id="imagePreview"
-                                                                    src="{{ asset('foto_profile/' . $Getdata->foto_profile) }}"
-                                                                    alt="Profile Picture"
-                                                                    style="max-width: 100%; height: auto;">
-                                                            </div>
                                                         </div>
-
                                                         <div class="col-lg-12">
                                                             <div class="divider-1"></div>
                                                         </div>
@@ -129,6 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     {{-- <div class="basic_profile1">
                                     <div class="basic_ptitle">
                                         <h4>Profile Links</h4>
@@ -1554,5 +1576,23 @@
         </div>
     </div>
 
-    <!-- Body End -->
+    <script>
+        document.getElementById('ThumbFile__input--source').addEventListener('change', function(event) {
+            // Ambil file yang dipilih
+            var file = event.target.files[0];
+
+            // Pastikan file ada dan merupakan gambar
+            if (file && file.type.startsWith('image/')) {
+                var reader = new FileReader();
+
+                // Ketika file telah dibaca, tampilkan hasilnya di <img>
+                reader.onload = function(e) {
+                    document.getElementById('thumbnail-preview').src = e.target.result;
+                };
+
+                // Baca file sebagai URL data
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 @endsection

@@ -31,6 +31,18 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/vendor/semantic/semantic.min.css">
 
+
+
+    <link href="{{ asset('assets') }}/css/vertical-responsive-menu1.min.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/instructor-dashboard.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/instructor-responsive.css" rel="stylesheet">
+
+
+    <!-- Vendor Stylesheets -->
+    <link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>

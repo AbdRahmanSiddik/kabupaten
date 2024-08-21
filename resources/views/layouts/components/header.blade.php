@@ -126,10 +126,10 @@
                              @if (Auth::check())
                                  @if (auth()->user()->foto_profile == null)
                                      <img src="{{ asset('') }}assets/images/no-profile.jpg " width="50"
-                                         height="35" alt="">
+                                         style="width: 50px; height: 45px; " height="35" alt="">
                                  @else
                                      <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
-                                         width="50" height="35" alt="">
+                                         style="width: 50px; height: 45px; " alt="">
                                  @endif
                              @else
                                  <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
@@ -172,7 +172,6 @@
                      <a href="/settings" class="item channel_item">Setting</a>
                      <a href="help.html" class="item channel_item">Help</a>
                      <a href="feedback.html" class="item channel_item">Send Feedback</a>
-
 
                      @if (Auth::check())
                          <a href="/logout" class="item channel_item">Sign Out</a>

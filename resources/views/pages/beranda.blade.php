@@ -383,15 +383,20 @@
 
                                 @if (Auth::check())
                                     @if (auth()->user()->foto_profile == null)
-                                        <img src="{{ asset('') }}assets/images/no-profile.jpg " width="50"
-                                            height="35" alt="">
+                                        <a href="/profile/{{ auth()->user()->token_users }} "> <img
+                                                src="{{ asset('') }}assets/images/no-profile.jpg " width="50"
+                                                height="35" alt=""></a>
                                     @else
-                                        <img src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
-                                            width="50" height="35" alt="">
+                                        <a href="/profile/{{ auth()->user()->token_users }} "><img
+                                                src="{{ asset('foto_profile/' . auth()->user()->foto_profile) }}"
+                                                alt=""></a>
                                     @endif
                                 @else
-                                    <img src="{{ asset('assets') }}/images/no-profile.jpg" alt="">
+                                    <a href=""><img src="{{ asset('assets/images/no-profile.jpg') }}"
+                                            alt=""></a>
                                 @endif
+
+
                             </div>
                             <div class="tutor_content_dt">
                                 <div class="tutor150 mb-3">

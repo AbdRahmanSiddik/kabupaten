@@ -74,7 +74,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('userAkses:admin')->group(function () {
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
         Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store']);
-        Route::resource('/ukuran', UkuransController::class)->only(['index']);
+        // Route::resource('/ukuran', UkuransController::class)->only(['index']);
         Route::resource('/foto-produk', FotoProduksController::class)->only(['index']);
         Route::resource('/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);

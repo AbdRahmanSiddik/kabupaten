@@ -62,7 +62,7 @@ class AuthController extends Controller
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
             'no_telepon' => 'nullable|string|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
 
@@ -75,7 +75,7 @@ class AuthController extends Controller
             "role" => "customer",
             "name" => "none",
             "alamat_users" => "none",
-            "foto_profile" => "none"
+            "foto_profile" => null
         ]);
 
 
