@@ -116,7 +116,7 @@ class ProduksController extends Controller
             $file_name = $token_file . '.' . $file->getClientOriginalExtension();
             $file->move('thumbnail_produk', $file_name);
             $sebelumnya = Produk::where('id_produks', $id)->first()->thumbnail;
-            File::delete(asset('thumbnail_produk/'.$sebelumnya));
+            File::delete('thumbnail_produk/'.$sebelumnya);
         } else {
             $file_name = Produk::where('id_produks', $id)->first()->thumbnail;
         }
