@@ -149,6 +149,7 @@ class ProduksController extends Controller
     {
         AtributProduk::where('produks_id', $id)->delete();
         Produk::where('id_produks', $id)->delete();
+        File::delete('thumbnail_produk/'.Produk::where('id_produks', $id)->first()->thumbnail);
 
         return redirect()->route('produk.index');
     }
