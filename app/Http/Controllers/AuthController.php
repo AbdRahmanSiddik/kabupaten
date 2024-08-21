@@ -58,13 +58,12 @@ class AuthController extends Controller
     public function register_action(Request $request)
     {
 
-
-        // $request->validate([
-        //     'username' => 'required|string|max:255',
-        //     "email" => 'required|string|max:255',
-        //     'no_telepon' => 'nullable|string|max:255',
-        //     'passwords' => 'required',
-        // ]);
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'no_telepon' => 'nullable|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
 
         $user = User::create([
@@ -79,14 +78,16 @@ class AuthController extends Controller
             "foto_profile" => "none"
         ]);
 
+
         event(new Registered($user));
+
+
         Auth::login($user);
 
+
         return redirect('/email/verify');
-
-
-        // Mail::to($dataRegister['email'])->send(new EmailVariy());
     }
+
 
     public function logout()
     {

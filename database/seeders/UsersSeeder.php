@@ -16,12 +16,37 @@ class UsersSeeder extends Seeder
     {
         $data = [
             [
-                "username" => "anandamw",
-                "email" => "ananda@gmail.com",
+                "username" => "admin",
+                "email" => "admin@gmail.com",
+                "email_verified_at" => now(),
                 "password" => bcrypt("123"),
                 "no_telepon" => "087740505052",
                 "name" => "",
                 "role" => "admin",
+                "token_users" => Str::random(100),
+                "alamat_users" => '',
+                'foto_profile' => ''
+            ],
+            [
+                "username" => "customer",
+                "email" => "customer@gmail.com",
+                "email_verified_at" => now(),
+                "password" => bcrypt("123"),
+                "no_telepon" => "087740505052",
+                "name" => "",
+                "role" => "customer",
+                "token_users" => Str::random(100),
+                "alamat_users" => '',
+                'foto_profile' => ''
+            ],
+            [
+                "username" => "mitra",
+                "email" => "mitra@gmail.com",
+                "email_verified_at" => now(),
+                "password" => bcrypt("123"),
+                "no_telepon" => "087740505052",
+                "name" => "",
+                "role" => "mitra",
                 "token_users" => Str::random(100),
                 "alamat_users" => '',
                 'foto_profile' => ''
