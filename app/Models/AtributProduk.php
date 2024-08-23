@@ -35,4 +35,9 @@ class AtributProduk extends Model
 
         return $atributProduks;
     }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'produks_id', 'id_produks');
+    }
 }

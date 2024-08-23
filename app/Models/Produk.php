@@ -35,4 +35,9 @@ class Produk extends Model
             )
             ->get();
     }
+
+    public function atr()
+    {
+        return $this->hasMany(AtributProduk::class, 'produks_id', 'id_produks');
+    }
 }
