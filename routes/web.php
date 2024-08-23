@@ -73,14 +73,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
         Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
-<<<<<<< HEAD
-        Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store']);
-        // Route::resource('/ukuran', UkuransController::class)->only(['index']);
-=======
         Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
-        Route::resource('/ukuran', UkuransController::class)->only(['index']);
->>>>>>> 508da8c3a2a3c678834c82a782df71a0d9a6def6
-        Route::resource('/foto-produk', FotoProduksController::class)->only(['index']);
+        // Route::resource('/ukuran', UkuransController::class)->only(['index']);
+        Route::resource('/foto-produk', FotoProduksController::class)->only(['index', 'update']);
         Route::resource('/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);

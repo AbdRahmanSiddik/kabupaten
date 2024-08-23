@@ -9,6 +9,7 @@ class AtributProduk extends Model
 {
     use HasFactory;
     protected $table = 'atribut_produk';
+    protected $primaryKey = 'id_atribut_produk';
     protected $guarded = ['id_atribut_produk'];
 
     public static function rawData($produkId, array $data)

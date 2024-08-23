@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("ukuran");
             $table->decimal("harga", 15, 2);
             $table->unsignedInteger("stok")->default(0);
-            $table->string("foto_produk");
+            $table->string("foto_produk")->nullable();
 
             $table->unsignedBigInteger("produks_id");
             $table->foreign("produks_id")->references("id_produks")->on('produks');
