@@ -46,75 +46,44 @@
 
                 <div class="col-lg-6 col-md-8">
                     <div class="sign_form">
-                        <h2>Yuk Daftarkan UMKM!
+                        <h2>Yuk Berswafoto Untuk Melengkapi Persyaratan Pendaftar UMKM
                         </h2>
-                        <p>Daftar untuk membuat toko</p>
-                        <form action="/daftar/umkm" method="POST" enctype="multipart/form-data">
+                        <p>Daftar untuk membuat toko </p>
+                        <form action="/selfie/{{ $detail->token_umkm }}/update" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
-                            <div class="ui search focus">
-                                <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="text" value="{{ old('nama_umkm') }}"
-                                        name="nama_umkm" id="id_username" placeholder="Nama UMKM" autofocus />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="my_camera"></div>
+                                    <br />
+                                    <input type="hidden" name="file_facecame" class="image-tag">
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <br />
+                                    <input type="button" class="btn btn-success" onClick="take_snapshot()"
+                                        value="Take Snapshot">
                                 </div>
                             </div>
-                            <div class="ui search focus mt-15">
-                                <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="text" name="alamat_umkm" id="email"
-                                        placeholder="Alamat UMKM" />
-                                </div>
-                            </div>
-
-                            <div class="ui search focus mt-15  d-flex flex-column align-items-baseline ">
-                                <label for="foto_ktp" class=" ">Foto KTP <span class="text-danger">*</span>
-                                </label>
-                                <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="file" name="foto_ktp" id="foto_ktp" />
-                                </div>
-                            </div>
-
-                            {{-- <div class="ui search focus mt-15  d-flex flex-column align-items-baseline">
-                                <label for="file_facecame">Selfie (jpg, png, jpeg) <span
-                                        class="text-danger">*</span></label>
-                                <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="file" name="file_facecame"
-                                        id="file_facecame" accept="image/jpeg,image/png,image/jpg" />
-                                </div>
-                            </div> --}}
-                            <div class="ui search focus mt-15  d-flex flex-column align-items-baseline ">
-                                <label for="logo_umkm" class=" ">Logo UMKM <span class="text-danger">*</span>
-                                </label>
-                                <div class="ui left icon input swdh11 swdh19">
-                                    <input class="prompt srch_explore" type="file" name="logo_umkm" id="logo_umkm" />
-                                </div>
-                            </div>
-
-
-                            <div class="ui form mt-30 checkbox_sign">
-                                <div class="inline field">
-                                    <div class="ui checkbox mncheck">
-                                        <input type="checkbox" tabindex="0" class="hidden" />
-                                        <label>
-                                            Saya menerima email dengan diskon menarik dan
-                                            rekomendasi yang dipersonalisasi </label>
+                            <!-- Modal -->
+                            <div class="modal fade" id="snapshotModal" tabindex="-1" role="dialog"
+                                aria-labelledby="snapshotModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="snapshotModalLabel">Captured Image</h5>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <div id="modal-results">Your captured image will appear here...</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <button class="login-btn" type="submit">Daftar</button>
                         </form>
-                        <p class="sgntrm145">
-                            Dengan mendaftar, Anda menyetujui Ketentuan
-                            <a href="#">
-                                Penggunaan
-                            </a>
-                            dan
-                            <a href="#">
-                                Kebijakan Privasi
-                            </a>
-                            kami.
-                        </p>
-                        <p class="mb-0 mt-30">
-                            Sudah punya akun? <a href="/">Masuk</a>
-                        </p>
                     </div>
                     <div class="sign_footer">
                         {{-- <img src="{{ asset('') }}assets/images/sign_logo.png" alt="" />© 2024
@@ -125,6 +94,30 @@
         </div>
     </div>
     <!-- Signup End -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+    <script language="JavaScript">
+        Webcam.set({
+            width: 490,
+            height: 350,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+
+        Webcam.attach('#my_camera');
+
+        function take_snapshot() {
+            Webcam.snap(function(data_uri) {
+                // Set the captured image as a value in the hidden input
+                $(".image-tag").val(data_uri);
+
+                // Show the captured image in the modal
+                document.getElementById('modal-results').innerHTML = '<img src="' + data_uri +
+                    '" style="width: 100%; height: auto;" />';
+                $('#snapshotModal').modal('show');
+            });
+        }
+    </script>
 
     <script src="{{ asset('') }}assets/js/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

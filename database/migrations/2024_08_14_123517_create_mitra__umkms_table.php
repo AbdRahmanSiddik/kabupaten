@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('mitra_umkms', function (Blueprint $table) {
             $table->unsignedBigInteger("id_mitra_umkms")->autoIncrement();
+            $table->string("token_umkm")->uniqid();
             $table->string("nama_umkm");
             $table->string("alamat_umkm");
             $table->string("foto_ktp");

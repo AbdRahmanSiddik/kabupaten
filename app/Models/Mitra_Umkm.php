@@ -11,6 +11,7 @@ class Mitra_Umkm extends Model
     use HasFactory;
 
     protected $table = "mitra_umkms";
+    protected $primaryKey = 'id_mitra_umkms';
     protected $guarded = ["id_mitra_umkms", "status"];
 
 
@@ -18,5 +19,11 @@ class Mitra_Umkm extends Model
     {
         $query = DB::table('mitra_umkms')->join('users', 'mitra_umkms.users_id', '=', 'users.id');
         return $query;
+    }
+
+
+    public static function TokenMitra($token)
+    {
+        return DB::table('mitra_umkms')->where('token_umkm', $token)->get();
     }
 }

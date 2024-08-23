@@ -5,30 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
     public function index()
     {
-        $produks = Produk::with(['atr' => function($query) {
+        $produks = Produk::with(['atr' => function ($query) {
             $query->select('produks_id', 'stok', 'harga')
-                  ->orderBy('harga', 'asc'); // Urutkan harga untuk kemudahan
+                ->orderBy('harga', 'asc'); // Urutkan harga untuk kemudahan
         }])
-        ->orderBy('created_at', 'desc')
-        ->take(5)
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
 
-        // Loop untuk mengkalkulasi stok dan rentang harga
-        foreach ($produks as $produk) {
-            // Kalkulasi total stok
-            $produk->total_stok = $produk->atr->sum('stok');
+        $data = [
+            'getCustomer' => DB::table('mitra_umkms')
+                ->join('users', 'mitra_umkms.users_id', '=', 'users.id')->first()
+        ];
 
-            // Dapatkan harga terendah dan tertinggi
-            $produk->harga_terendah = $produk->atr->min('harga');
-            $produk->harga_tertinggi = $produk->atr->max('harga');
-        }
-
-        return view('pages.beranda', compact('produks'));
+        return view('pages.beranda', $data, compact('produks'));
     }
 
 

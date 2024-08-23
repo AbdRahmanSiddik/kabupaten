@@ -108,8 +108,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
 
         // UMKM
+        Route::get('/umkm/{id}', [MitraUmkmController::class, 'show'])->name('umkm.show');
+
         Route::get('/daftar/umkm', [MitraUmkmController::class, 'daftar']);
         Route::post('/daftar/umkm', [MitraUmkmController::class, 'daftar_action']);
+        Route::get('/selfie', [MitraUmkmController::class, 'selfie']);
+        Route::post('/selfie/{token}/update', [MitraUmkmController::class, 'update_action']);
     });
 
     // Logout
