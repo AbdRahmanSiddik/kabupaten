@@ -73,8 +73,9 @@ class AuthController extends Controller
             "no_telepon" => $request->no_telepon,
             "token_users" => Str::random(100),
             "role" => "customer",
-            "name" => "none",
-            "alamat_users" => "none",
+            "name" => null,
+            "deskripsi" => null,
+            "alamat_users" => null,
             "foto_profile" => null
         ]);
 

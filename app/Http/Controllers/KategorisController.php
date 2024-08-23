@@ -24,6 +24,7 @@ class KategorisController extends Controller
         ]);
 
         Kategori::create(['nama_kategori' => $request->nama_kategori]);
+        toast('Berhasil Menambahkan Data ', 'success');
 
         return redirect()->route('kategori.index');
     }
@@ -37,6 +38,7 @@ class KategorisController extends Controller
         ]);
 
         Kategori::where('id_kategoris', $id)->update(['nama_kategori' => $request->nama_kategori]);
+        toast('Berhasil Mengubah Data ', 'success');
 
         return redirect()->route('kategori.index');
     }
@@ -49,6 +51,8 @@ class KategorisController extends Controller
         }
 
         Kategori::where('id_kategoris', $id)->delete();
+        toast('Berhasil Menghapus Data ', 'success');
+
         return redirect('/kategori')->with(['success' => 'Berhasil Menghapus Data']);
     }
 }

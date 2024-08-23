@@ -77,6 +77,7 @@ class ProduksController extends Controller
         ]);
         AtributProduk::insert($rawDataAtribut);
 
+        toast('Berhasil Menambahkan Data ', 'success');
 
         return redirect(auth()->user()->role . '/foto-produk' . "?id=$produk");
     }
@@ -127,6 +128,7 @@ class ProduksController extends Controller
             'stoks' => $request->input('stok', []),
         ]);
         AtributProduk::insert($rawDataAtribut);
+        toast('Berhasil Memperbarui Data ', 'success');
 
         return redirect()->route('produk.index');
     }
@@ -136,6 +138,7 @@ class ProduksController extends Controller
         AtributProduk::where('produks_id', $id)->delete();
         Produk::where('id_produks', $id)->delete();
         File::delete('thumbnail_produk/' . Produk::where('id_produks', $id)->first()->thumbnail);
+        toast('Berhasil Menghapus Data ', 'success');
 
         return redirect()->route('produk.index');
     }

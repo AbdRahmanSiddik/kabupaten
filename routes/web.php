@@ -11,6 +11,7 @@ use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\SubKategoriController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -86,9 +87,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
 
+        Route::resource('/admin/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
+
         // Upload CKEditor
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
     });
+
 
     // Rute untuk mitra
     Route::middleware('userAkses:mitra')->group(function () {
