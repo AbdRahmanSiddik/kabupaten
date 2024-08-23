@@ -2,8 +2,11 @@
 
 
 @section('content')
+    <link href="{{ asset('assets') }}/css/instructor-dashboard.css" rel="stylesheet">
+
     <!-- Body Start -->
-    <div class="sa4d25">
+
+    {{-- <div class="sa4d25"> --}}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -89,7 +92,8 @@
                                                             <div class="ui search focus mt-30">
                                                                 <div class="ui left icon input swdh11 swdh19">
                                                                     <input class="prompt srch_explore" type="text"
-                                                                        name="no_telepon" value="{{ $Getdata->no_telepon }}"
+                                                                        name="no_telepon"
+                                                                        value="{{ $Getdata->no_telepon }}"
                                                                         placeholder="No Telepon">
                                                                 </div>
                                                             </div>
@@ -1574,7 +1578,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 
     <script>
         document.getElementById('ThumbFile__input--source').addEventListener('change', function(event) {

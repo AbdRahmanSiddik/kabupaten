@@ -34,7 +34,6 @@
 
 
     <link href="{{ asset('assets') }}/css/vertical-responsive-menu1.min.css" rel="stylesheet">
-    <link href="{{ asset('assets') }}/css/instructor-dashboard.css" rel="stylesheet">
     <link href="{{ asset('assets') }}/css/instructor-responsive.css" rel="stylesheet">
 
 
