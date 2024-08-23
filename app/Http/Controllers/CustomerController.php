@@ -11,20 +11,20 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $produks = Produk::with(['atr' => function ($query) {
-            $query->select('produks_id', 'stok', 'harga')
-                ->orderBy('harga', 'asc'); // Urutkan harga untuk kemudahan
-        }])
-            ->orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
+        // $produks = Produk::with(['atr' => function ($query) {
+        // $query->select('produks_id', 'stok', 'harga')
+        // ->orderBy('harga', 'asc');
+        // }])
+        // ->orderBy('created_at', 'desc')
+        // ->take(5)
+        // ->get();
 
         $data = [
-            'getCustomer' => DB::table('mitra_umkms')
+            'getStatus' => DB::table('mitra_umkms')
                 ->join('users', 'mitra_umkms.users_id', '=', 'users.id')->first()
         ];
 
-        return view('pages.beranda', $data, compact('produks'));
+        return view('pages.beranda', $data);
     }
 
 

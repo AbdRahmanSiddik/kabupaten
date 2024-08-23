@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Mitra_Umkm;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -18,7 +19,8 @@ class HakAksesController extends Controller
         $dataHakAkses = [
             "RoleAdmin" => User::where('role', 'admin')->get(),
             "RoleCustomer" => User::where('role', 'customer')->get(),
-            "RoleMitra" => User::where('role', 'mitra')->get()
+            "RoleMitra" => User::where('role', 'mitra')->get(),
+            "getPendaftarUMKM" => Mitra_Umkm::JoinUMKMToUser__()->get(),
         ];
 
         return view('admin.hak_akses.index', $dataHakAkses);
@@ -146,7 +148,7 @@ class HakAksesController extends Controller
             "foto_profile" => $file_name,
         ]);
 
-        toast('Berhasil Memperbarui Data ','success');
+        toast('Berhasil Memperbarui Data ', 'success');
 
 
         // Redirect ke route yang diinginkan
@@ -169,7 +171,7 @@ class HakAksesController extends Controller
 
         // Hapus data pengguna
         $user->delete();
-        toast('Berhasil Hapus Data ','success');
+        toast('Berhasil Hapus Data ', 'success');
 
         // Redirect ke route yang diinginkan dengan pesan sukses
         return redirect()->route('hak-akses.index')->with('success', 'User deleted successfully');

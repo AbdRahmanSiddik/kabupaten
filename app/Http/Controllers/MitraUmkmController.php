@@ -16,6 +16,8 @@ class MitraUmkmController extends Controller
     {
         $dataUmkm = [
             "getdata" => Mitra_Umkm::JoinUMKMToUser__()->get(),
+
+
         ];
 
         return view('admin.umkm.umkm_view', $dataUmkm);
@@ -59,13 +61,10 @@ class MitraUmkmController extends Controller
             'file_facecame' => 'none',
             'logo_umkm' => $LOGO_UMKM_NAME,
             'token_umkm' => $TOKEN,
-            'status' => 'failed'
+            'status' => 'pending'
         ];
 
-
-
         // Perbarui data user
-
 
         // Simpan UMKM dan ambil ID-nya
         $umkmId = Mitra_Umkm::insertGetId($datauser);
