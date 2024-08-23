@@ -17,22 +17,7 @@ use Illuminate\Support\Facades\File;
 
 class ProduksController extends Controller
 {
-    public function ckeditor(Request $request)
-    {
-        if ($request->hasFile('upload')) {
-            $token = Str::random(10);
 
-            $originName = $request->file('upload')->getClientOriginalName();
-            $fileName = pathinfo($originName, PATHINFO_FILENAME);
-            $extension = $request->file('upload')->getClientOriginalExtension();
-            $fileName = $token . '.' . $extension;
-
-            $request->file('upload')->move(public_path('media'), $fileName);
-
-            $url = asset('media/' . $fileName);
-            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
-        }
-    }
 
     public function index()
     {
@@ -92,7 +77,8 @@ class ProduksController extends Controller
         ]);
         AtributProduk::insert($rawDataAtribut);
 
-        return redirect('/foto-produk'."?id=$produk");
+
+        return redirect(auth()->user()->role . '/foto-produk' . "?id=$produk");
     }
 
     public function edit($id)
@@ -116,7 +102,7 @@ class ProduksController extends Controller
             $file_name = $token_file . '.' . $file->getClientOriginalExtension();
             $file->move('thumbnail_produk', $file_name);
             $sebelumnya = Produk::where('id_produks', $id)->first()->thumbnail;
-            File::delete('thumbnail_produk/'.$sebelumnya);
+            File::delete('thumbnail_produk/' . $sebelumnya);
         } else {
             $file_name = Produk::where('id_produks', $id)->first()->thumbnail;
         }
@@ -149,8 +135,26 @@ class ProduksController extends Controller
     {
         AtributProduk::where('produks_id', $id)->delete();
         Produk::where('id_produks', $id)->delete();
-        File::delete('thumbnail_produk/'.Produk::where('id_produks', $id)->first()->thumbnail);
+        File::delete('thumbnail_produk/' . Produk::where('id_produks', $id)->first()->thumbnail);
 
         return redirect()->route('produk.index');
+    }
+
+
+    public function ckeditor(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $token = Str::random(10);
+
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $token . '.' . $extension;
+
+            $request->file('upload')->move(public_path('media'), $fileName);
+
+            $url = asset('media/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
+        }
     }
 }

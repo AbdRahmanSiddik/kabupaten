@@ -65,18 +65,17 @@ Route::middleware('auth')->group(function () {
 
 // Rute untuk pengguna yang telah diverifikasi
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/page', [CustomerController::class, 'index']);
 
     // Rute untuk pengguna setelah login
     Route::get('/home', [AuthController::class, 'AuthRole__']);
 
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
-        Route::get('/dashboard/admin', [DashboardController::class, 'dashboard']);
-        Route::resource('/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
+        Route::get('/admin/dashboard', [DashboardController::class, 'dashboard']);
+        Route::resource('/admin/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
         // Route::resource('/ukuran', UkuransController::class)->only(['index']);
-        Route::resource('/foto-produk', FotoProduksController::class)->only(['index', 'update']);
-        Route::resource('/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('/admin/foto-produk', FotoProduksController::class)->only(['index', 'update']);
+        Route::resource('/admin/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
         Route::post('/kategori/{id}/{sub_id}/subs', [SubKategoriController::class, 'update']);
@@ -93,11 +92,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Rute untuk mitra
     Route::middleware('userAkses:mitra')->group(function () {
-        Route::get('/dashboard/mitra', [DashboardController::class, 'dashboard']);
+        Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
     });
 
     // Rute untuk customer
     Route::middleware('userAkses:customer')->group(function () {
+        Route::get('/page', [CustomerController::class, 'index']);
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);

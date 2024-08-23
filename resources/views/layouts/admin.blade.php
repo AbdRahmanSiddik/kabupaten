@@ -39,6 +39,7 @@
 
 
     <link href="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.css" rel="stylesheet">
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 
 
 </head>
@@ -55,38 +56,39 @@
             <div class="left_section">
                 <ul>
                     <li class="menu--item">
-
-
-
-                        <a href="/dashboard/{{ auth()->user()->role }}"
-                            class="menu--link {{ Request::is('/dashboard') ? 'active' : '' }}" title="Dashboard">
+                        <a href="/{{ auth()->user()->role }}/dashboard/"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                            title="Dashboard">
                             <i class="uil uil-apps menu--icon"></i>
                             <span class="menu--label">Dashboard</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/produk" class="menu--link {{ Request::is('/produk') ? 'active' : '' }}"
+                        <a href="/{{ auth()->user()->role }}/produk"
+                            class="menu--link {{ request()->is(auth()->user()->role . 'produk') ? 'active' : '' }}"
                             title="Courses">
                             <i class='uil uil-book-alt menu--icon'></i>
                             <span class="menu--label">Produk Saya</span>
                         </a>
                     </li>
+                    {{-- <li class="menu--item"> --}}
+                    {{-- <a href="/ukuran" class="menu--link {{ Request::is('/ukuran') ? 'active' : '' }}" --}}
+                    {{-- title="Analyics"> --}}
+                    {{-- <i class='uil uil-analysis menu--icon'></i> --}}
+                    {{-- <span class="menu--label">Ukuran</span> --}}
+                    {{-- </a> --}}
+                    {{-- </li> --}}
                     <li class="menu--item">
-                        <a href="/ukuran" class="menu--link {{ Request::is('/ukuran') ? 'active' : '' }}"
-                            title="Analyics">
-                            <i class='uil uil-analysis menu--icon'></i>
-                            <span class="menu--label">Ukuran</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="/kategori" class="menu--link {{ Request::is('/kategori') ? 'active' : '' }}"
+                        <a href="/{{ auth()->user()->role }}/kategori"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/kategori') ? 'active' : '' }}"
                             title="Create Course">
                             <i class='uil uil-plus-circle menu--icon'></i>
                             <span class="menu--label">Kategori</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/foto-produk" class="menu--link {{ Request::is('/foto-produk') ? 'active' : '' }}"
+                        <a href="/{{ auth()->user()->role }}/foto-produk"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/foto-produk') ? 'active' : '' }}"
                             title="Create Course">
                             <i class='uil uil-picture menu--icon'></i>
                             <span class="menu--label">Foto Produk</span>
@@ -127,9 +129,11 @@
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="feedback.html" class="menu--link" title="Send Feedback">
-                            <i class='uil uil-comment-alt-exclamation menu--icon'></i>
-                            <span class="menu--label">Send Feedback</span>
+                        <a href="/{{ auth()->user()->role }}/hak-akses"
+                            class="menu--link  {{ request()->is(auth()->user()->role . '/hak-akses') ? 'active' : '' }} "
+                            title="Send Feedback">
+                            <i class='uil uil-user menu--icon'></i>
+                            <span class="menu--label">Hak Akses</span>
                         </a>
                     </li>
                 </ul>
@@ -185,6 +189,7 @@
             </div>
         </footer>
     </div>
+
 
 
     <script src="https://cdn.datatables.net/v/dt/dt-2.1.3/datatables.min.js"></script>

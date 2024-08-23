@@ -49,9 +49,9 @@ class FotoProduksController extends Controller
 
                     // Tentukan atribut produk terkait berdasarkan urutan
                     $atributProduk = AtributProduk::where('produks_id', $id)
-                    ->orderBy('produks_id')
-                    ->skip($index)
-                    ->first();
+                        ->orderBy('produks_id')
+                        ->skip($index)
+                        ->first();
 
                     if ($atributProduk) {
                         // Update kolom foto_produk di tabel atribut_produk
