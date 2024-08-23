@@ -30,7 +30,7 @@
                                 <label class="label25 text-left">Foto Varian {{ $item->nama_varian }} <small class="text-danger">{{ $item->ukuran }}</small></label>
                                 <div class="thumb-item">
                                   <!-- Gambar default -->
-                                  <img id="thumbnail-preview{{ $item->id_atribut_produk }}" src="{{ asset('') }}assets/images/thumbnail-demo.jpg"
+                                  <img id="thumbnail-preview{{ $item->id_atribut_produk }}" src="{{ is_null($item->foto_produk) ? asset('assets/images/thumbnail-demo.jpg') : asset('foto-varian/' . $item->foto_produk) }}"
                                     alt="Thumbnail Produk" style="width: 100%; height: auto;">
                                   <div class="thumb-dt">
                                     <div class="upload-btn">

@@ -92,7 +92,7 @@ class ProduksController extends Controller
         ]);
         AtributProduk::insert($rawDataAtribut);
 
-        return redirect('/produk');
+        return redirect('/foto-produk'."?id=$produk");
     }
 
     public function edit($id)
