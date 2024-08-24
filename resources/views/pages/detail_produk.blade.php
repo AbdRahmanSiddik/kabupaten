@@ -13,7 +13,8 @@
                                     <div class="preview_video">
                                         <a href="#" class="fcrse_img" data-bs-toggle="modal"
                                             data-bs-target="#videoModal">
-                                            <img src="{{ asset('') }}assets/images/courses/img-1.png" alt="">
+                                            <img src="{{ asset('thumbnail_produk/' . $getsData->thumbnail) }}"
+                                                alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
                                                 <span class="play_btn1"><i class="uil uil-play"></i></span>
@@ -32,8 +33,8 @@
                                 </div>
                                 <div class="col-xl-8 col-lg-7 col-md-6">
                                     <div class="_215b03">
-                                        <h2>COPEMAN : Coklat Pedas Manual</h2>
-                                        <span class="_215b04">Makanan, Cemilan</span>
+                                        <h2>{{ $getsData->nama_produk }}</h2>
+                                        <span class="_215b04">{{ $getsData-> }}</span>
                                     </div>
                                     <div class="_215b05">
                                         <div class="crse_reviews mr-2">

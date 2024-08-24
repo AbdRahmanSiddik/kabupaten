@@ -15,6 +15,12 @@ return new class extends Migration
             $table->unsignedBigInteger("id_transaksis")->autoIncrement();
             $table->string("token_transaksi");
 
+
+            $table->unsignedBigInteger("produks_id");
+
+            $table->foreign('produks_id')->references('id_produks')->on('produks');
+
+
             $table->date("tanggal_transaksi");
             $table->string('total_transaksi');
             $table->enum('status', ["failed", "pending", "success", "complete"]);

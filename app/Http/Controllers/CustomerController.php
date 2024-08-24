@@ -18,11 +18,11 @@ class CustomerController extends Controller
 
             'produks' => Produk::with([
                 'atr' => function ($query) {
-                $query->select('produks_id', 'stok', 'harga')
-                    ->orderBy('harga', 'asc');
+                    $query->select('produks_id', 'stok', 'harga')
+                        ->orderBy('harga', 'asc');
                 },
-                'subs' => function ($query){
-                    $query->select('id_sub_kategori','nama_sub_kategori')->get();
+                'subs' => function ($query) {
+                    $query->select('id_sub_kategori', 'nama_sub_kategori')->get();
                 },
             ])
                 ->orderBy('created_at', 'desc')
@@ -36,15 +36,22 @@ class CustomerController extends Controller
     public function produk()
     {
 
-        $allData = [
-
-        ];
 
         return view('pages.produk');
     }
 
 
-    public function produk_detail() {}
+    public function produk_detail($token)
+    {
+        $allData = [
+            'getsData' => DB::table('produks')
+
+        ];
+
+
+
+        return view('pages.detail_produk', $allData);
+    }
 
 
     public function create()

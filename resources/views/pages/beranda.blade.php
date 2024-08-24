@@ -101,48 +101,50 @@
                             <div class="owl-carousel featured_courses owl-theme">
 
                                 @foreach ($produks as $item)
-                                <div class="item">
-                                    <div class="fcrse_1 mb-20">
-                                        <a href="/produk/detail" class="fcrse_img">
-                                            <img src="{{ asset("thumbnail_produk/$item->thumbnail") }}" alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">Bestseller</div>
-                                                <div class="crse_reviews">
-                                                    <i class='uil uil-star'></i>4.5
+                                    <div class="item">
+                                        <div class="fcrse_1 mb-20">
+                                            <a href="/produk/{{ $item->token_produk }}/detail" class="fcrse_img">
+                                                <img src="{{ asset("thumbnail_produk/$item->thumbnail") }}" alt="">
+                                                <div class="course-overlay">
+                                                    <div class="badge_seller">Bestseller</div>
+                                                    <div class="crse_reviews">
+                                                        <i class='uil uil-star'></i>4.5
+                                                    </div>
+                                                    <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                 </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Bagikan</span>
-                                                    <span><i class="uil uil-shopping-cart-alt"></i>Simpan</span>
-                                                    <span><i class="uil uil-windsock"></i>Laporkan</span>
+                                            </a>
+                                            <div class="fcrse_content">
+                                                <div class="eps_dots more_dropdown">
+                                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                    <div class="dropdown-content">
+                                                        <span><i class='uil uil-share-alt'></i>Bagikan</span>
+                                                        <span><i class="uil uil-shopping-cart-alt"></i>Simpan</span>
+                                                        <span><i class="uil uil-windsock"></i>Laporkan</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">{{ $item->atr->sum('stok') }} Tersisa</span>
-                                                <span class="vdt14"> Terjual</span>
-                                            </div>
-                                            <a href="/produk/detail" class="crse14s">{{ $item->nama_produk }}</a>
-                                            <a href="#" class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
-                                                <div class="prce142">
-                                                    @if ($item->atr->min('harga') == $item->atr->max('harga'))
-                                                        Rp {{ number_format($item->atr->max('harga')) }}
-                                                    @else
-                                                    Rp {{ number_format($item->atr->min('harga')) }} - Rp {{ number_format($item->atr->max('harga')) }}
-                                                    @endif
+                                                <div class="vdtodt">
+                                                    <span class="vdt14">{{ $item->atr->sum('stok') }} Tersisa</span>
+                                                    <span class="vdt14"> Terjual</span>
                                                 </div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
+                                                <a href="/produk/detail" class="crse14s">{{ $item->nama_produk }}</a>
+                                                <a href="#"
+                                                    class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
+                                                <div class="auth1lnkprce">
+                                                    <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
+                                                    <div class="prce142">
+                                                        @if ($item->atr->min('harga') == $item->atr->max('harga'))
+                                                            Rp {{ number_format($item->atr->max('harga')) }}
+                                                        @else
+                                                            Rp {{ number_format($item->atr->min('harga')) }} - Rp
+                                                            {{ number_format($item->atr->max('harga')) }}
+                                                        @endif
+                                                    </div>
+                                                    <button class="shrt-cart-btn" title="cart"><i
+                                                            class="uil uil-shopping-cart-alt"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
 
                             </div>

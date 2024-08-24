@@ -64,8 +64,8 @@
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/produk"
-                            class="menu--link {{ request()->is(auth()->user()->role . 'produk') ? 'active' : '' }}"
+                        <a href="/{{ auth()->user()->role }}-produk"
+                            class="menu--link {{ request()->is(auth()->user()->role . '-produk') ? 'active' : '' }}"
                             title="Courses">
                             <i class='uil uil-book-alt menu--icon'></i>
                             <span class="menu--label">Produk Saya</span>

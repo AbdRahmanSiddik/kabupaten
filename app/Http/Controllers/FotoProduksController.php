@@ -64,7 +64,7 @@ class FotoProduksController extends Controller
             }
         }
 
-        return redirect()->route('produk.index');
+        return redirect(auth()->user()->role . '-produk');
     }
 
     public function destroy($id)

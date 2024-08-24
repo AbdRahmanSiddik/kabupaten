@@ -98,7 +98,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Rute untuk mitra
     Route::middleware('userAkses:mitra')->group(function () {
         Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
-        Route::resource('/mitra/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
+        // Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'store', 'destroy', 'edit', 'update']);
+        Route::get('/mitra-produk', [ProduksController::class, 'index']);
+        Route::get('/mitra-produk/create', [ProduksController::class, 'create']);
+        Route::post('/mitra-produk/create', [ProduksController::class, 'store']);
+        Route::get('/mitra-produk{id}/edit', [ProduksController::class, 'edit']);
+        Route::post('/mitra-produk{id}/edit', [ProduksController::class, 'update']);
+        Route::get('/mitra-produk{id}/hapus', [ProduksController::class, 'destroy']);
+
         Route::resource('/mitra/foto-produk', FotoProduksController::class)->only(['index', 'update']);
 
         // Route::resource('/mitra/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
@@ -108,12 +115,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('userAkses:customer')->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
-        Route::get('/produk/{token}/detail/', [CustomerController::class, 'produk_detail']);
+        Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
-
         // UMKM
         Route::get('/umkm/{id}', [MitraUmkmController::class, 'show'])->name('umkm.show');
 

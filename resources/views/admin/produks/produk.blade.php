@@ -13,8 +13,10 @@
                             <i class="uil uil-book-alt"></i>
                             <h1>Jual Produk Baru Sekarang</h1>
                         </div>
+
+
                         <div class="card_dash_right1">
-                            <a class="create_btn_dash p-3" href="{{ route('admin-produk.create') }}">Jual
+                            <a class="create_btn_dash p-3" href="{{ auth()->user()->role . '-produk/create' }}">Jual
                                 Produk</a>
                         </div>
                     </div>
@@ -113,11 +115,11 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body d-flex justify-content-around">
-                                                                <a href="{{ route('foto-produk.index') }}?id={{ $get->id_produks }}"
+                                                                <a href="{{ auth()->user()->role . '-produk/create' }}?id={{ $get->id_produks }}"
                                                                     class="create_btn_dash rounded pt-2">Edit Foto
                                                                     Produk</a>
-                                                                <a href="{{ route('produk.edit', $get->id_produks) }}"
-                                                                    class="create_btn_dash rounded pt-2">Edit Produk</a>
+                                                                {{-- <a href="{{ route('produk.edit', $get->id_produks) }}" --}}
+                                                                class="create_btn_dash rounded pt-2">Edit Produk</a>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
@@ -148,15 +150,10 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <form
-                                                                    action="{{ route('produk.destroy', $get->id_produks) }}"
-                                                                    method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="create_btn_dash" type="submit"><a
-                                                                            role="button"
-                                                                            style="color: white;">Hapus</a></button>
-                                                                </form>
+                                                                <button class="create_btn_dash" type="submit">
+                                                                    <a href="/{{ auth()->user()->role }}-produk/{{ $get->id_produks }}/hapus"
+                                                                        style="color: white;">Hapus</a>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>

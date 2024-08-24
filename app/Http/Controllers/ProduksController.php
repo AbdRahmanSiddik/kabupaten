@@ -130,7 +130,7 @@ class ProduksController extends Controller
         AtributProduk::insert($rawDataAtribut);
         toast('Berhasil Memperbarui Data ', 'success');
 
-        return redirect()->route('produk.index');
+        return redirect(auth()->user()->role . '-produk');
     }
 
     public function destroy($id)
