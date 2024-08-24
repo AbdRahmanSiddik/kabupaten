@@ -57,13 +57,15 @@
                 <h6 class="left_title">BERANDA</h6>
                 <ul>
                     <li class="menu--item">
-                        <a href="/" class="menu--link active" title="Home">
+                        <a href="/beranda" class="menu--link {{ request()->is('beranda') ? 'active' : '' }}"
+                            title="Home">
                             <i class='uil uil-home-alt menu--icon'></i>
                             <span class="menu--label">Beranda</span>
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="/produk" class="menu--link" title="Explore">
+                        <a href="/produk" class="menu--link {{ request()->is('produk') ? 'active' : '' }}"
+                            title="Explore">
                             <i class='uil uil-layer-group menu--icon'></i>
                             <span class="menu--label"> Produk</span>
                         </a>

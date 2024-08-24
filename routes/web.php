@@ -105,7 +105,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Rute untuk customer
     Route::middleware('userAkses:customer')->group(function () {
-        Route::get('/page', [CustomerController::class, 'index']);
+        Route::get('/beranda', [CustomerController::class, 'index']);
+        Route::get('/produk', [CustomerController::class, 'produk']);
+        Route::get('/produk/{token}/detail/', [CustomerController::class, 'produk_detail']);
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);

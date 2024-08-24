@@ -40,7 +40,7 @@ class AuthController extends Controller
             } elseif (auth()->user()->role == 'mitra') {
                 return redirect('/mitra/dashboard');
             } elseif (auth()->user()->role == 'customer') {
-                return redirect('/page');
+                return redirect('/beranda');
             } else {
                 return redirect('/')->with('error', 'Role Tidak Diketahui');
             }
@@ -109,7 +109,7 @@ class AuthController extends Controller
         } elseif ($authrole == "mitra") {
             return redirect('/mitra/dashboard');
         } elseif ($authrole == 'customer') {
-            return redirect('/page');
+            return redirect('/beranda');
         }
     }
 }
