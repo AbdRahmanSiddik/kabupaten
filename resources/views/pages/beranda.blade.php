@@ -100,10 +100,11 @@
                         <div class="la5lo1">
                             <div class="owl-carousel featured_courses owl-theme">
 
+                                @foreach ($produks as $item)
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
                                         <a href="/produk/detail" class="fcrse_img">
-                                            <img src="{{ asset('assets') }}/images/courses/img-1.png" alt="">
+                                            <img src="{{ asset("thumbnail_produk/$item->thumbnail") }}" alt="">
                                             <div class="course-overlay">
                                                 <div class="badge_seller">Bestseller</div>
                                                 <div class="crse_reviews">
@@ -122,20 +123,27 @@
                                                 </div>
                                             </div>
                                             <div class="vdtodt">
-                                                <span class="vdt14">100 Tersisa</span>
-                                                <span class="vdt14">20 Terjual</span>
+                                                <span class="vdt14">{{ $item->atr->sum('stok') }} Tersisa</span>
+                                                <span class="vdt14"> Terjual</span>
                                             </div>
-                                            <a href="/produk/detail" class="crse14s">Copeman : Coklat Pedas Manual</a>
+                                            <a href="/produk/detail" class="crse14s">{{ $item->nama_produk }}</a>
                                             <a href="#" class="crse-cate">Makanan</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
-                                                <div class="prce142">Rp 11.999.</div>
+                                                <div class="prce142">
+                                                    @if ($item->atr->min('harga') == $item->atr->max('harga'))
+                                                        Rp {{ number_format($item->atr->max('harga')) }}
+                                                    @else
+                                                    Rp {{ number_format($item->atr->min('harga')) }} - Rp {{ number_format($item->atr->max('harga')) }}
+                                                    @endif
+                                                </div>
                                                 <button class="shrt-cart-btn" title="cart"><i
                                                         class="uil uil-shopping-cart-alt"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
 
                                 <div class="item">
                                     <div class="fcrse_1 mb-20">
