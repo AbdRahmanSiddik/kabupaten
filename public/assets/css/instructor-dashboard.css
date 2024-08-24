@@ -4101,10 +4101,14 @@ i.icon8 {
 }
 
 .alert_verification {
-    background: #fff;
-    border: 1px solid #efefef;
+    /* background: #fff; */
+    /* border: 1px solid #efefef; */
     border-radius: 3px;
     margin-top: 30px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .alert_verification li {

@@ -83,9 +83,13 @@ class HakAksesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function details(string $token)
     {
-        //
+        // Data sudah diambil dari fungsi TokenMitraUsers
+        $data = Mitra_Umkm::TokenMitraUsers($token);
+        // dd($data);
+        // Menampilkan halaman dengan data yang diambil
+        return view('admin.hak_akses.hakases_detail', compact('data'));
     }
 
     /**

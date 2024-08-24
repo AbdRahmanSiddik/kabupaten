@@ -32,6 +32,17 @@ class Mitra_Umkm extends Model
         return $query;
     }
 
+    public static function TokenMitraUsers($token)
+    {
+        // Eksekusi query langsung dengan first()
+        $query = DB::table('mitra_umkms')
+            ->join('users', 'mitra_umkms.users_id', '=', 'users.id')
+            ->where('mitra_umkms.token_umkm', $token)
+            ->first(); // Eksekusi langsung
+
+        return $query; // Mengembalikan hasil query
+    }
+
 
 
     public static function TokenMitra($token)

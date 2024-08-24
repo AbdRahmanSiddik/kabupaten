@@ -87,7 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
         Route::post('/profile/{token}/edit', [SettingsController::class, 'profile_edit_action']);
 
-        Route::resource('/admin/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
+        Route::resource('/admin/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update', 'detail']);
+        Route::get('/hak-akses/{token}/details',  [HakAksesController::class, 'details']);
 
         // Upload CKEditor
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');

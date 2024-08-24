@@ -60,7 +60,7 @@ class MitraUmkmController extends Controller
             'file_facecame' => 'none',
             'logo_umkm' => $LOGO_UMKM_NAME,
             'token_umkm' => $TOKEN,
-            'status' => 'pending'
+            'status' => 'register'
         ];
 
         // Perbarui data user
@@ -126,6 +126,15 @@ class MitraUmkmController extends Controller
                 // Update kolom file_facecame dengan nama file baru
                 $umkm->file_facecame = $FILE_FACECAME_NAME;
                 $umkm->save(); // Simpan perubahan ke database
+
+
+                $data = [
+                    "status" => "pending"
+                ];
+
+
+                Mitra_Umkm::where('token_umkm', $token)->update($data);
+
 
                 return redirect('/page');
             } else {

@@ -366,17 +366,14 @@
                                                     <td class="text-center">{{ $get->username }}</td>
                                                     <td class="text-center">{{ $get->email }}</td>
                                                     <td class="text-center">{{ $get->no_telepon }}</td>
-                                                    <td class="text-center"
-                                                        style=" color: rgb(63, 63, 255); cursor: pointer; text-transform: capitalize ;"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal{{ $get->id_mitra_umkms }}">
-                                                        {{ $get->status }}>>
-                                                    </td>
-
-
-
-
+                                                    @if ($get->status == 'pending')
+                                                        <td class="text-center text-capitalize text-bold text-warning">
+                                                            {{ $get->status }}</td>
+                                                    @endif
                                                     <td class="text-center">
+                                                        <a href="/hak-akses/{{ $get->token_umkm }}/details"
+                                                            title="Detail" class="gray-s"><i
+                                                                class="uil uil-book-alt"></i></a>
                                                         <a href="{{ route('hak-akses.edit', $get->id_mitra_umkms) }}"
                                                             title="Edit" class="gray-s"><i
                                                                 class="uil uil-edit-alt"></i></a>
@@ -418,30 +415,6 @@
                                                                             role="button"
                                                                             style="color: white;">Hapus</a></button>
                                                                 </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal{{ $get->id_mitra_umkms }}"
-                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title
-                                                                </h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                ...
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save
-                                                                    changes</button>
                                                             </div>
                                                         </div>
                                                     </div>
