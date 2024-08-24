@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Mail\EmailVariy;
+use App\Models\Produk;
 use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -11,12 +12,27 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
     public function index()
     {
-        return view('pages.beranda');
+        $data = [
+            'produks' => Produk::with([
+                'atr' => function ($query) {
+                $query->select('produks_id', 'stok', 'harga')
+                    ->orderBy('harga', 'asc');
+                },
+                'subs' => function ($query){
+                    $query->select('id_sub_kategori','nama_sub_kategori')->get();
+                },
+            ])
+                ->orderBy('created_at', 'desc')
+                ->take(5)
+                ->get()
+        ];
+        return view('pages.beranda', $data);
     }
 
     public function login(Request $request)

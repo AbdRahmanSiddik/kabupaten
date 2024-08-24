@@ -12,7 +12,7 @@
         <div class="col-12">
           <div class="course_tabs_1">
             <div class="step-app">
-              <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+              <form action="{{ route('admin-produk.store') }}" method="POST" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="step-content">
                   <div class="step-tab-panel step-tab-info active">

@@ -16,10 +16,15 @@ class CustomerController extends Controller
             'getStatus' => DB::table('mitra_umkms')
                 ->join('users', 'mitra_umkms.users_id', '=', 'users.id')->first(),
 
-            'produks' => Produk::with(['atr' => function ($query) {
+            'produks' => Produk::with([
+                'atr' => function ($query) {
                 $query->select('produks_id', 'stok', 'harga')
                     ->orderBy('harga', 'asc');
-            }])
+                },
+                'subs' => function ($query){
+                    $query->select('id_sub_kategori','nama_sub_kategori')->get();
+                },
+            ])
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get()
@@ -32,7 +37,7 @@ class CustomerController extends Controller
     {
 
         $allData = [
-            
+
         ];
 
         return view('pages.produk');

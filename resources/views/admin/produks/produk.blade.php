@@ -14,7 +14,7 @@
                             <h1>Jual Produk Baru Sekarang</h1>
                         </div>
                         <div class="card_dash_right1">
-                            <a class="create_btn_dash p-3" href="{{ route('produk.create') }}">Jual
+                            <a class="create_btn_dash p-3" href="{{ route('admin-produk.create') }}">Jual
                                 Produk</a>
                         </div>
                     </div>
