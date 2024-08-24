@@ -40,4 +40,9 @@ class Produk extends Model
     {
         return $this->hasMany(AtributProduk::class, 'produks_id', 'id_produks');
     }
+
+    public function subs()
+    {
+return $this->belongsTo(SubKategori::class,  'sub_kategori_id', 'id_sub_kategori');
+    }
 }

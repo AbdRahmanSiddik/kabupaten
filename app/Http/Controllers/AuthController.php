@@ -19,10 +19,15 @@ class AuthController extends Controller
     public function index()
     {
         $data = [
-            'produks' => Produk::with(['atr' => function ($query) {
+            'produks' => Produk::with([
+                'atr' => function ($query) {
                 $query->select('produks_id', 'stok', 'harga')
                     ->orderBy('harga', 'asc');
-            }])
+                },
+                'subs' => function ($query){
+                    $query->select('id_sub_kategori','nama_sub_kategori')->get();
+                },
+            ])
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get()

@@ -127,7 +127,7 @@
                                                 <span class="vdt14"> Terjual</span>
                                             </div>
                                             <a href="/produk/detail" class="crse14s">{{ $item->nama_produk }}</a>
-                                            <a href="#" class="crse-cate">Makanan</a>
+                                            <a href="#" class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
                                                 <div class="prce142">
@@ -145,114 +145,6 @@
                                 </div>
                                 @endforeach
 
-                                <div class="item">
-                                    <div class="fcrse_1 mb-20">
-                                        <a href="/produk/detail" class="fcrse_img">
-                                            <img src="{{ asset('assets') }}/images/courses/img-2.jpg" alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">Bestseller</div>
-                                                <div class="crse_reviews">
-                                                    <i class='uil uil-star'></i>4.5
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Bagikan</span>
-                                                    <span><i class="uil uil-shopping-cart-alt"></i>Simpan</span>
-                                                    <span><i class="uil uil-windsock"></i>Laporkan</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">15 Tersisa</span>
-                                                <span class="vdt14">15 Terjual</span>
-                                            </div>
-                                            <a href="/produk/detail" class="crse14s">The Chips!</a>
-                                            <a href="#" class="crse-cate">Makanan</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">Someone</a></p>
-                                                <div class="prce142">Rp 8.999</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="fcrse_1 mb-20">
-                                        <a href="/produk/detail" class="fcrse_img">
-                                            <img src="{{ asset('assets') }}/images/courses/img-3.jpg" alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">Bestseller</div>
-                                                <div class="crse_reviews">
-                                                    <i class='uil uil-star'></i>4.5
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Bagikan</span>
-                                                    <span><i class="uil uil-shopping-cart-alt"></i>Simpan</span>
-                                                    <span><i class="uil uil-windsock"></i>Laporkan</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">10 Tersisa</span>
-                                                <span class="vdt14">18 Terjual</span>
-                                            </div>
-                                            <a href="/produk/detail" class="crse14s">The Coffee</a>
-                                            <a href="#" class="crse-cate">Minuman</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">Someone</a></p>
-                                                <div class="prce142">Rp 4.999</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="fcrse_1 mb-20">
-                                        <a href="/produk/detail" class="fcrse_img">
-                                            <img src="{{ asset('assets') }}/images/courses/img-4.jpg" alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">Bestseller</div>
-                                                <div class="crse_reviews">
-                                                    <i class='uil uil-star'></i>5.0
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Bagikan</span>
-                                                    <span><i class="uil uil-shopping-cart-alt"></i>Simpan</span>
-                                                    <span><i class="uil uil-windsock"></i>Laporkan</span>
-                                                </div>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">153 Tersisa</span>
-                                                <span class="vdt14">3 Terjual</span>
-                                            </div>
-                                            <a href="/produk/detail" class="crse14s">Batik Madura</a>
-                                            <a href="#" class="crse-cate">Pakaian Tradisional</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">Someone</a></p>
-                                                <div class="prce142">Rp 57.999</div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
