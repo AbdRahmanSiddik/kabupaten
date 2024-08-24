@@ -56,6 +56,20 @@ class UsersSeeder extends Seeder
                 'deskripsi' => null
 
             ],
+            [
+                "username" => "Yuniar Doang",
+                "email" => "customer1@gmail.com",
+                "email_verified_at" => now(),
+                "password" => bcrypt("123"),
+                "no_telepon" => "087740505052",
+                "name" => null,
+                "role" => "customer",
+                "token_users" => Str::random(100),
+                "alamat_users" => null,
+                'foto_profile' => null,
+                'deskripsi' => null
+
+            ],
         ];
 
         foreach ($data as $item) {

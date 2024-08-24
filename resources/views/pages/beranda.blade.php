@@ -445,34 +445,6 @@
                             </ul>
                         </div>
 
-
-
-                        @if (Auth::check())
-                            @if ($getStatus == null)
-                                <div class="strttech120">
-                                    <h4>Pendaftaran UMKM</h4>
-                                    <p>Daftarkan UMKM anda dan mulai promosikan dan jual di Website E-Commerce Resmi Kami
-                                    </p>
-                                    <button class="Get_btn" onclick="window.location.href = '/daftar/umkm';">Mulai
-                                        Jualan</button>
-                                </div>
-                            @elseif ($getStatus->status == 'pending')
-                                <div class="strttech120">
-                                    <h4>Proses Verifikasi Data</h4>
-                                    <p>Pendaftaran UMKM Anda sedang dalam proses verifikasi. Anda akan segera dapat
-                                        mempromosikan dan menjual produk di Website E-Commerce Resmi Kami setelah verifikasi
-                                        selesai.</p>
-                                    <button class="btn btn-warning">Menunggu</button>
-                                </div>
-                            @elseif ($getStatus->status == 'success')
-                                <div class="strttech120">
-                                    <h4>TOKO SAYA</h4>
-                                    {{-- <p>Daftarkan UMKM anda dan mulai promosikan dan jual di Website E-Commerce Resmi Kami</p> --}}
-                                    <button class="Get_btn" onclick="window.location.href = '/daftar/umkm';">Mulai
-                                        Jualan</button>
-                                </div>
-                            @endif
-                        @endif
                         <div class="strttech120">
                             <h4>Pendaftaran UMKM</h4>
                             <p>Daftarkan UMKM anda dan mulai promosikan dan jual di Website E-Commerce Resmi Kami
@@ -480,6 +452,8 @@
                             <button class="Get_btn" onclick="window.location.href = '/daftar/umkm';">Mulai
                                 Jualan</button>
                         </div>
+
+                      
 
 
                     </div>

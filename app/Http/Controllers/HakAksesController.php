@@ -20,7 +20,7 @@ class HakAksesController extends Controller
             "RoleAdmin" => User::where('role', 'admin')->get(),
             "RoleCustomer" => User::where('role', 'customer')->get(),
             "RoleMitra" => User::where('role', 'mitra')->get(),
-            "getPendaftarUMKM" => Mitra_Umkm::JoinUMKMToUser__()->get(),
+            "getPendaftarUMKM" => Mitra_Umkm::GETjoinPendingUMKM()
         ];
 
         return view('admin.hak_akses.index', $dataHakAkses);

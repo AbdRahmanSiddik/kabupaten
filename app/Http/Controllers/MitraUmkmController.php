@@ -16,8 +16,6 @@ class MitraUmkmController extends Controller
     {
         $dataUmkm = [
             "getdata" => Mitra_Umkm::JoinUMKMToUser__()->get(),
-
-
         ];
 
         return view('admin.umkm.umkm_view', $dataUmkm);
@@ -43,7 +41,8 @@ class MitraUmkmController extends Controller
             'logo_umkm' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $TOKEN = Str::random(200);
+        $TOKEN = Str::random(90);
+
         $foto_ktp = $request->file('foto_ktp');
         $logo_umkm = $request->file('logo_umkm');
 

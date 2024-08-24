@@ -21,6 +21,18 @@ class Mitra_Umkm extends Model
         return $query;
     }
 
+    public static function GETjoinPendingUMKM()
+    {
+        $query = DB::table('mitra_umkms')
+            ->join('users', 'mitra_umkms.users_id', '=', 'users.id')
+            ->where('mitra_umkms.status', 'pending')
+            ->select('mitra_umkms.*', 'users.*') // Sesuaikan kolom yang ingin diambil
+            ->get(); // Ambil hasilnya
+
+        return $query;
+    }
+
+
 
     public static function TokenMitra($token)
     {

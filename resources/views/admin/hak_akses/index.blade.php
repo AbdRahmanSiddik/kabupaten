@@ -355,7 +355,6 @@
                                                 <th class="text-center" scope="col">Email</th>
                                                 <th class="text-center" scope="col">No Telepon
                                                 </th>
-                                                <th class="text-center" scope="col">Role</th>
                                                 <th class="text-center" scope="col">Status</th>
                                                 <th class="text-center" scope="col">Action</th>
                                             </tr>
@@ -367,21 +366,30 @@
                                                     <td class="text-center">{{ $get->username }}</td>
                                                     <td class="text-center">{{ $get->email }}</td>
                                                     <td class="text-center">{{ $get->no_telepon }}</td>
-                                                    <td class="text-center">{{ $get->role }}</td>
-                                                    <td class="text-center"><b class="course_active">Active</b></td>
+                                                    <td class="text-center"
+                                                        style=" color: rgb(63, 63, 255); cursor: pointer; text-transform: capitalize ;"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal{{ $get->id_mitra_umkms }}">
+                                                        {{ $get->status }}>>
+                                                    </td>
+
+
+
+
                                                     <td class="text-center">
-                                                        <a href="{{ route('hak-akses.edit', $get->id) }}" title="Edit"
-                                                            class="gray-s"><i class="uil uil-edit-alt"></i></a>
+                                                        <a href="{{ route('hak-akses.edit', $get->id_mitra_umkms) }}"
+                                                            title="Edit" class="gray-s"><i
+                                                                class="uil uil-edit-alt"></i></a>
 
 
                                                         <a role="button" title="Delete" data-bs-toggle="modal"
-                                                            data-bs-target="#staticBackdrop{{ $get->id }}"
+                                                            data-bs-target="#staticBackdrop{{ $get->id_mitra_umkms }}"
                                                             class="gray-s"><i class="uil uil-trash-alt"></i></a>
                                                     </td>
                                                 </tr>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="staticBackdrop{{ $get->id }}"
+                                                <div class="modal fade" id="staticBackdrop{{ $get->id_mitra_umkms }}"
                                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -401,7 +409,8 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <form action="{{ route('hak-akses.destroy', $get->id) }}"
+                                                                <form
+                                                                    action="{{ route('hak-akses.destroy', $get->id_mitra_umkms) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -409,6 +418,30 @@
                                                                             role="button"
                                                                             style="color: white;">Hapus</a></button>
                                                                 </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal{{ $get->id_mitra_umkms }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ...
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save
+                                                                    changes</button>
                                                             </div>
                                                         </div>
                                                     </div>
