@@ -17,48 +17,29 @@ class FotoProduksController extends Controller
         return view('admin.produks.foto_produk', compact('atributProduk', 'detail'));
     }
 
-    public function create()
-    {
-        return view();
-    }
-
-    public function store(Request $request)
-    {
-
-        return redirect()->route('produk.index');
-    }
-
-    public function edit($id)
-    {
-        return view();
-    }
 
     public function update(Request $request, $id)
     {
-        // Ambil semua file yang diupload
         $files = $request->file('thumbnail', []);
 
-        // Jika ada file yang diupload
         if (!empty($files)) {
             foreach ($files as $index => $file) {
-                $token = uniqid(13);
-                // Pastikan file ada
+                $token = uniqid();
                 if ($file) {
-                    // Buat nama file unik
                     $nama_foto = $token . '.' . $file->getClientOriginalExtension();
 
-                    // Tentukan atribut produk terkait berdasarkan urutan
+                    // Temukan atribut produk terkait
                     $atributProduk = AtributProduk::where('produks_id', $id)
-                        ->orderBy('produks_id')
+                        ->orderBy('id_atribut_produk')
                         ->skip($index)
                         ->first();
 
                     if ($atributProduk) {
-                        // Update kolom foto_produk di tabel atribut_produk
+                        // Update kolom foto_produk
                         $atributProduk->update(['foto_produk' => $nama_foto]);
 
-                        // Pindahkan file ke direktori yang ditentukan
-                        $file->move('foto-varian', $nama_foto);
+                        // Pindahkan file ke folder
+                        $file->move(public_path('foto-varian'), $nama_foto);
                     }
                 }
             }
@@ -66,6 +47,7 @@ class FotoProduksController extends Controller
 
         return redirect(auth()->user()->role . '-produk');
     }
+
 
     public function destroy($id)
     {

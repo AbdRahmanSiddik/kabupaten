@@ -73,9 +73,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Rute untuk admin
     Route::middleware('userAkses:admin')->group(function () {
         Route::get('/admin/dashboard', [DashboardController::class, 'dashboard']);
-        Route::resource('/admin-produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
-        // Route::resource('/ukuran', UkuransController::class)->only(['index']);
-        Route::resource('/admin/foto-produk', FotoProduksController::class)->only(['index', 'update']);
+        Route::resource('/admin-produk', ProduksController::class)->only(['index', 'create', 'destroy', 'edit', 'update']);
+        Route::post('/admin-produk/store', [ProduksController::class, 'store']);
+
+        Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
+        Route::post('/admin/foto-produk/{id}/update', [FotoProduksController::class, 'update']);
+
+
+
         Route::resource('/admin/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
@@ -116,6 +121,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
+       
+       
+       
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);

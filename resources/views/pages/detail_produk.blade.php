@@ -34,7 +34,8 @@
                                 <div class="col-xl-8 col-lg-7 col-md-6">
                                     <div class="_215b03">
                                         <h2>{{ $getsData->nama_produk }}</h2>
-                                        <span class="_215b04">{{ $getsData-> }}</span>
+                                        <span class="_215b04">
+                                            {{ $getsData->nama_kategori }}, {{ $getsData->nama_sub_kategori }}</span>
                                     </div>
                                     <div class="_215b05">
                                         <div class="crse_reviews mr-2">

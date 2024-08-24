@@ -12,7 +12,7 @@
                 <div class="col-12">
                     <div class="course_tabs_1">
                         <div class="step-app">
-                            <form action="/{{ auth()->user()->role . '-produk/create' }}" method="POST"
+                            <form action="/{{ auth()->user()->role . '-produk/store' }}" method="POST"
                                 enctype="multipart/form-data" novalidate>
                                 @csrf
                                 <div class="step-content">

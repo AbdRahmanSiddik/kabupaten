@@ -12,10 +12,9 @@
                 <div class="col-12">
                     <div class="course_tabs_1">
                         <div class="step-app">
-                            <form action="{{ route('foto-produk.update', $_GET['id']) }}" method="POST"
-                                enctype="multipart/form-data" novalidate>
+                            <form action="/{{ auth()->user()->role . '/foto-produk/' . $detail->id_produks . '/update' }}"
+                                method="POST" enctype="multipart/form-data" novalidate>
                                 @csrf
-                                @method('PUT')
                                 <div class="step-content">
                                     <div class="step-tab-panel step-tab-info active">
                                         <div class="tab-from-content">
