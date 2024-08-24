@@ -99,6 +99,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('userAkses:mitra')->group(function () {
         Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
         Route::resource('/mitra/produk', ProduksController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
+        Route::resource('/mitra/foto-produk', FotoProduksController::class)->only(['index', 'update']);
 
         // Route::resource('/mitra/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
     });
