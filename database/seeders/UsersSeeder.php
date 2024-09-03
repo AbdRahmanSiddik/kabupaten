@@ -16,7 +16,7 @@ class UsersSeeder extends Seeder
     {
         $data = [
             [
-                "username" => "Yanto Doar Doer",
+                "username" => "Admin",
                 "email" => "admin@gmail.com",
                 "email_verified_at" => now(),
                 "password" => bcrypt("123"),
@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
                 'deskripsi' => null
             ],
             [
-                "username" => "Yanti Doang",
+                "username" => "Customer",
                 "email" => "customer@gmail.com",
                 "email_verified_at" => now(),
                 "password" => bcrypt("123"),
@@ -43,27 +43,13 @@ class UsersSeeder extends Seeder
 
             ],
             [
-                "username" => "Bapaknya Yanto dan yanti",
+                "username" => "Mitra",
                 "email" => "mitra@gmail.com",
                 "email_verified_at" => now(),
                 "password" => bcrypt("123"),
                 "no_telepon" => "087740505052",
                 "name" => null,
                 "role" => "mitra",
-                "token_users" => Str::random(100),
-                "alamat_users" => null,
-                'foto_profile' => null,
-                'deskripsi' => null
-
-            ],
-            [
-                "username" => "Yuniar Doang",
-                "email" => "customer1@gmail.com",
-                "email_verified_at" => now(),
-                "password" => bcrypt("123"),
-                "no_telepon" => "087740505052",
-                "name" => null,
-                "role" => "customer",
                 "token_users" => Str::random(100),
                 "alamat_users" => null,
                 'foto_profile' => null,

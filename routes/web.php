@@ -106,8 +106,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
         // Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'store', 'destroy', 'edit', 'update']);
         Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'create', 'destroy', 'edit', 'update']);
+        Route::post('/mitra-produk/store', [ProduksController::class, 'store']);
         // Route::get('/mitra-produk/create', [ProduksController::class, 'create']);
-        // Route::post('/mitra-produk/store', [ProduksController::class, 'store']);
         // Route::get('/mitra-produk/{id}/edit', [ProduksController::class, 'edit']);
         // Route::post('/mitra-produk/{id}/edit', [ProduksController::class, 'update']);
         // Route::get('/mitra-produk/{id}/hapus', [ProduksController::class, 'destroy']);
