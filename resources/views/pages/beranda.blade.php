@@ -130,7 +130,7 @@
                                                 <a href="#"
                                                     class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
                                                 <div class="auth1lnkprce">
-                                                    <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
+                                                    <p class="cr1fot">By <a href="#">{{ $item->user->username }}</a></p>
                                                     <div class="prce142">
                                                         @if ($item->atr->min('harga') == $item->atr->max('harga'))
                                                             Rp {{ number_format($item->atr->max('harga')) }}

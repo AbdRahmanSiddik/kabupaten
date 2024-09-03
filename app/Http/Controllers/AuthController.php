@@ -27,7 +27,7 @@ class AuthController extends Controller
                 'subs' => function ($query) {
                     $query->select('id_sub_kategori', 'nama_sub_kategori')->get();
                 },
-            ])
+            ], 'user')
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get()

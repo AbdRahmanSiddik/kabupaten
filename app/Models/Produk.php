@@ -43,6 +43,11 @@ class Produk extends Model
 
     public function subs()
     {
-return $this->belongsTo(SubKategori::class,  'sub_kategori_id', 'id_sub_kategori');
+        return $this->belongsTo(SubKategori::class,  'sub_kategori_id', 'id_sub_kategori');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 }
