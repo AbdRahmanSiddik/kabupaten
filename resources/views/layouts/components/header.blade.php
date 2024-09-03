@@ -8,8 +8,8 @@
          <span class="collapse_menu--label"></span>
      </button>
      <div class="main_logo" id="logo">
-         <a href="/"><img src="{{ asset('assets') }}/images/" alt=""></a>
-         <a href="/"><img class="logo-inverse" src="{{ asset('assets') }}/images/" alt=""></a>
+         <a href="/"><img src="{{ asset('assets') }}/images/berung.png" alt="" width="100px"></a>
+         <a href="/"><img class="logo-inverse" src="{{ asset('assets') }}/images/berung.png" width="100%"></a>
      </div>
      <div class="search120">
          <div class="ui search">

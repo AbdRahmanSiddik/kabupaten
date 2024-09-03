@@ -21,7 +21,8 @@ class ProduksController extends Controller
 
     public function index()
     {
-        $data = Produk::ProdukJoinUsers();
+        $id = auth()->user()->id;
+        $data = Produk::ProdukJoinUsers($id);
         $dataProduk = [
             'dataProduk' => $data,
         ];
