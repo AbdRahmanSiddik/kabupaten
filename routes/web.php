@@ -105,14 +105,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('userAkses:mitra')->group(function () {
         Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
         // Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'store', 'destroy', 'edit', 'update']);
-        Route::get('/mitra-produk', [ProduksController::class, 'index']);
-        Route::get('/mitra-produk/create', [ProduksController::class, 'create']);
-        Route::post('/mitra-produk/create', [ProduksController::class, 'store']);
-        Route::get('/mitra-produk{id}/edit', [ProduksController::class, 'edit']);
-        Route::post('/mitra-produk{id}/edit', [ProduksController::class, 'update']);
-        Route::get('/mitra-produk{id}/hapus', [ProduksController::class, 'destroy']);
+        Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'create', 'destroy', 'edit', 'update']);
+        // Route::get('/mitra-produk/create', [ProduksController::class, 'create']);
+        // Route::post('/mitra-produk/store', [ProduksController::class, 'store']);
+        // Route::get('/mitra-produk/{id}/edit', [ProduksController::class, 'edit']);
+        // Route::post('/mitra-produk/{id}/edit', [ProduksController::class, 'update']);
+        // Route::get('/mitra-produk/{id}/hapus', [ProduksController::class, 'destroy']);
 
-        Route::resource('/mitra/foto-produk', FotoProduksController::class)->only(['index', 'update']);
+        Route::get('/mitra/foto-produk', [FotoProduksController::class, 'index']);
+        Route::post('/mitra/foto-produk/{id}/update', [FotoProduksController::class, 'update']);
 
         // Route::resource('/mitra/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update']);
     });
