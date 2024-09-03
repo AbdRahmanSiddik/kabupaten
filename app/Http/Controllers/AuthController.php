@@ -21,11 +21,11 @@ class AuthController extends Controller
         $data = [
             'produks' => Produk::with([
                 'atr' => function ($query) {
-                $query->select('produks_id', 'stok', 'harga')
-                    ->orderBy('harga', 'asc');
+                    $query->select('produks_id', 'stok', 'harga')
+                        ->orderBy('harga', 'asc');
                 },
-                'subs' => function ($query){
-                    $query->select('id_sub_kategori','nama_sub_kategori')->get();
+                'subs' => function ($query) {
+                    $query->select('id_sub_kategori', 'nama_sub_kategori')->get();
                 },
             ])
                 ->orderBy('created_at', 'desc')

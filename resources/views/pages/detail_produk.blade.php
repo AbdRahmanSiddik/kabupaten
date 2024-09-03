@@ -156,14 +156,9 @@
                                         @endif
 
 
-                                        @if (Auth::check())
-                                            <li><button class="btn_buy">Buy Now</button></li>
-                                        @else
-                                            <li><button class="btn_buy" data-bs-toggle="modal"
-                                                    data-bs-target="#modalLogin">Buy Now</button></li>
-                                        @endif
-
-
+                                        <li><button class="btn_buy"
+                                                onclick="window.location.href='/checkout/{{ $getsData->token_produk }}/ '">Beli
+                                                Sekarang</button></li>
 
                                     </ul>
                                     {{-- <div class="_215fgt1">

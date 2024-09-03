@@ -49,8 +49,6 @@ class CustomerController extends Controller
                 ->where('produks.token_produk', $token)->first(),
         ];
 
-
-
         return view('pages.detail_produk', $allData);
     }
 

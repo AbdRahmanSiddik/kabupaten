@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProduksController;
 use App\Http\Controllers\UkuransController;
 use App\Http\Controllers\CustomerController;
@@ -121,9 +122,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
-       
-       
-       
+        Route::get('/checkout/{token}', [CheckoutController::class, 'index']);
+
+
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);
         Route::get('/profile/{token}/edit', [SettingsController::class, 'profile_edit']);
