@@ -12,7 +12,7 @@ class Produk extends Model
 
     protected $guarded = ["id_produks"];
 
-    public static function ProdukJoinUsers()
+    public static function ProdukJoinUsers($id)
     {
         return  DB::Table("produks")
             ->select(
@@ -32,7 +32,7 @@ class Produk extends Model
                 'produks.deskripsi',
                 'produks.sub_kategori_id',
                 'produks.users_id'
-            )
+            )->where('users_id', $id)
             ->get();
     }
 

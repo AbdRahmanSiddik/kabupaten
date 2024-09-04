@@ -12,7 +12,7 @@
         <div class="col-12">
           <div class="course_tabs_1">
             <div class="step-app">
-              <form action="{{ route('produk.update', $detail->id_produks) }}" method="POST"
+              <form action="{{ route(auth()->user()->role.'-produk.update', $detail->id_produks) }}" method="POST"
                 enctype="multipart/form-data" novalidate>
                 @csrf
                 @method('PUT')
@@ -164,7 +164,7 @@
 
                 </div>
                 <div class="step-footer step-tab-pager mt-4 text-end">
-                  <a href="{{ route('produk.index') }}" class="btn btn-default pt-2">Cancel</a>
+                  <a href="{{ route(auth()->user()->role.'-produk.index') }}" class="btn btn-default pt-2">Cancel</a>
                   <button class="create_btn_dash" type="submit">Submit for Review</button>
                 </div>
               </form>

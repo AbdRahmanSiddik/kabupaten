@@ -87,7 +87,7 @@
 
                                 </div>
                                 <div class="step-footer step-tab-pager mt-4 text-end">
-                                    <a href="/{{ auth()->user()->role }}/foto-produk"
+                                    <a href="/{{ auth()->user()->role }}-produk"
                                         class="btn btn-default pt-2">Cancel</a>
                                     <button class="create_btn_dash" type="submit">Submit for Review</button>
                                 </div>

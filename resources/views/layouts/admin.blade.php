@@ -128,6 +128,8 @@
                             <span class="menu--label">Setting</span>
                         </a>
                     </li>
+                    @if (auth()->user()->role == 'admin')
+
                     <li class="menu--item">
                         <a href="/{{ auth()->user()->role }}/hak-akses"
                             class="menu--link  {{ request()->is(auth()->user()->role . '/hak-akses') ? 'active' : '' }} "
@@ -136,6 +138,9 @@
                             <span class="menu--label">Hak Akses</span>
                         </a>
                     </li>
+                    
+                    @endif
+
                 </ul>
             </div>
         </div>

@@ -115,10 +115,10 @@
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body d-flex justify-content-around">
-                                                                <a href="{{ auth()->user()->role . '-produk/create' }}?id={{ $get->id_produks }}"
+                                                                <a href="{{ auth()->user()->role . '/foto-produk' }}?id={{ $get->id_produks }}"
                                                                     class="create_btn_dash rounded pt-2">Edit Foto
                                                                     Produk</a>
-                                                                {{-- <a href="{{ route('produk.edit', $get->id_produks) }}" --}}
+                                                                <a href="{{ auth()->user()->role.'-produk/'.$get->id_produks.'/edit' }}"
                                                                 class="create_btn_dash rounded pt-2">Edit Produk</a>
                                                             </div>
                                                             <div class="modal-footer">
