@@ -14,6 +14,7 @@ use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\SubKategoriController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -122,8 +123,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
-        Route::get('/checkout/{token}', [CheckoutController::class, 'index']);
+        Route::post('/checkout/{token}', [CheckoutController::class, 'index']);
 
+        Route::post('/checkout/token', [TransaksiController::class, 'getSnapToken'])->name('checkout.token');
+        Route::post('/checkout/process', [TransaksiController::class, 'processPayment'])->name('checkout.process');
 
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);

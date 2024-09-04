@@ -12,20 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksis', function (Blueprint $table) {
-            $table->unsignedBigInteger("id_transaksis")->autoIncrement();
-            $table->string("token_transaksi");
-
-
-            $table->unsignedBigInteger("produks_id");
-
-            $table->foreign('produks_id')->references('id_produks')->on('produks');
-
-
-            $table->date("tanggal_transaksi");
-            $table->string('total_transaksi');
-            $table->enum('status', ["failed", "pending", "success", "complete"]);
-
-            $table->foreignId("users_id")->constrained();
+            $table->id();
+            $table->string('order_id')->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->integer('amount');
+            $table->enum('status', ['pending', 'success', 'failed']);
+            $table->text('payment_response')->nullable();
             $table->timestamps();
         });
     }

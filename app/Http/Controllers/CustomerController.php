@@ -43,13 +43,12 @@ class CustomerController extends Controller
 
     public function produk_detail($token)
     {
-        $allData = [
-            'getsData' => Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')->join('users', 'produks.users_id', '=', 'users.id')
-                ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')
-                ->where('produks.token_produk', $token)->first(),
-        ];
 
-        return view('pages.detail_produk', $allData);
+        $getsData = Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')->join('users', 'produks.users_id', '=', 'users.id')
+            ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
+            ->where('produks.token_produk', $token)->first();
+
+        return view('pages.detail_produk', compact('getsData'));
     }
 
 

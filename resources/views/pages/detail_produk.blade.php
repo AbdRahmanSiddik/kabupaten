@@ -44,7 +44,14 @@
                                         (81,665 ratings)
                                     </div>
                                     <div class="_215b05">
-                                        114,521 Terjual
+
+                                        @if ($getsData->atr->min('harga') == $getsData->atr->max('harga'))
+                                            Rp {{ number_format($getsData->atr->max('harga')) }}
+                                        @else
+                                            Rp {{ number_format($getsData->atr->min('harga')) }} - Rp
+                                            {{ number_format($getsData->atr->max('harga')) }}
+                                        @endif
+
                                     </div>
                                     <div class="_215b06">
                                         {{-- <div class="_215b07">
@@ -94,76 +101,78 @@
                                         Last updated 1/2024
                                     </div> --}}
 
-                                    <div class="input-group my-2 " style="width: 15%; ">
-                                        <span class="input-group-text  "
-                                            style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
-                                            id="decrement">-</span>
-                                        <input type="text" class="form-control text-center " disabled name="quantity"
-                                            id="quantity" value="1" min="1">
-                                        <span class="input-group-text "
-                                            style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
-                                            id="increment">+</span>
-                                    </div>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#increment').click(function() {
-                                                var quantity = parseInt($('#quantity').val());
-                                                $('#quantity').val(quantity + 1);
-                                            });
 
-                                            $('#decrement').click(function() {
-                                                var quantity = parseInt($('#quantity').val());
-                                                if (quantity > 1) {
-                                                    $('#quantity').val(quantity - 1);
-                                                }
-                                            });
+                                    <form action="/checkout/{{ $getsData->token_produk }}" method="POST">
+                                        @csrf
+                                        <div class="input-group my-2 " style="width: 15%; ">
+                                            <span class="input-group-text  "
+                                                style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
+                                                id="decrement">-</span>
+                                            <input type="text" class="form-control text-center " name="quantity"
+                                                id="quantity" value="1" min="1">
+                                            <span class="input-group-text "
+                                                style="cursor: pointer; background-color: #ed2a26; color: white; border: 1px solid #ed2a26; "
+                                                id="increment">+</span>
+                                        </div>
 
-                                            // Set up AJAX headers to include CSRF token
-                                            $.ajaxSetup({
-                                                headers: {
-                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                                }
-                                            });
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#increment').click(function() {
+                                                    var quantity = parseInt($('#quantity').val());
+                                                    $('#quantity').val(quantity + 1);
+                                                });
 
-                                            $('#productForm').submit(function(e) {
-                                                e.preventDefault();
-
-                                                $.ajax({
-                                                    url: "",
-                                                    method: "POST",
-                                                    data: $(this).serialize(),
-                                                    success: function(response) {
-                                                        alert(response.success);
-                                                        $('#productList').append('<li>' + response.product.name +
-                                                            ' - Quantity: ' + response.product.quantity + '</li>');
-                                                        $('#productForm')[0].reset(); // Reset the form
-                                                    },
-                                                    error: function(response) {
-                                                        alert('Something went wrong. Please try again.');
-                                                        console.log(response.responseText);
+                                                $('#decrement').click(function() {
+                                                    var quantity = parseInt($('#quantity').val());
+                                                    if (quantity > 1) {
+                                                        $('#quantity').val(quantity - 1);
                                                     }
                                                 });
+                                                // Set up AJAX headers to include CSRF token
+                                                $.ajaxSetup({
+                                                    headers: {
+                                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                    }
+                                                });
+
+                                                $('#productForm').submit(function(e) {
+                                                    e.preventDefault();
+
+                                                    $.ajax({
+                                                        url: "",
+                                                        method: "POST",
+                                                        data: $(this).serialize(),
+                                                        success: function(response) {
+                                                            alert(response.success);
+                                                            $('#productList').append('<li>' + response.product.name +
+                                                                ' - Quantity: ' + response.product.quantity + '</li>');
+                                                            $('#productForm')[0].reset(); // Reset the form
+                                                        },
+                                                        error: function(response) {
+                                                            alert('Something went wrong. Please try again.');
+                                                            console.log(response.responseText);
+                                                        }
+                                                    });
+                                                });
                                             });
-                                        });
-                                    </script>
-                                    <ul class="_215b31">
+                                        </script>
+                                        <ul class="_215b31">
 
-                                        @if (Auth::check())
-                                            <li><button type="submit" class="btn_adcart">Tambah Keranjang</button></li>
-                                        @else
-                                            <li><button class="btn_adcart" data-bs-toggle="modal"
-                                                    data-bs-target="#modalLogin">Add to Cart</button></li>
-                                        @endif
+                                            @if (Auth::check())
+                                                <li><button type="submit" class="btn_adcart">Tambah Keranjang</button></li>
+                                            @else
+                                                <li><button class="btn_adcart" data-bs-toggle="modal"
+                                                        data-bs-target="#modalLogin">Add to Cart</button></li>
+                                            @endif
 
 
-                                        <li><button class="btn_buy"
-                                                onclick="window.location.href='/checkout/{{ $getsData->token_produk }}/ '">Beli
-                                                Sekarang</button></li>
+                                            <li><button class="btn_buy" type="submit">Beli Sekarang</button></li>
 
-                                    </ul>
-                                    {{-- <div class="_215fgt1">
+                                        </ul>
+                                        {{-- <div class="_215fgt1">
                                         30-Day Money-Back Guarantee
                                     </div> --}}
+                                    </form>
                                 </div>
                             </div>
                         </div>

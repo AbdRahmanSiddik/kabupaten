@@ -2,33 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaksi;
+use Midtrans\Snap;
+use Midtrans\Config;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
-    public function index()
+    public function getSnapToken(Request $request)
     {
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = config('midtrans.is_production');
 
-        return view();
+        $orderId = uniqid();
+        $params = [
+            'transaction_details' => [
+                'order_id' => $orderId,
+                'gross_amount' => $request->amount,
+            ],
+            'customer_details' => [
+                'first_name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+            ],
+        ];
+
+        $snapToken = Snap::getSnapToken($params);
+
+        // Save transaction to database
+        Transaksi::create([
+            'order_id' => $orderId,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'amount' => $request->amount,
+            'status' => 'pending',
+        ]);
+
+        return response()->json(['snap_token' => $snapToken]);
     }
-    public function create()
+
+    public function processPayment(Request $request)
     {
-        return view();
-    }
-    public function create_action(Request $request)
-    {
-        return redirect();
-    }
-    public function update($id)
-    {
-        return view();
-    }
-    public function update_action(Request $request, $id)
-    {
-        return redirect();
-    }
-    public function delete($id)
-    {
-        return redirect();
+        $json = json_decode($request->json, true);
+
+        // Update transaction status
+        $transaction = Transaksi::where('order_id', $json['order_id'])->first();
+        if ($transaction) {
+            $transaction->update([
+                'status' => $json['transaction_status'],
+                'payment_response' => $request->json,
+            ]);
+        }
+
+        return redirect()->route('home')->with('status', 'Payment ' . $json['transaction_status']);
     }
 }
