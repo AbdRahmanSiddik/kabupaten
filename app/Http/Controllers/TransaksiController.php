@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
 use Midtrans\Snap;
 use Midtrans\Config;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class TransaksiController extends Controller
 {
