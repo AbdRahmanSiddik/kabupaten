@@ -37,27 +37,41 @@ class PaymentController extends Controller
         ];
         // dd($data);
 
-        $losss = Transaction::create($data);
+        $losss = Transaction::insertGetId($data);
 
-
-        // Kamu bisa melakukan sesuatu dengan token ini, misalnya mengambil data produk terkait
 
 
         // Kemudian kirimkan data ke view `checkout`
-        return view('pages.checkout', compact('produkDetail', 'kuantitas'));
+        return redirect('/checkout-pay' . '?token=' . $produks->token_produk);
     }
 
 
 
-    public function process(Request $request)
+    public function getSnapToken(Request $request)
     {
+        $gettoken = $_GET['token'];
 
-        $data = $request->all();
+        $produkDetail = Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')->join('users', 'produks.users_id', '=', 'users.id')
+            ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
+            ->where('produks.token_produk', $gettoken)->first();
 
 
-        $transaction = Transaction::create([
-            "user_id"
+        return view('pages.checkout', compact('produkDetail'));
+    }
 
-        ]);
+    public function processPayment(Request $request)
+    {
+        $json = json_decode($request->json, true);
+
+        // Update transaction status
+        $transaction = Transaction::where('order_id', $json['order_id'])->first();
+        if ($transaction) {
+            $transaction->update([
+                'status' => $json['transaction_status'],
+                'payment_response' => $request->json,
+            ]);
+        }
+
+        return redirect()->route('home')->with('status', 'Payment ' . $json['transaction_status']);
     }
 }

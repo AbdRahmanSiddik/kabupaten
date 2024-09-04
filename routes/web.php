@@ -130,7 +130,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
         Route::post('/checkout/{token}', [PaymentController::class, 'index']);
 
-        Route::post('/checkout/token', [PaymentController::class, 'getSnapToken'])->name('checkout.token');
+        Route::get('/checkout-pay', [PaymentController::class, 'getSnapToken'])->name('checkout.token');
         Route::post('/checkout/process', [PaymentController::class, 'processPayment'])->name('checkout.process');
 
         // Profile

@@ -24,12 +24,12 @@
                                 <div class="auth1lnkprce">
                                     <p class="cr1fot">By <a href="#">John Doe</a></p>
                                     <div class="prce142">
-                                        @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
+                                        {{-- @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
                                             Rp {{ number_format($produkDetail->atr->max('harga')) }} x {{ $kuantitas }}
                                         @else
                                             Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
                                             {{ number_format($produkDetail->atr->max('harga')) }}
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                             </div>
@@ -193,12 +193,12 @@
                             <div class="order_title">
                                 <h4>{{ $produkDetail->nama_produk }}</h4>
                                 <div class="order_price">
-                                    @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
+                                    {{-- @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
                                         Rp {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
                                     @else
                                         Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
                                         {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                             <div class="order_title">
@@ -207,7 +207,7 @@
                             </div>
                             <div class="order_title">
                                 <h2>Total</h2>
-                                <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div>
+                                {{-- <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div> --}}
                             </div>
 
                             <button type="button" id="pay-button" class="btn scr_text">Bayar Sekarang</button>
@@ -226,7 +226,7 @@
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function() {
             // SnapToken acquired from previous step
-            snap.pay('<?= $snapToken ?>', {
+            snap.pay(' ', {
                 // Optional
                 onSuccess: function(result) {
                     /* You may add your own js here, this is just example */
