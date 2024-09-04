@@ -1941,7 +1941,7 @@
                                                             <a href="#" class="report145">Report</a>
                                                         </div>
                                                     </div>
-                                                    {{-- 
+                                                    {{--
                                                     <div class="review_item">
                                                         <a href="#" class="more_reviews">See More Reviews</a>
                                                     </div> --}}

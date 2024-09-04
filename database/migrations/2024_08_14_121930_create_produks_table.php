@@ -13,7 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger("id_produks")->autoIncrement();
             $table->string("token_produk");
             $table->string("nama_produk");
-            $table->string("thumbnail");
+            $table->string("thumbnail")->default('default.png');
             $table->string("deskripsi");
             $table->unsignedBigInteger("sub_kategori_id");
 
