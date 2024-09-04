@@ -13,6 +13,7 @@ use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\HakAksesController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubKategoriController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -113,6 +114,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Route::post('/mitra-produk/{id}/edit', [ProduksController::class, 'update']);
         // Route::get('/mitra-produk/{id}/hapus', [ProduksController::class, 'destroy']);
 
+        // Route::resource('/mitra/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
+
+
         Route::get('/mitra/foto-produk', [FotoProduksController::class, 'index']);
         Route::post('/mitra/foto-produk/{id}/update', [FotoProduksController::class, 'update']);
 
@@ -124,10 +128,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
-        Route::post('/checkout/{token}', [CheckoutController::class, 'index']);
+        Route::post('/checkout/{token}', [PaymentController::class, 'index']);
 
-        Route::post('/checkout/token', [TransaksiController::class, 'getSnapToken'])->name('checkout.token');
-        Route::post('/checkout/process', [TransaksiController::class, 'processPayment'])->name('checkout.process');
+        Route::post('/checkout/token', [PaymentController::class, 'getSnapToken'])->name('checkout.token');
+        Route::post('/checkout/process', [PaymentController::class, 'processPayment'])->name('checkout.process');
 
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);

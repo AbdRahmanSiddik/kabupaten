@@ -40,8 +40,8 @@
     <!-- Vendor Stylesheets -->
     <link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
 
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
-    </script>
+    {{-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script> --}}
 </head>
 
 <body>
@@ -345,6 +345,8 @@
         </footer>
     </div>
     <!-- Body End -->
+
+    @yield('scripts')
 
     <script src="{{ asset('assets') }}/js/vertical-responsive-menu.min.js"></script>
     <script src="{{ asset('assets') }}/js/jquery-3.7.1.min.js"></script>

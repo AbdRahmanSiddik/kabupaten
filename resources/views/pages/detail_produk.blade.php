@@ -102,7 +102,7 @@
                                     </div> --}}
 
 
-                                    <form action="/checkout/{{ $getsData->token_produk }}" method="POST">
+                                    <form action="/checkout/{{ $getsData->token_produk }}/" method="POST">
                                         @csrf
                                         <div class="input-group my-2 " style="width: 15%; ">
                                             <span class="input-group-text  "
