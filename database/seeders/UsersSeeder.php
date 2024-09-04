@@ -141,5 +141,12 @@ class UsersSeeder extends Seeder
             'stok' => 100,
             'produks_id' => 1
         ]);
+        AtributProduk::create([
+            'nama_varian' => 'Original',
+            'ukuran' => '100gr',
+            'harga' => 10000.00,
+            'stok' => 100,
+            'produks_id' => 2
+        ]);
     }
 }
