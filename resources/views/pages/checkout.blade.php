@@ -24,12 +24,12 @@
                                 <div class="auth1lnkprce">
                                     <p class="cr1fot">By <a href="#">John Doe</a></p>
                                     <div class="prce142">
-                                        {{-- @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
+                                        @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
                                             Rp {{ number_format($produkDetail->atr->max('harga')) }} x {{ $kuantitas }}
                                         @else
                                             Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
                                             {{ number_format($produkDetail->atr->max('harga')) }}
-                                        @endif --}}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -193,12 +193,12 @@
                             <div class="order_title">
                                 <h4>{{ $produkDetail->nama_produk }}</h4>
                                 <div class="order_price">
-                                    {{-- @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
+                                    @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
                                         Rp {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
                                     @else
                                         Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
                                         {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
-                                    @endif --}}
+                                    @endif
                                 </div>
                             </div>
                             <div class="order_title">

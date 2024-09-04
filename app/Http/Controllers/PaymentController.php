@@ -51,12 +51,13 @@ class PaymentController extends Controller
     {
         $gettoken = $_GET['token'];
 
+        $kuantitas = $request;
+
         $produkDetail = Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')->join('users', 'produks.users_id', '=', 'users.id')
             ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
             ->where('produks.token_produk', $gettoken)->first();
 
-
-        return view('pages.checkout', compact('produkDetail'));
+        return view('pages.checkout', compact('produkDetail', 'kuantitas'));
     }
 
     public function processPayment(Request $request)
