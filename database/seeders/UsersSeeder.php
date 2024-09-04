@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AtributProduk;
 use App\Models\Kategori;
 use App\Models\Produk;
 use App\Models\SubKategori;
@@ -132,5 +133,13 @@ class UsersSeeder extends Seeder
         foreach($produk as $item){
             Produk::create($item);
         }
+
+        AtributProduk::create([
+            'nama_varian' => 'Original',
+            'ukuran' => '100gr',
+            'harga' => 10000.00,
+            'stok' => 100,
+            'produks_id' => 1
+        ]);
     }
 }
