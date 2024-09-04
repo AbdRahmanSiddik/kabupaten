@@ -104,7 +104,7 @@
                                     <div class="item">
                                         <div class="fcrse_1 mb-20">
                                             <a href="/produk/{{ $item->token_produk }}/detail" class="fcrse_img">
-                                                <img src="{{ asset("thumbnail_produk/$item->thumbnail") }}" alt="">
+                                                <img src="{{ $item->thumbnail == 'default.png' ? asset('thumbnail_produk/default.png') : asset("thumbnail_produk/$item->thumbnail") }}" alt=""> 
                                                 <div class="course-overlay">
                                                     <div class="badge_seller">Bestseller</div>
                                                     <div class="crse_reviews">
