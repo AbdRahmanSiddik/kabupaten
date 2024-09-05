@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Alamat;
 use App\Models\AtributProduk;
 use App\Models\Kategori;
 use App\Models\Produk;
@@ -78,7 +79,7 @@ class UsersSeeder extends Seeder
             ],
         ];
 
-        foreach ($kategori as $item){
+        foreach ($kategori as $item) {
             Kategori::create($item);
         }
 
@@ -109,7 +110,7 @@ class UsersSeeder extends Seeder
             ],
         ];
 
-        foreach($subs as $item){
+        foreach ($subs as $item) {
             SubKategori::create($item);
         }
 
@@ -130,7 +131,7 @@ class UsersSeeder extends Seeder
             ]
         ];
 
-        foreach($produk as $item){
+        foreach ($produk as $item) {
             Produk::create($item);
         }
 
@@ -147,6 +148,38 @@ class UsersSeeder extends Seeder
             'harga' => 10000.00,
             'stok' => 100,
             'produks_id' => 2
+        ]);
+
+
+
+
+
+        Alamat::create([
+            'nama' => "Nama",
+            'alamat' => "Alamat",
+            'provinsi' => "Provinsi",
+            'kabupaten' => "Kabupaten",
+            'kecamatan' => "Kecamatan",
+            'desa_kelurahan' => "Kelurahan",
+            'dusun' => "Dusun",
+            'rtrw' => "RT/RW",
+            'kode_pos' => "Kode POS",
+            'users_id' => 1,
+            'detail' => "Detail Informasi"
+        ]);
+
+        Alamat::create([
+            'nama' => "Nama",
+            'alamat' => "Alamat",
+            'provinsi' => "Provinsi",
+            'kabupaten' => "Kabupaten",
+            'kecamatan' => "Kecamatan",
+            'desa_kelurahan' => "Kelurahan",
+            'dusun' => "Dusun",
+            'rtrw' => "RT/RW",
+            'kode_pos' => "Kode POS",
+            'users_id' => 2,
+            'detail' => "Detail Informasi"
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Midtrans\Snap;
 use Midtrans\Config;
+use App\Models\Alamat;
 use App\Models\Produk;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -85,12 +86,16 @@ class PaymentController extends Controller
             ->where('produks.id_produks', $transaction->produks_id) // Menggunakan id_produks dari transaksi
             ->first();
 
+
+        $userID = auth()->user()->id;
+        $getAlamat = Alamat::where('id_alamats', $userID)->first();
+
         // Jika produk detail tidak ditemukan, tangani kasus ini
         if (!$produkDetail) {
             // Redirect atau tampilkan pesan error jika produk tidak ditemukan
             return redirect()->route('home')->withErrors('Produk tidak ditemukan.');
         }
 
-        return view('pages.checkout', compact('transaction', 'produkDetail', 'kuantitas'));
+        return view('pages.checkout', compact('transaction', 'produkDetail', 'kuantitas', 'getAlamat'));
     }
 }

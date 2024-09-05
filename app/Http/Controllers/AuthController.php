@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Mail\EmailVariy;
+use App\Models\Alamat;
 use App\Models\Produk;
 use App\Models\Settings;
 use Illuminate\Support\Str;
@@ -98,6 +99,20 @@ class AuthController extends Controller
 
         event(new Registered($user));
 
+
+        Alamat::create([
+            'nama' => "Nama",
+            'alamat' => "Alamat",
+            'provinsi' => "Provinsi",
+            'kabupaten' => "Kabupaten",
+            'kecamatan' => "Kecamatan",
+            'desa_kelurahan' => "Kelurahan",
+            'dusun' => "Dusun",
+            'rtrw' => "RT/RW",
+            'kode_pos' => "Kode POS",
+            'users_id' => auth()->user()->id,
+            'detail' => "Detail Informasi"
+        ]);
 
         Auth::login($user);
 

@@ -5,36 +5,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-8">
-                    <div class="membership_chk_bg">
-                        <div class="fcrse_1">
-                            <a href="course_detail_view.html" class="hf_img">
-                                {{-- <img class="cart_img" src="{{ asset('') }}assets/images/courses/img-2.jpg" alt=""> --}}
-
-                                <img src="{{ asset('thumbnail_produk/' . $produkDetail->thumbnail) }}" alt="">
-                            </a>
-                            <div class="hs_content">
-                                <div class="eps_dots eps_dots10 more_dropdown">
-                                    <a href="#"><i class='uil uil-times'></i></a>
-                                </div>
-                                <a href="course_detail_view.html"
-                                    class="crse14s title900 pt-2">{{ $produkDetail->nama_produk }}</a>
-                                <a href="#" class="crse-cate"> {{ $produkDetail->nama_kategori }},
-                                    {{ $produkDetail->nama_sub_kategori }}</a>
-                                <div class="auth1lnkprce">
-                                    <p class="cr1fot">By <a href="#">John Doe</a></p>
-                                    <div class="prce142">
-                                        @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
-                                            Rp {{ number_format($produkDetail->atr->max('harga')) }} x {{ $kuantitas }}
-                                        @else
-                                            Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
-                                            {{ number_format($produkDetail->atr->max('harga')) }}
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-12">
 
                     <div class="membership_chk_bg">
 
@@ -55,7 +26,7 @@
                                 <div id="collapseaddress1" class="panel-collapse collapse" role="tabpanel"
                                     aria-labelledby="address1">
                                     <div class="panel-body basic_form">
-                                        <form action="/alamat-ck/{{ $getAlamat->id_alamats }}/" method="POST">
+                                        <form action="/alamat/{{ $getAlamat->id_alamats }}/" method="POST">
                                             <div class="row">
                                                 @csrf
 
@@ -124,9 +95,8 @@
                                                     <div class="ui search focus mt-30 lbel25">
                                                         <label>Dusun*</label>
                                                         <div class="ui left icon input swdh11 swdh19">
-                                                            <input class="prompt srch_explore" type="text"
-                                                                name="dusun" id="id_zip"
-                                                                value="{{ $getAlamat->dusun }}" required
+                                                            <input class="prompt srch_explore" type="text" name="dusun"
+                                                                id="id_zip" value="{{ $getAlamat->dusun }}" required
                                                                 placeholder="Dusun">
                                                         </div>
                                                     </div>
@@ -147,7 +117,7 @@
                                                         <div class="ui left icon input swdh11 swdh19">
                                                             <input class="prompt srch_explore" type="text"
                                                                 name="kode_pos" value="{{ $getAlamat->kode_pos }}"
-                                                                id="id_zip" placeholder="Kode POS">
+                                                                id="id_zip" required="" placeholder="Kode POS">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -162,10 +132,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <input type="hidden" name="id_transaksi"
-                                                    value="{{ $transaction->id }}">
-
                                                 <div class="col-lg-6">
                                                     <button class="save_address_btn" type="submit">Simpan</button>
                                                 </div>
@@ -190,64 +156,8 @@
 
                 </div>
 
-                <input type="hidden" name="json" id="json_callback">
-                <div class="col-lg-4">
-                    <div class="membership_chk_bg rght1528">
-                        <div class="checkout_title">
-                            <h4>Order Summary</h4>
-                            <img src="{{ asset('') }}assets/images/line.svg" alt="">
-                        </div>
-                        <div class="order_dt_section">
-                            <div class="order_title">
-                                <h4>{{ $produkDetail->nama_produk }}</h4>
-                                <div class="order_price">
-                                    @if ($produkDetail->atr->min('harga') == $produkDetail->atr->max('harga'))
-                                        Rp {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
-                                    @else
-                                        Rp {{ number_format($produkDetail->atr->min('harga')) }} - Rp
-                                        {{ number_format($produkDetail->atr->max('harga') * $kuantitas) }}
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="order_title">
-                                <h6>Ongkir</h6>
-                                <div class="order_price">Rp5.000</div>
-                            </div>
-                            <div class="order_title">
-                                <h2>Total</h2>
-                                {{-- <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div> --}}
-                            </div>
 
-                            <button type="button" id="pay-button" class="btn scr_text">Bayar Sekarang
-
-                            </button>
-                            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}">
-    </script>
-    <script type="text/javascript">
-        document.getElementById('pay-button').onclick = function() {
-            snap.pay('{{ $transaction['snap_token'] }}', {
-                // Optional
-                onSuccess: function(result) {
-                    document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                },
-                // Optional
-                onPending: function(result) {
-                    document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                },
-                // Optional
-                onError: function(result) {
-                    document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                }
-            });
-        };
-    </script>
 @endsection

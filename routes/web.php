@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlamatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
@@ -128,10 +129,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/beranda', [CustomerController::class, 'index']);
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
-        Route::post('/checkout/{token}', [PaymentController::class, 'process']);
 
+        // midtrans 
+        Route::post('/checkout/{token}', [PaymentController::class, 'process']);
         Route::get('/checkout-pay/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
 
+        Route::get('/alamat/{id}', [AlamatController::class, 'edit'])->name('alamat');
+        Route::post('/alamat/{id}', [AlamatController::class, 'edit_aksi']);
+        Route::post('/alamat-ck/{id}', [AlamatController::class, 'edit_aksi_checkout']);
 
         // Profile
         Route::get('/profile/{token}', [SettingsController::class, 'profile']);

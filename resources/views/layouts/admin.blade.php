@@ -78,14 +78,17 @@
                     {{-- <span class="menu--label">Ukuran</span> --}}
                     {{-- </a> --}}
                     {{-- </li> --}}
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/kategori"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/kategori') ? 'active' : '' }}"
-                            title="Create Course">
-                            <i class='uil uil-plus-circle menu--icon'></i>
-                            <span class="menu--label">Kategori</span>
-                        </a>
-                    </li>
+
+                    @if (auth()->user()->role == 'admin')
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}/kategori"
+                                class="menu--link {{ request()->is(auth()->user()->role . '/kategori') ? 'active' : '' }}"
+                                title="Create Course">
+                                <i class='uil uil-plus-circle menu--icon'></i>
+                                <span class="menu--label">Kategori</span>
+                            </a>
+                        </li>
+                    @endif
 
                     <li class="menu--item">
                         <a href="instructor_messages.html" class="menu--link" title="Messages">

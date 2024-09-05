@@ -94,14 +94,14 @@
                                 <ul class="_bty149">
                                     <li>
                                         <button class="studio-link-btn btn500"
-                                            onclick="window.location.href = 'student_dashboard.html';">
-                                            Cursus Studio
+                                            onclick="window.location.href = '/alamat/{{ auth()->user()->id }}';">
+                                            Edit Alamat
                                         </button>
                                     </li>
                                     <li>
                                         <button class="msg125 btn500"
                                             onclick="window.location.href = '/profile/{{ $Getdata->token_users }}/edit';">
-                                            Edit
+                                            Edit Profile
                                         </button>
                                     </li>
                                 </ul>
