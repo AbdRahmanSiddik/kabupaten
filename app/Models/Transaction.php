@@ -18,5 +18,6 @@ class Transaction extends Model
         'total_price',
         'harga',
         'status',
+        'snap_token'
     ];
 }

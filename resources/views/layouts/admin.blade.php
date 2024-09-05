@@ -86,14 +86,7 @@
                             <span class="menu--label">Kategori</span>
                         </a>
                     </li>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/foto-produk"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/foto-produk') ? 'active' : '' }}"
-                            title="Create Course">
-                            <i class='uil uil-picture menu--icon'></i>
-                            <span class="menu--label">Foto Produk</span>
-                        </a>
-                    </li>
+
                     <li class="menu--item">
                         <a href="instructor_messages.html" class="menu--link" title="Messages">
                             <i class='uil uil-comments menu--icon'></i>
@@ -129,16 +122,14 @@
                         </a>
                     </li>
                     @if (auth()->user()->role == 'admin')
-
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/hak-akses"
-                            class="menu--link  {{ request()->is(auth()->user()->role . '/hak-akses') ? 'active' : '' }} "
-                            title="Send Feedback">
-                            <i class='uil uil-user menu--icon'></i>
-                            <span class="menu--label">Hak Akses</span>
-                        </a>
-                    </li>
-                    
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}/hak-akses"
+                                class="menu--link  {{ request()->is(auth()->user()->role . '/hak-akses') ? 'active' : '' }} "
+                                title="Send Feedback">
+                                <i class='uil uil-user menu--icon'></i>
+                                <span class="menu--label">Hak Akses</span>
+                            </a>
+                        </li>
                     @endif
 
                 </ul>

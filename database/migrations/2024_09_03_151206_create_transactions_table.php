@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_transactions')->autoIncrement();
+            $table->id();
             $table->foreignId('users_id')->constrained();
 
-
+            $table->string('snap_token')->nullable();
             $table->unsignedBigInteger('produks_id');
             $table->foreign('produks_id')->references('id_produks')->on('produks');
 
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('harga');
             $table->string('total_price');
             $table->enum('status', ['pending', 'success', 'failed']);
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 

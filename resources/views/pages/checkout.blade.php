@@ -55,7 +55,7 @@
                                 <div id="collapseaddress1" class="panel-collapse collapse" role="tabpanel"
                                     aria-labelledby="address1">
                                     <div class="panel-body basic_form">
-                                        <form>
+                                        {{-- <form>
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="ui search focus mt-30 lbel25">
@@ -166,7 +166,7 @@
                                                         Changes</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,9 @@
                                 {{-- <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div> --}}
                             </div>
 
-                            <button type="button" id="pay-button" class="btn scr_text">Bayar Sekarang</button>
+                            <button type="button" id="pay-button" class="btn scr_text">Bayar Sekarang
+
+                            </button>
                             <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
                         </div>
                     </div>
@@ -220,26 +222,21 @@
     </div>
 @endsection
 @section('scripts')
-    <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}">
     </script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function() {
-            // SnapToken acquired from previous step
-            snap.pay(' ', {
+            snap.pay('{{ $transaction['snap_token'] }}', {
                 // Optional
                 onSuccess: function(result) {
-                    /* You may add your own js here, this is just example */
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 },
                 // Optional
                 onPending: function(result) {
-                    /* You may add your own js here, this is just example */
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 },
                 // Optional
                 onError: function(result) {
-                    /* You may add your own js here, this is just example */
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 }
             });

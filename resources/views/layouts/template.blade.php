@@ -40,8 +40,7 @@
     <!-- Vendor Stylesheets -->
     <link href="{{ asset('assets') }}/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
 
-    {{-- <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
-    </script> --}}
+
 </head>
 
 <body>
