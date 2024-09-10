@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Produk;
 use App\Models\Settings;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class CustomerController extends Controller
                 ->get()
         ];
 
-        return view('pages.beranda', $data);
+        $getMitra = User::where('role', 'mitra')->get();
+
+        return view('pages.beranda', $data, compact('getMitra'));
     }
 
     public function produk()

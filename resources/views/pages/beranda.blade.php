@@ -10,87 +10,22 @@
                         <a href="live_streams.html" class="see150">See all</a>
                         <div class="la5lo1">
                             <div class="owl-carousel live_stream owl-theme">
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-1.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-2.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-9.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-3.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-4.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-5.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-6.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-7.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="stream_1">
-                                        <a href="live_output.html" class="stream_bg">
-                                            <img src="{{ asset('assets') }}/images/left-imgs/img-8.jpg" alt="">
-                                            <h4>Someone</h4>
-                                            <p>Aktif<span></span></p>
-                                        </a>
-                                    </div>
-                                </div>
+
+                                @if (Auth::check())
+                                    @foreach ($getMitra as $item)
+                                        <div class="item">
+                                            <div class="stream_1">
+                                                <a href="live_output.html" class="stream_bg">
+                                                    <img src="{{ asset('assets') }}/images/left-imgs/img-1.jpg"
+                                                        alt="">
+                                                    <h4>{{ $item->username }}</h4>
+                                                    <p>Aktif<span></span></p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -104,7 +39,8 @@
                                     <div class="item">
                                         <div class="fcrse_1 mb-20">
                                             <a href="/produk/{{ $item->token_produk }}/detail" class="fcrse_img">
-                                                <img src="{{ $item->thumbnail == 'default.png' ? asset('thumbnail_produk/default.png') : asset("thumbnail_produk/$item->thumbnail") }}" alt=""> 
+                                                <img src="{{ $item->thumbnail == 'default.png' ? asset('thumbnail_produk/default.png') : asset("thumbnail_produk/$item->thumbnail") }}"
+                                                    alt="">
                                                 <div class="course-overlay">
                                                     <div class="badge_seller">Bestseller</div>
                                                     <div class="crse_reviews">
@@ -127,10 +63,10 @@
                                                     <span class="vdt14"> Terjual</span>
                                                 </div>
                                                 <a href="/produk/detail" class="crse14s">{{ $item->nama_produk }}</a>
-                                                <a href="#"
-                                                    class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
+                                                <a href="#" class="crse-cate">{{ $item->subs->nama_sub_kategori }}</a>
                                                 <div class="auth1lnkprce">
-                                                    <p class="cr1fot">By <a href="#">{{ $item->user->username }}</a></p>
+                                                    <p class="cr1fot">By <a href="#">{{ $item->user->username }}</a>
+                                                    </p>
                                                     <div class="prce142">
                                                         @if ($item->atr->min('harga') == $item->atr->max('harga'))
                                                             Rp {{ number_format($item->atr->max('harga')) }}
@@ -226,8 +162,8 @@
                                             </div>
                                             <div class="tutor_cate">Makanan &amp; Minuman</div>
                                             <ul class="tutor_social_links">
-                                                <li><a href="#" class="fb"><i
-                                                            class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+                                                </li>
                                                 <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a>
                                                 </li>
                                                 <li><a href="#" class="ln"><i

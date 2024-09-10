@@ -136,7 +136,7 @@ class MitraUmkmController extends Controller
                 Mitra_Umkm::where('token_umkm', $token)->update($data);
 
 
-                return redirect('/hone');
+                return redirect('/home');
             } else {
                 return redirect()->back()->with('error', 'Gambar tidak ditemukan.');
             }

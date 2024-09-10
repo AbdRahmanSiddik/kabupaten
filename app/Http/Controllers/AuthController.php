@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Mail\EmailVariy;
 use App\Models\Alamat;
 use App\Models\Produk;
+use App\Mail\EmailVariy;
 use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -74,7 +74,7 @@ class AuthController extends Controller
 
     public function register_action(Request $request)
     {
-
+        // Validasi input
         $request->validate([
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
@@ -82,7 +82,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-
+        // Membuat user baru
         $user = User::create([
             "username" => $request->username,
             "email" => $request->email,
@@ -96,10 +96,10 @@ class AuthController extends Controller
             "foto_profile" => null
         ]);
 
-
+        // Memicu event 'Registered' untuk user baru
         event(new Registered($user));
 
-
+        // Membuat entri alamat yang terhubung dengan user_id yang baru dibuat
         Alamat::create([
             'nama' => "Nama",
             'alamat' => "Alamat",
@@ -110,13 +110,14 @@ class AuthController extends Controller
             'dusun' => "Dusun",
             'rtrw' => "RT/RW",
             'kode_pos' => "Kode POS",
-            'users_id' => auth()->user()->id,
+            'users_id' => $user->id,  // Mengambil id dari user yang baru saja dibuat
             'detail' => "Detail Informasi"
         ]);
 
+        // Log in user
         Auth::login($user);
 
-
+        // Redirect ke halaman verifikasi email
         return redirect('/email/verify');
     }
 

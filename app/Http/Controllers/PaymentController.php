@@ -88,7 +88,7 @@ class PaymentController extends Controller
 
 
         $userID = auth()->user()->id;
-        $getAlamat = Alamat::where('id_alamats', $userID)->first();
+        $getAlamat = Alamat::where('users_id', $userID)->first();
 
         // Jika produk detail tidak ditemukan, tangani kasus ini
         if (!$produkDetail) {
