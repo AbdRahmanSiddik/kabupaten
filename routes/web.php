@@ -1,24 +1,24 @@
 <?php
 
-use App\Http\Controllers\AlamatController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AlamatController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProduksController;
 use App\Http\Controllers\UkuransController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MitraUmkmController;
-use App\Http\Controllers\FotoProduksController;
-use App\Http\Controllers\HakAksesController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\SubKategoriController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\FotoProduksController;
+use App\Http\Controllers\SubKategoriController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mitra_Umkm;
 use App\Models\User;
+use App\Models\Mitra_Umkm;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -136,7 +136,7 @@ class MitraUmkmController extends Controller
                 Mitra_Umkm::where('token_umkm', $token)->update($data);
 
 
-                return redirect('/page');
+                return redirect('/hone');
             } else {
                 return redirect()->back()->with('error', 'Gambar tidak ditemukan.');
             }
