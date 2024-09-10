@@ -374,7 +374,7 @@
                                                         <a href="/hak-akses/{{ $get->token_umkm }}/details"
                                                             title="Detail" class="gray-s"><i
                                                                 class="uil uil-book-alt"></i></a>
-                                                        <a href="{{ route('hak-akses.edit', $get->id_mitra_umkms) }}"
+                                                        <a href="{{ route('hak-akses.edit', $get->users_id) }}"
                                                             title="Edit" class="gray-s"><i
                                                                 class="uil uil-edit-alt"></i></a>
 

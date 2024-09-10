@@ -99,7 +99,7 @@
                                                                     characters and unique.)</div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-12">
+                                                        {{-- <div class="col-lg-6 col-md-12">
                                                             <div class="ui search focus mt-30 lbel25">
                                                                 <label>Password *</label>
                                                                 <div class="ui left icon input swdh19">
@@ -112,7 +112,7 @@
                                                                 <div class="help-block">(Please make this a maximum of 100
                                                                     characters and unique.)</div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="col-lg-6 col-md-12">
                                                             <div class="mt-30 lbel25">
                                                                 <label>Hak Akses Saat ini
@@ -120,8 +120,7 @@
                                                                         style="color: red; text-transform: capitalize">{{ $getsdata->role }}*</span></label>
                                                             </div>
                                                             <select class="selectpicker" title="Pilih Hak Akses"
-                                                                name="role" id="selectcategory"
-                                                                data-live-search="true">
+                                                                name="role" id="selectcategory" data-live-search="true">
                                                                 <option value="admin">Admin</option>
                                                                 <option value="mitra">Mitra</option>
                                                                 <option value="customer">Customer</option>

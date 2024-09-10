@@ -152,6 +152,11 @@ class HakAksesController extends Controller
             "foto_profile" => $file_name,
         ]);
 
+
+
+        Mitra_Umkm::where('users_id', $id)->delete();
+
+
         toast('Berhasil Memperbarui Data ', 'success');
 
 
