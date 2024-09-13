@@ -194,7 +194,7 @@
                 <div class="col-lg-4">
                     <div class="membership_chk_bg rght1528">
                         <div class="checkout_title">
-                            <h4>Order Summary</h4>
+                            <h4>Ringkasan Pesanan</h4>
                             <img src="{{ asset('') }}assets/images/line.svg" alt="">
                         </div>
                         <div class="order_dt_section">
@@ -215,12 +215,48 @@
                             </div>
                             <div class="order_title">
                                 <h2>Total</h2>
-                                {{-- <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div> --}}
+                                <div class="order_price5">Rp {{ $produkDetail->harga * $kuantitas + 5000 }}</div>
                             </div>
 
-                            <button type="button" id="pay-button" class="btn scr_text">Bayar Sekarang
+                            <form action="/sedekah/{{ $transaction->id }}" method="POST">
+                                @csrf
 
-                            </button>
+                                @if ($transaction->sedekah == null)
+                                    
+                                <div class="coupon_code">
+                                    <p>"Sisihkan sedikit dari pembelian Anda untuk berbagi kebaikan melalui sedekah.
+                                        "</p>
+                                    <div class="coupon_input">
+                                        <div class="ui search focus mt-15">
+                                            <div class="ui left icon input swdh11 swdh19">
+                                                <input class="prompt srch_explore" type="text" name="sedekah"
+                                                    id="id_coupon_code" placeholder="Minimum Rp 500.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                @endif
+
+
+                                @if ($transaction->sedekah == null)
+                                    <button type="submit" class="btn scr_text">Sisihkan</button>
+                                @endif
+
+                                @if ($transaction->sedekah == null)
+                                    <button type="button" hidden id="pay-button" class="btn scr_text">Bayar
+                                        Sekarang</button>
+                                @elseif ($transaction->sedekah == true)
+                                    <button type="button" id="pay-button" class="btn scr_text">Bayar
+                                        Sekarang</button>
+                                @endif
+
+                            </form>
+
+
+
                             <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
                         </div>
                     </div>

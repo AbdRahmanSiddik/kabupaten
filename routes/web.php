@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KurirController;
 use App\Http\Controllers\AlamatController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProduksController;
@@ -83,8 +84,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/foto-produk', [FotoProduksController::class, 'index']);
         Route::post('/admin/foto-produk/{id}/update', [FotoProduksController::class, 'update']);
 
-
-
         Route::resource('/admin/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('/kategori/{id}/subs', [SubKategoriController::class, 'index']);
         Route::post('/kategori/{id}/subs', [SubKategoriController::class, 'store']);
@@ -98,6 +97,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::resource('/admin/hak-akses',  HakAksesController::class)->only(['index', 'create', 'store', 'destroy', 'edit', 'update', 'detail']);
         Route::get('/hak-akses/{token}/details',  [HakAksesController::class, 'details']);
+
+        // kurir
+        Route::get('/admin/super-kurir', [KurirController::class, 'index']);
+        Route::get('/admin/super-kurir/create', [KurirController::class, 'create']);
 
         // Upload CKEditor
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
@@ -133,6 +136,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // midtrans 
         Route::post('/checkout/{token}', [PaymentController::class, 'process']);
         Route::get('/checkout-pay/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
+        Route::get('/checkout-payment/{transaction}', [PaymentController::class, 'checkout_payment'])->name('payment');
 
         Route::get('/alamat/{id}', [AlamatController::class, 'edit'])->name('alamat');
         Route::post('/alamat/{id}', [AlamatController::class, 'edit_aksi']);
@@ -149,6 +153,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/daftar/umkm', [MitraUmkmController::class, 'daftar_action']);
         Route::get('/selfie', [MitraUmkmController::class, 'selfie']);
         Route::post('/selfie/{token}/update', [MitraUmkmController::class, 'update_action']);
+
+
+        // sedekah 
+        Route::post('/sedekah/{id}', [PaymentController::class, 'sedekah']);
     });
 
     // Logout

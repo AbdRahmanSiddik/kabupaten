@@ -16,6 +16,7 @@ class PaymentController extends Controller
 {
     public function process($token, Request $request)
     {
+
         $kuantitas = $request->quantity;
         $pembeli = auth()->user()->id;
 
@@ -36,7 +37,38 @@ class PaymentController extends Controller
             'harga' => $produks->harga
         ]);
 
+        return redirect()->route('checkout', $transaction->id);
+    }
+
+
+    public function sedekah(Request $request, $id)
+    {
+        // Validasi nilai sedekah 
+        $request->validate([
+            'sedekah' => 'required|numeric|min:500'
+        ]);
+
+        $data = Transaction::where('id', $id)->first();
+
+        // dd($total_price);
+        // Update nilai sedekah pada transaksi yang sesuai
+        Transaction::where('id', $id)->update([
+            'sedekah' => $request->sedekah,
+        ]);
+        // $total_price =  $data->harga + $data->sedekah + $data->harga;
+
+        $transaction = Transaction::find($id);
+        // Ambil kembali transaksi setelah diupdate
+
         // dd($transaction);
+
+        $get_total = $transaction->quantity * $transaction->harga + $transaction->sedekah;
+        // dd($get_total);
+
+        Transaction::where('id', $id)->update([
+            "total_price" => $get_total
+        ]);
+
 
         // Konfigurasi Midtrans
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
@@ -44,46 +76,48 @@ class PaymentController extends Controller
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
 
+        // Buat orderId unik
         $orderId = uniqid();
 
-        $params = array(
-            'transaction_details' => array(
+        // Persiapkan parameter untuk transaksi Midtrans
+        $params = [
+            'transaction_details' => [
                 'order_id' => $orderId,
-                'gross_amount' => $transaction['total_price'],
-            ),
-            'customer_details' => array(
+                'gross_amount' => $get_total, // pastikan total_price sudah diperbarui dengan benar
+            ],
+            'customer_details' => [
                 'first_name' => auth()->user()->username,
                 'email' => auth()->user()->email,
                 'phone' => auth()->user()->no_telepon,
-            )
-        );
+            ],
+        ];
 
-
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        if (!$snapToken) {
-            return redirect()->back()->withErrors('Gagal mendapatkan Snap Token.');
+        // Dapatkan Snap Token dari Midtrans
+        try {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            $transaction->snap_token = $snapToken;
+            $transaction->save();
+            // dd($transaction);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors('Gagal mendapatkan Snap Token: ' . $e->getMessage());
         }
-        $transaction->snap_token = $snapToken;
 
-        $transaction->save();
-
-
-
-        // Redirect ke halaman checkout dengan parameter yang lebih jelas
-        return redirect()->route('checkout', $transaction->id);
+        // Redirect ke halaman pembayaran
+        return redirect()->route('payment', $transaction->id);
     }
+
+
 
     public function checkout(Request $request, Transaction $transaction)
     {
-        // Ambil kuantitas dari request
-        $kuantitas = $transaction->quantity; // Mengambil data dari input request
-        // dd($transaction);
-        // Ambil detail produk berdasarkan id_produks dari transaksi
+        $kuantitas = $transaction->quantity;
+
+
         $produkDetail = Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')
             ->join('users', 'produks.users_id', '=', 'users.id')
             ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')
             ->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
-            ->where('produks.id_produks', $transaction->produks_id) // Menggunakan id_produks dari transaksi
+            ->where('produks.id_produks', $transaction->produks_id)
             ->first();
 
 
@@ -95,6 +129,33 @@ class PaymentController extends Controller
             // Redirect atau tampilkan pesan error jika produk tidak ditemukan
             return redirect()->route('home')->withErrors('Produk tidak ditemukan.');
         }
+
+
+        return view('pages.checkout', compact('transaction', 'produkDetail', 'kuantitas', 'getAlamat'));
+    }
+
+    public function checkout_payment(Request $request, Transaction $transaction)
+    {
+        $kuantitas = $transaction->quantity;
+
+
+        $produkDetail = Produk::join('sub_kategoris', 'produks.sub_kategori_id', '=', 'sub_kategoris.id_sub_kategori')
+            ->join('users', 'produks.users_id', '=', 'users.id')
+            ->join('kategoris', 'sub_kategoris.kategori_id', '=', 'kategoris.id_kategoris')
+            ->join('atribut_produk', 'produks.id_produks', '=', 'atribut_produk.produks_id')
+            ->where('produks.id_produks', $transaction->produks_id)
+            ->first();
+
+
+        $userID = auth()->user()->id;
+        $getAlamat = Alamat::where('users_id', $userID)->first();
+
+        // Jika produk detail tidak ditemukan, tangani kasus ini
+        if (!$produkDetail) {
+            // Redirect atau tampilkan pesan error jika produk tidak ditemukan
+            return redirect()->route('home')->withErrors('Produk tidak ditemukan.');
+        }
+
 
         return view('pages.checkout', compact('transaction', 'produkDetail', 'kuantitas', 'getAlamat'));
     }

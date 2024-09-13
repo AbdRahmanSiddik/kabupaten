@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->string('alamat_users')->nullable();
             $table->string('foto_profile')->nullable();
-            $table->enum('role', ["admin", "mitra", "customer"]);
+            $table->enum('role', ["admin", "mitra", "customer", "kurir", "superkurir"]);
             $table->timestamps();
         });
     }

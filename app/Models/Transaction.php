@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transaction extends Model
 {
@@ -17,6 +17,7 @@ class Transaction extends Model
         'produks_id',
         'total_price',
         'harga',
+        'sedekah',
         'status',
         'snap_token'
     ];
