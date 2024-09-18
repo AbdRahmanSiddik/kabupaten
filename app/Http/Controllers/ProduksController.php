@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AtributProduk;
-use App\Models\Foto_produk;
 use App\Models\Produk;
+use App\Models\Ukuran;
 use App\Models\Varian;
 use App\Models\Kategori;
-use App\Models\Pivot_Produk_Kategori;
-use App\Models\Ukuran;
+use App\Models\Foto_produk;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\AtributProduk;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use App\Models\Pivot_Produk_Kategori;
 
 class ProduksController extends Controller
 {
@@ -82,6 +82,7 @@ class ProduksController extends Controller
 
         return redirect(auth()->user()->role . '/foto-produk' . "?id=$produk");
     }
+
 
     public function edit($id)
     {

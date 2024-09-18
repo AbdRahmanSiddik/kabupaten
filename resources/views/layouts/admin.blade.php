@@ -91,9 +91,9 @@
                     @endif
 
                     <li class="menu--item">
-                        <a href="instructor_messages.html" class="menu--link" title="Messages">
+                        <a href="admin.super-kurir" class="menu--link" title="Messages">
                             <i class='uil uil-comments menu--icon'></i>
-                            <span class="menu--label">Chat</span>
+                            <span class="menu--label">Super Kurir</span>
                         </a>
                     </li>
                     <li class="menu--item">

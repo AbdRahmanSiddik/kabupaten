@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('super_kurirs', function (Blueprint $table) {
-            $table->unsignedBigInteger("id_super_kurirs")->autoIncrement();
+        Schema::create('kurirs', function (Blueprint $table) {
+            $table->unsignedBigInteger("id_kurirs")->autoIncrement();
 
             $table->foreignId('users_id')->constrained();
 
-            $table->unsignedBigInteger("produks_id");
-            $table->foreign("produks_id")->references('id_produks')->on('produks');
+            $table->enum('status', ['active', 'pending', 'online']);
 
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('super_kurirs');
+        Schema::dropIfExists('kurirs');
     }
 };

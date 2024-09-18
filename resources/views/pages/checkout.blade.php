@@ -222,22 +222,18 @@
                                 @csrf
 
                                 @if ($transaction->sedekah == null)
-                                    
-                                <div class="coupon_code">
-                                    <p>"Sisihkan sedikit dari pembelian Anda untuk berbagi kebaikan melalui sedekah.
-                                        "</p>
-                                    <div class="coupon_input">
-                                        <div class="ui search focus mt-15">
-                                            <div class="ui left icon input swdh11 swdh19">
-                                                <input class="prompt srch_explore" type="text" name="sedekah"
-                                                    id="id_coupon_code" placeholder="Minimum Rp 500.">
+                                    <div class="coupon_code">
+                                        <p>"Sisihkan sedikit dari pembelian Anda untuk berbagi kebaikan melalui sedekah.
+                                            "</p>
+                                        <div class="coupon_input">
+                                            <div class="ui search focus mt-15">
+                                                <div class="ui left icon input swdh11 swdh19">
+                                                    <input class="prompt srch_explore" type="text" name="sedekah"
+                                                        id="id_coupon_code" placeholder="Minimum Rp 500.">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-
                                 @endif
 
 

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->string('alamat_users')->nullable();
             $table->string('foto_profile')->nullable();
+
             $table->enum('role', ["admin", "mitra", "customer", "kurir", "superkurir"]);
             $table->timestamps();
         });

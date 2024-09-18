@@ -99,7 +99,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/hak-akses/{token}/details',  [HakAksesController::class, 'details']);
 
         // kurir
-        Route::get('/admin/super-kurir', [KurirController::class, 'index']);
+        Route::get('/admin.super-kurir', [KurirController::class, 'index']);
         Route::get('/admin/super-kurir/create', [KurirController::class, 'create']);
 
         // Upload CKEditor
@@ -158,6 +158,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // sedekah 
         Route::post('/sedekah/{id}', [PaymentController::class, 'sedekah']);
     });
+
+    Route::middleware('userAkses:superkurir')->group(function(){
+        
+        // Route::get();
+        
+    });
+    
 
     // Logout
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
