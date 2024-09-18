@@ -19,6 +19,7 @@ use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\SubKategoriController;
+use App\Http\Controllers\DetailTransactionController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -67,8 +68,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
 // Rute untuk pengguna yang telah diverifikasi
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -101,6 +100,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // kurir
         Route::get('/admin.super-kurir', [KurirController::class, 'index']);
         Route::get('/admin/super-kurir/create', [KurirController::class, 'create']);
+        // Detail Transaction 
+        Route::get('/admin.detail-transaksi', [DetailTransactionController::class, 'index']);
+
 
         // Upload CKEditor
         Route::post('/upload/ckeditor', [ProduksController::class, 'ckeditor'])->name('ckeditor.upload');
@@ -159,12 +161,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/sedekah/{id}', [PaymentController::class, 'sedekah']);
     });
 
-    Route::middleware('userAkses:superkurir')->group(function(){
-        
+    Route::middleware('userAkses:superkurir')->group(function () {
+
         // Route::get();
-        
+
     });
-    
+
 
     // Logout
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

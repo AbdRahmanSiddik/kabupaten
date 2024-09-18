@@ -66,7 +66,8 @@ class PaymentController extends Controller
         // dd($get_total);
 
         Transaction::where('id', $id)->update([
-            "total_price" => $get_total
+            "total_price" => $get_total,
+            "status" => "success",
         ]);
 
 

@@ -103,9 +103,9 @@
                         </a>
                     </li>
                     <li class="menu--item">
-                        <a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
+                        <a href="/admin.detail-transaksi" class="menu--link" title="Reviews">
                             <i class='uil uil-star menu--icon'></i>
-                            <span class="menu--label">Review</span>
+                            <span class="menu--label">Detail Trasaksi</span>
                         </a>
                     </li>
                     <li class="menu--item">
