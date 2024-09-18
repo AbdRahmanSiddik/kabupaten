@@ -34,7 +34,7 @@
                             <td>{{ $item->transaksi->snap_token }}</td>
                             <td>{{ $item->transaksi->produk->nama_produk }}</td>
                             <td>{{ $item->transaksi->pemesan->alamat_users }}</td>
-                            @if ($item->status_kirim == 'diantar')
+                            @if ($item->status_kirim == 'packing')
                                 <td>Jemputlah Pesanan Wahai kurir</td>
                             @else
                                 <td>{{ $item->status_kirim }}</td>
