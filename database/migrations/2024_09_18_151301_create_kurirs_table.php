@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kurirs', function (Blueprint $table) {
-            $table->unsignedBigInteger("id_kurirs")->autoIncrement();
-
-            $table->foreignId('users_id')->constrained();
-
-            $table->enum('status', ['active', 'pending', 'online']);
-
+            $table->id('id_kurirs');
+            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('super_kurir_id');
             $table->timestamps();
+
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('super_kurir_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

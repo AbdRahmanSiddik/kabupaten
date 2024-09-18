@@ -26,7 +26,11 @@ return new class extends Migration
             $table->string('harga');
             $table->string('total_price');
             $table->enum('status', ['pending', 'success', 'failed']);
+
+            $table->unsignedBigInteger('super_kurir_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('super_kurir_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
