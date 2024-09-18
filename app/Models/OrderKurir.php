@@ -10,4 +10,10 @@ class OrderKurir extends Model
     use HasFactory;
     protected $table = 'order_kurir';
     protected $guarded = [];
+
+    public function transaksi()
+    {
+        return $this->hasOne(Transaction::class, 'id', 'transactions_id');
+    }
+
 }

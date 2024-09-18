@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Alamat;
 use App\Models\Produk;
 use App\Mail\EmailVariy;
+use App\Models\OrderKurir;
 use App\Models\Settings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -143,5 +144,13 @@ class AuthController extends Controller
         } elseif ($authrole == 'customer') {
             return redirect('/beranda');
         }
+    }
+
+    public function testing(){
+        $data = [
+            'orderKurir' => OrderKurir::with('transaksi.produk', 'transaksi.pemesan')->where('kurir_id', 1)->get(),
+        ];
+
+        return view('testing.test', $data);
     }
 }

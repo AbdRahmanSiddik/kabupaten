@@ -42,6 +42,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/produk/detail', [ProduksController::class, 'index']);
     Route::get('/produk', [ProduksController::class, 'produk']);
+
+    // testing query
+    Route::get('/testing', [AuthController::class, 'testing']);
 });
 
 
@@ -100,7 +103,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // kurir
         Route::get('/admin.super-kurir', [KurirController::class, 'index']);
         Route::get('/admin/super-kurir/create', [KurirController::class, 'create']);
-        // Detail Transaction 
+        // Detail Transaction
         Route::get('/admin.detail-transaksi', [DetailTransactionController::class, 'index']);
 
 
@@ -135,7 +138,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/produk', [CustomerController::class, 'produk']);
         Route::get('/produk/{token}/detail', [CustomerController::class, 'produk_detail']);
 
-        // midtrans 
+        // midtrans
         Route::post('/checkout/{token}', [PaymentController::class, 'process']);
         Route::get('/checkout-pay/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
         Route::get('/checkout-payment/{transaction}', [PaymentController::class, 'checkout_payment'])->name('payment');
@@ -157,7 +160,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/selfie/{token}/update', [MitraUmkmController::class, 'update_action']);
 
 
-        // sedekah 
+        // sedekah
         Route::post('/sedekah/{id}', [PaymentController::class, 'sedekah']);
     });
 

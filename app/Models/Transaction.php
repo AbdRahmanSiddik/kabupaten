@@ -22,4 +22,14 @@ class Transaction extends Model
         'snap_token',
         'super_kurir_id'
     ];
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'produks_id', 'id_produks');
+    }
+
+    public function pemesan()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }
