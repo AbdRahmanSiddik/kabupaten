@@ -19,6 +19,7 @@ class Transaction extends Model
         'harga',
         'sedekah',
         'status',
-        'snap_token'
+        'snap_token',
+        'super_kurir_id'
     ];
 }

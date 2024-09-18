@@ -61,6 +61,34 @@ class UsersSeeder extends Seeder
                 'deskripsi' => null
 
             ],
+            [
+                "username" => "Super_Kurir",
+                "email" => "superkurir@gmail.com",
+                "email_verified_at" => now(),
+                "password" => bcrypt("123"),
+                "no_telepon" => "087740505052",
+                "name" => null,
+                "role" => "superkurir",
+                "token_users" => Str::random(100),
+                "alamat_users" => null,
+                'foto_profile' => null,
+                'deskripsi' => null
+
+            ],
+            [
+                "username" => "Kurir",
+                "email" => "kurir@gmail.com",
+                "email_verified_at" => now(),
+                "password" => bcrypt("123"),
+                "no_telepon" => "087740505052",
+                "name" => null,
+                "role" => "kurir",
+                "token_users" => Str::random(100),
+                "alamat_users" => null,
+                'foto_profile' => null,
+                'deskripsi' => null
+
+            ],
         ];
 
         foreach ($data as $item) {
@@ -127,7 +155,7 @@ class UsersSeeder extends Seeder
                 'nama_produk' => 'Keripik',
                 'deskripsi' => '<p>lorem</p>',
                 'sub_kategori_id' => 1,
-                'users_id' => 2,
+                'users_id' => 3,
             ]
         ];
 
