@@ -266,16 +266,16 @@
     </script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function() {
-            snap.pay('{{ $transaction['snap_token'] }}', {
-                // Optional
+            snap.pay('{{ $transaction->snap_token }}', {
                 onSuccess: function(result) {
+
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                    window.location.href = '/payment-success/{{ $transaction->users_id }}';
+
                 },
-                // Optional
                 onPending: function(result) {
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 },
-                // Optional
                 onError: function(result) {
                     document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                 }

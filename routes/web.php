@@ -41,7 +41,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'register_action']);
-    Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/produk/detail', [ProduksController::class, 'index']);
     Route::get('/produk', [ProduksController::class, 'produk']);
 
@@ -143,7 +142,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // midtrans
         Route::post('/checkout/{token}', [PaymentController::class, 'process']);
         Route::get('/checkout-pay/{transaction}', [PaymentController::class, 'checkout'])->name('checkout');
-        Route::get('/checkout-payment/{transaction}', [PaymentController::class, 'checkout_payment'])->name('payment');
+        Route::post('/midtrans-notification', [PaymentController::class, 'notification']);
+        Route::get('/payment-success/{id}', [PaymentController::class, 'callback'])->name('midtrans.callback');
 
         Route::get('/alamat/{id}', [AlamatController::class, 'edit'])->name('alamat');
         Route::post('/alamat/{id}', [AlamatController::class, 'edit_aksi']);
@@ -160,6 +160,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/daftar/umkm', [MitraUmkmController::class, 'daftar_action']);
         Route::get('/selfie', [MitraUmkmController::class, 'selfie']);
         Route::post('/selfie/{token}/update', [MitraUmkmController::class, 'update_action']);
+        Route::post('/update-status', [PaymentController::class, 'updateStatus']);
+
+
+        // KERANJANG
+        Route::get('/keranjang', [KeranjangController::class, 'index']);
+        Route::get('/keranjang/create', [KeranjangController::class, 'create']);
+        Route::post('/keranjang/create/{token}', [KeranjangController::class, 'create_action']);
+        // Route::get('/keranjang/create', [KeranjangController::class, 'create']);
+
 
 
         // sedekah

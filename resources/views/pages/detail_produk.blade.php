@@ -102,6 +102,8 @@
                                     </div> --}}
 
 
+
+
                                     <form action="/checkout/{{ $getsData->token_produk }}/" method="POST">
                                         @csrf
                                         <div class="input-group my-2 " style="width: 15%; ">
@@ -158,21 +160,17 @@
                                         </script>
                                         <ul class="_215b31">
 
-                                            @if (Auth::check())
-                                                <li><button type="submit" class="btn_adcart">Tambah Keranjang</button></li>
-                                            @else
-                                                <li><button class="btn_adcart" data-bs-toggle="modal"
-                                                        data-bs-target="#modalLogin">Add to Cart</button></li>
-                                            @endif
+                                            <li><button class="btn_buy" name="action" value="beli_sekarang"
+                                                    type="submit">Beli
+                                                    Sekarang</button></li>
+                                            <li>
 
-
-                                            <li><button class="btn_buy" type="submit">Beli Sekarang</button></li>
-
-                                        </ul>
-                                        {{-- <div class="_215fgt1">
-                                        30-Day Money-Back Guarantee
-                                    </div> --}}
+                                                <button name="action" value="tambah_keranjang" class="btn_adcart">Tambah
+                                                    Keranjang</button>
+                                            </li>
                                     </form>
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>

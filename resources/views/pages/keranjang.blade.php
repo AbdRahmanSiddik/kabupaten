@@ -3,24 +3,41 @@
     <div class="mb4d25">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8">
-                    <div class="fcrse_1">
-                        <a href="course_detail_view.html" class="hf_img">
-                            <img class="cart_img" src="{{ asset('') }}assets/images/courses/img-1.png" alt="" />
-                        </a>
-                        <div class="hs_content">
-                            <div class="eps_dots eps_dots10 more_dropdown">
-                                <a href="#"><i class="uil uil-times"></i></a>
-                            </div>
-                            <a href="course_detail_view.html" class="crse14s title900 pt-2">COMPEMAN : Coklat Pedas
-                                Manual</a>
-                            <a href="#" class="crse-cate">Makanan, Cemilan</a>
-                            <div class="auth1lnkprce">
-                                <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
-                                <div class="prce142">Rp8.999</div>
+
+                    @foreach ($getAll as $item)
+                        <div>{{ $loop->iteration }} </div>
+
+                        <div class="fcrse_1">
+                            <a href="course_detail_view.html" class="hf_img">
+                                <img src="{{ asset('thumbnail_produk/' . $item->thumbnail) }}" alt="">
+
+                            </a>
+                            <div class="hs_content">
+                                <div class="eps_dots eps_dots10 more_dropdown">
+                                    <a href="#"><i class="uil uil-times"></i></a>
+                                </div>
+                                <a href="course_detail_view.html" class="crse14s title900 pt-2">{{ $item->nama_produk }}</a>
+                                <a href="#" class="crse-cate">{{ $item->nama_kategori }},
+                                    {{ $item->nama_sub_kategori }}</a>
+                                <div class="auth1lnkprce">
+                                    <p class="cr1fot">By <a href="#">Ananda Maulana Wahyudi</a></p>
+                                    <div class="prce142">
+                                        @if ($item->atr->min('harga') == $item->atr->max('harga'))
+                                            Rp {{ number_format($item->atr->max('harga')) }} x {{ $item->kuantitas }}
+                                        @else
+                                            Rp {{ number_format($item->atr->min('harga')) }} - Rp
+                                            {{ number_format($item->atr->max('harga')) }}
+                                        @endif
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+
+
                 </div>
                 <div class="col-lg-4">
                     <div class="membership_chk_bg rght1528">

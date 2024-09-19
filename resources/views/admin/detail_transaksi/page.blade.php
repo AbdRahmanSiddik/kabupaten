@@ -98,11 +98,11 @@
 
                                                         @if ($get->status == 'success')
                                                             <div class="text-success">
-                                                                {{ $get->snap_token ? $get->status : 'none' }}
+                                                                {{ $get->status }}
                                                             </div>
-                                                        @elseif ($get->status == 'failed')
+                                                        @elseif ($get->status == 'pending')
                                                             <div class="text-danger">
-                                                                {{ $get->snap_token ? $get->status : 'none' }}
+                                                                {{ $get->status }}
                                                             </div>
                                                         @endif
 
