@@ -16,7 +16,7 @@
                             </a>
                             <div class="hs_content">
                                 <div class="eps_dots eps_dots10 more_dropdown">
-                                    <a href="#"><i class="uil uil-times"></i></a>
+                                    <a href="/keranjang/{{ $item->id_keranjang }}/delete"><i class="uil uil-times"> </i></a>
                                 </div>
                                 <a href="course_detail_view.html" class="crse14s title900 pt-2">{{ $item->nama_produk }}</a>
                                 <a href="#" class="crse-cate">{{ $item->nama_kategori }},

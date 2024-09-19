@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SuperKurir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -17,11 +18,10 @@ use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\MitraUmkmController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\SuperKurirController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\SubKategoriController;
 use App\Http\Controllers\DetailTransactionController;
-use App\Http\Controllers\SuperKurirController;
-use App\Models\SuperKurir;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -165,6 +165,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // KERANJANG
         Route::get('/keranjang', [KeranjangController::class, 'index']);
+        Route::get('/keranjang/{id}/delete', [KeranjangController::class, 'delete']);
         Route::get('/keranjang/create', [KeranjangController::class, 'create']);
         Route::post('/keranjang/create/{token}', [KeranjangController::class, 'create_action']);
         // Route::get('/keranjang/create', [KeranjangController::class, 'create']);
@@ -184,7 +185,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // menugaskan kurir untuk mengantarkan pesanan
         Route::get('/superkurir/tugas', [SuperkurirController::class, 'tugas']);
-
     });
 
 

@@ -45,6 +45,7 @@ class KeranjangController extends Controller
     }
     public function delete($id)
     {
-        return redirect();
+        Keranjang::where('id_keranjang', $id)->delete();
+        return redirect('/keranjang');
     }
 }
