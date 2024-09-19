@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('id_kurirs');
             $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('super_kurir_id');
+            $table->unsignedInteger('umur');
+            $table->enum('status_kurir', ['aktif', 'nonaktif']);
             $table->timestamps();
 
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');

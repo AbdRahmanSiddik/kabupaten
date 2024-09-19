@@ -33,6 +33,7 @@ class TestingOrderKurir extends Seeder
         Kurir::create([
             'users_id' => 5,
             'super_kurir_id' => 4,
+            'status_kurir' => 'aktif',
             'created_at' => now(),
             'updated_at' => now()
         ]);

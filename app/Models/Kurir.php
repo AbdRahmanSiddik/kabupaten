@@ -10,4 +10,9 @@ class Kurir extends Model
     use HasFactory;
     protected $table = 'kurirs';
     protected $guarded = [];
+
+    public function kurir()
+    {
+        return $this->hasOne(User::class, 'id');
+    }
 }

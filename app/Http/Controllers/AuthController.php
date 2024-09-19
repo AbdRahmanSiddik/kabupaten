@@ -143,6 +143,8 @@ class AuthController extends Controller
             return redirect('/mitra/dashboard');
         } elseif ($authrole == 'customer') {
             return redirect('/beranda');
+        } elseif ($authrole == 'superkurir'){
+            return redirect('/superkurir/dashboard');
         }
     }
 

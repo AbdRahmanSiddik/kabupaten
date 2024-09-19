@@ -20,6 +20,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\FotoProduksController;
 use App\Http\Controllers\SubKategoriController;
 use App\Http\Controllers\DetailTransactionController;
+use App\Http\Controllers\SuperKurirController;
+use App\Models\SuperKurir;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -44,7 +46,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/produk', [ProduksController::class, 'produk']);
 
     // testing query
-    Route::get('/testing', [AuthController::class, 'testing']);
+    // Route::get('/testing', [SuperKurirController::class, 'index']);
 });
 
 
@@ -166,7 +168,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('userAkses:superkurir')->group(function () {
 
-        // Route::get();
+        // Route::get('');
+        Route::get('/{role}/dashboard', [SuperKurirController::class, 'index']);
+        Route::get('/superkurir-kurir/create', [SuperKurirController::class, 'create']);
+        Route::post('/superkurir-kurir/create', [SuperKurirController::class, 'store']);
+
+        // menugaskan kurir untuk mengantarkan pesanan
+        Route::get('/superkurir/tugas', [SuperkurirController::class, 'tugas']);
 
     });
 

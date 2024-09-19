@@ -54,6 +54,34 @@
     <nav class="vertical_nav">
         <div class="left_section menu_left" id="js-menu">
             <div class="left_section">
+                @if (auth()->user()->role == 'superkurir')
+                <ul>
+                    <li class="menu--item">
+                        <a href="/{{ auth()->user()->role }}/dashboard/"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                            title="Dashboard">
+                            <i class="uil uil-apps menu--icon"></i>
+                            <span class="menu--label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/{{ auth()->user()->role }}/tugas/"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                            title="Dashboard">
+                            <i class="uil uil-apps menu--icon"></i>
+                            <span class="menu--label">Tugas</span>
+                        </a>
+                    </li>
+                    <li class="menu--item">
+                        <a href="/{{ auth()->user()->role }}/dashboard/"
+                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                            title="Dashboard">
+                            <i class="uil uil-apps menu--icon"></i>
+                            <span class="menu--label">Kurir</span>
+                        </a>
+                    </li>
+                </ul>
+                @else
                 <ul>
                     <li class="menu--item">
                         <a href="/{{ auth()->user()->role }}/dashboard/"
@@ -115,6 +143,9 @@
                         </a>
                     </li>
                 </ul>
+
+                @endif
+
             </div>
             <div class="left_section pt-2">
                 <ul>
