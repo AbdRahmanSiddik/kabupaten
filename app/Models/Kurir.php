@@ -11,8 +11,8 @@ class Kurir extends Model
     protected $table = 'kurirs';
     protected $guarded = [];
 
-    public function kurir()
+    public function kurirdata()
     {
-        return $this->hasOne(User::class, 'id');
+        return $this->hasMany(User::class, 'users_id');
     }
 }

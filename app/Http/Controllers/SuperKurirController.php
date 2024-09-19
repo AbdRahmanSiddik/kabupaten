@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\MendaftarkanKurir;
 use App\Models\Kurir;
+use App\Models\OrderKurir;
 use App\Models\User;
 use App\Models\SuperKurir;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class SuperKurirController extends Controller
 
     public function store(Request $request)
     {
-        $idSuperKurir = auth()->user()->id;
+        $idSuperKurir = auth()->user();
         $email = $request->email;
         $noTelpon = $request->nomer_telepon;
         $token = Str::random(5);
@@ -62,20 +63,27 @@ class SuperKurirController extends Controller
 
         Kurir::create([
             'users_id' => $idKurir,
-            'super_kurir_id' => $idSuperKurir,
+            'super_kurir_id' => $idSuperKurir->id,
             'status_kurir' => 'aktif',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
-        return redirect("/$idSuperKurir/dashboard")->with([
+        return redirect("/$idSuperKurir->role/dashboard")->with([
             'success' => 'Berhasil Mendaftarkan kurir'
         ]);
     }
 
     public function tugas()
     {
-        $data = [];
+        $idSuperKurir = auth()->user()->id;
+        $data = [
+            'dataOrder' => OrderKurir::with('transaksi.produk.user', 'transaksi.pemesan', 'kurir.kurirdata')
+            ->whereHas('kurir', function ($query) use ($idSuperKurir) {
+                $query->where('super_kurir_id', $idSuperKurir);
+            })
+            ->get(),
+        ];
 
         return view('admin.super_kurir.tugas', $data);
     }

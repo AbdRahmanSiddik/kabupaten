@@ -16,4 +16,9 @@ class OrderKurir extends Model
         return $this->hasOne(Transaction::class, 'id', 'transactions_id');
     }
 
+    public function kurir()
+    {
+        return $this->belongsTo(Kurir::class, 'kurir_id', 'id_kurirs');
+    }
+
 }
