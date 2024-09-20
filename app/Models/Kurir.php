@@ -13,6 +13,6 @@ class Kurir extends Model
 
     public function kurirdata()
     {
-        return $this->hasMany(User::class, 'users_id');
+        return $this->hasMany(User::class, 'id');
     }
 }

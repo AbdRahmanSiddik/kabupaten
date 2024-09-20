@@ -42,7 +42,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="pills-discount-tab" data-bs-toggle="pill" href="#pills-discount" role="tab"
-                  aria-controls="pills-discount" aria-selected="false"><i class="uil uil-tag-alt"></i>Diskon</a>
+                  aria-controls="pills-discount" aria-selected="false"><i class="uil uil-tag-alt"></i>Dikembalikan</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="pills-promotions-tab" data-bs-toggle="pill" href="#pills-promotions"
