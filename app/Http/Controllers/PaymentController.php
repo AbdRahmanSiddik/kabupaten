@@ -205,6 +205,16 @@ class PaymentController extends Controller
         // Temukan transaksi berdasarkan order_id
         Transaction::where('users_id', $id)->update($data);
 
-        return redirect()->back();
+
+
+
+
+        $roleUser = auth()->user()->role;
+
+        if ($roleUser == "customer") {
+            return redirect('/');
+        } elseif ($roleUser == "mitra") {
+            return redirect('/mitra/dashboard/');
+        }
     }
 }
