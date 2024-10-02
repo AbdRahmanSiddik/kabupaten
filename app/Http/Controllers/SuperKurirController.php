@@ -17,10 +17,9 @@ class SuperKurirController extends Controller
     {
 
         $GETallDataKurir = [
-            "datakurir" =>  Kurir::
-            join('users', 'users.id', '=', 'kurirs.users_id')
-            ->where('super_kurir_id', auth()->user()->id)
-            ->get(),
+            "datakurir" =>  Kurir::join('users', 'users.id', '=', 'kurirs.users_id')
+                ->where('super_kurir_id', auth()->user()->id)
+                ->get(),
 
         ];
 
@@ -38,10 +37,10 @@ class SuperKurirController extends Controller
         $email = $request->email;
         $noTelpon = $request->nomer_telepon;
         $token = Str::random(5);
-        $password = $token.'kurir'.substr($noTelpon, -4);
+        $password = $token . 'kurir' . substr($noTelpon, -4);
         $file = $request->file('thumbnail');
-        if(isset($file)){
-            $file_name = $token.'.'.$file->getClientOriginalExtension();
+        if (isset($file)) {
+            $file_name = $token . '.' . $file->getClientOriginalExtension();
             $file->move('foto_profile', $file_name);
         } else {
             $file_name = 'default.png';
@@ -79,12 +78,29 @@ class SuperKurirController extends Controller
         $idSuperKurir = auth()->user()->id;
         $data = [
             'dataOrder' => OrderKurir::with('transaksi.produk.user', 'transaksi.pemesan', 'kurir.kurirdata')
-            ->whereHas('kurir', function ($query) use ($idSuperKurir) {
-                $query->where('super_kurir_id', $idSuperKurir);
-            })
-            ->get(),
+                ->whereHas('kurir', function ($query) use ($idSuperKurir) {
+                    $query->where('super_kurir_id', $idSuperKurir);
+                })
+                ->get(),
         ];
 
         return view('admin.super_kurir.tugas', $data);
+    }
+
+
+
+    public function orderkurir(Request $request)
+    {
+
+        $users = User::where("role", "superkurir")
+            ->whereNotNull('last_seen')
+            ->orderBy('last_seen', 'DESC')
+            ->paginate(10);
+
+
+
+        // $users = User::where("role", "superkurir")->get();
+
+        return view('admin.super_kurir.order_kurir', compact('users'));
     }
 }

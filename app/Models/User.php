@@ -34,6 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'alamat_users',
         'foto_profile',
         'email_verified_at',
+        'last_seen',
     ];
 
     /**

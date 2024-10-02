@@ -115,7 +115,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Rute untuk mitra
     Route::middleware('userAkses:mitra')->group(function () {
-        Route::get('/{role}/dashboard', [DashboardController::class, 'dashboard']);
+        Route::get('/mitra/dashboard/', [DashboardController::class, 'dashboard']);
         // Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'store', 'destroy', 'edit', 'update']);
         Route::resource('/mitra-produk', ProduksController::class)->only(['index', 'create', 'destroy', 'edit', 'update']);
         Route::post('/mitra-produk/store', [ProduksController::class, 'store']);
@@ -126,6 +126,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Route::resource('/mitra/kategori', KategorisController::class)->only(['index', 'store', 'update', 'destroy']);
 
+
+        Route::get('/mitra.detail-transaksi', [DetailTransactionController::class, 'index']);
+
+
+        Route::get('/mitra.super-kurir', [SuperKurirController::class, 'index']);
+        Route::get('/mitra.order_kurir', [SuperKurirController::class, 'orderkurir']);
 
         Route::get('/mitra/foto-produk', [FotoProduksController::class, 'index']);
         Route::post('/mitra/foto-produk/{id}/update', [FotoProduksController::class, 'update']);
@@ -169,7 +175,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/keranjang/create', [KeranjangController::class, 'create']);
         Route::post('/keranjang/create/{token}', [KeranjangController::class, 'create_action']);
         // Route::get('/keranjang/create', [KeranjangController::class, 'create']);
-
 
 
         // sedekah

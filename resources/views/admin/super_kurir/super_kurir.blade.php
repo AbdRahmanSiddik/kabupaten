@@ -65,11 +65,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @dd($datakurir) --}}
                                             @foreach ($datakurir as $item)
                                                 <tr>
                                                     <td class="text-center">{{ $item->username }}</td>
+
                                                     <td class="text-center">{{ $item->status_kurir }}</td>
+
                                                     <td class="text-center">
                                                         <a href="" class="create_btn_dash p-3">Remove</a>
                                                     </td>

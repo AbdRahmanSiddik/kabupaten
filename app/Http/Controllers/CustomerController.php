@@ -39,7 +39,6 @@ class CustomerController extends Controller
     public function produk()
     {
 
-
         return view('pages.produk');
     }
 
@@ -53,7 +52,6 @@ class CustomerController extends Controller
 
         return view('pages.detail_produk', compact('getsData'));
     }
-
 
     public function create()
     {

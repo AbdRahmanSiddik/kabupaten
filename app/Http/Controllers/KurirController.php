@@ -9,7 +9,7 @@ class KurirController extends Controller
     public function index()
     {
 
-        return view('admin.kurir.kurir');
+        return view('admin.super_kurir.super_kurir');
     }
 
     public function create()
@@ -20,7 +20,7 @@ class KurirController extends Controller
 
     public function edit($id)
     {
-        
+
         return view('');
     }
 }

@@ -5,19 +5,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="st_title"><i class="uil uil-book-alt"></i>Detail Transaksi</h2>
+                    <h2 class="st_title"><i class="uil uil-book-alt"></i>List Kurir</h2>
                 </div>
                 <div class="col-md-12">
                     <div class="card_dash1">
                         <div class="card_dash_left1">
                             <i class="uil uil-book-alt"></i>
-                            <h1>Detail Transaksi</h1>
+                            <h1>List Kurir</h1>
                         </div>
 
 
                         <div class="card_dash_right1">
-                            <a class="create_btn_dash p-3" href="{{ auth()->user()->role . '-produk/create' }}">
-                                Trasaksi</a>
+                            <a class="create_btn_dash p-3" href="/{{ auth()->user()->role . '-kurir/create' }}">Tambah
+                                Kurir</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="pills-my-courses-tab" data-bs-toggle="pill"
                                     href="#pills-my-courses" role="tab" aria-controls="pills-my-courses"
-                                    aria-selected="true"><i class="uil uil-book-alt"></i>Customer</a>
+                                    aria-selected="true"><i class="uil uil-book-alt"></i>Kurir</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-my-purchases-tab" data-bs-toggle="pill"
@@ -59,127 +59,65 @@
                                     <table class="table ucp-table display" id="myTable">
                                         <thead class="thead-s">
                                             <tr>
-                                                <th class="text-center" scope="col">No.</th>
-                                                <th class="text-center" scope="col">Nama Pembeli</th>
-                                                <th class="text-center" scope="col">Produk</th>
-                                                <th class="text-center" scope="col">Jumlah x Harga </th>
-                                                <th class="text-center" scope="col">Sedekah</th>
-                                                <th class="text-center" scope="col">Total Pembayaran</th>
+                                                <th class="text-center" scope="col">Nama Kurir</th>
+                                                <th class="text-center" scope="col">Terakhir Dilihat</th>
+
                                                 <th class="text-center" scope="col">Status</th>
-                                                <th class="text-center" scope="col">Action</th>
+                                                <th class="text-center" scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            @foreach ($dataPembeli as $get)
+                                            @foreach ($users as $item)
                                                 <tr>
-                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td class="text-center">{{ $item->username }}</td>
                                                     <td class="text-center">
-                                                        {{ $get->username }}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        {{ $get->nama_produk }}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        {{ $get->quantity }} x
-                                                        Rp.{{ number_format($get->harga, 0, ',', '.') }}
-                                                    </td>
-
-
-                                                    <td class="text-center">
-                                                        {{ $get->sedekah }}
-                                                    </td>
-
-                                                    <td class="text-center">
-                                                        Rp.{{ number_format($get->total_price, 0, ',', '.') }}
-                                                    </td>
-                                                    <td class="text-center">
-                                                        @if ($get->status == 'success')
-                                                            <div class="text-success">
-                                                                {{ $get->status }}
-                                                            </div>
-                                                        @elseif ($get->status == 'pending')
-                                                            <div class="text-danger">
-                                                                {{ $get->status }}
-                                                            </div>
+                                                        @if ($item->last_seen)
+                                                            {{ \Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}
+                                                        @else
+                                                            <span class="text-muted">Never</span>
                                                         @endif
                                                     </td>
 
-
                                                     <td class="text-center">
-                                                        <a href="/mitra.order_kurir?id={{ $get->id }}"
-                                                            title="Tugaskan Kurir" class="gray-s"><i
-                                                                class="uil uil-calling"></i></a>
-
-                                                        <a role="button" data-bs-toggle="modal"
-                                                            data-bs-target="#editModal{{ $get->id_produks }}"
-                                                            title="Edit" class="gray-s"><i
-                                                                class="uil uil-edit-alt"></i></a>
-
-
-
-                                                        <a role="button" title="Delete" data-bs-toggle="modal"
-                                                            data-bs-target="#staticBackdrop{{ $get->id_produks }}"
-                                                            class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                                        @if (Cache::has('user-is-online-' . $item->id))
+                                                            <span class="text-success">Online</span>
+                                                        @else
+                                                            <span class="text-secondary">Offline</span>
+                                                        @endif
                                                     </td>
 
+                                                    <td class="text-center" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal{{ $item->id }}">
+                                                        <a type="button" class="create_btn_dash p-3">Tugaskan Kurir</a>
+                                                    </td>
+
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                        tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Modal
+                                                                        title</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    ... {{ $item->username }}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Kembali</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-primary">Tugaskan Kurir</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </tr>
-
-                                                <div class="modal fade" id="editModal{{ $get->id_produks }}"
-                                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit
-                                                                    Produk</h1>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body d-flex justify-content-around">
-                                                                <a href="{{ auth()->user()->role . '/foto-produk' }}?id={{ $get->id_produks }}"
-                                                                    class="create_btn_dash rounded pt-2">Edit Foto
-                                                                    Produk</a>
-                                                                <a href="{{ auth()->user()->role . '-produk/' . $get->id_produks . '/edit' }}"
-                                                                    class="create_btn_dash rounded pt-2">Edit Produk</a>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="staticBackdrop{{ $get->id_produks }}"
-                                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                                                                    Hapus Produk</h1>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body text-center">
-                                                                Yakin ingin menghapus produk {{ $get->nama_produk }}<br>
-                                                                <span class="text-danger">Kategori ini akan terhapus jika
-                                                                    produk dengan kategori ini
-                                                                    sudah tidak ada</span>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button class="create_btn_dash" type="submit">
-                                                                    <a href="/{{ auth()->user()->role }}-produk/{{ $get->id_produks }}/hapus"
-                                                                        style="color: white;">Hapus</a>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             @endforeach
                                         </tbody>
                                     </table>

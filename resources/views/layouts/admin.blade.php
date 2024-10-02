@@ -55,94 +55,94 @@
         <div class="left_section menu_left" id="js-menu">
             <div class="left_section">
                 @if (auth()->user()->role == 'superkurir')
-                <ul>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/dashboard/"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/kurir') ? 'active' : '' }}"
-                            title="Dashboard">
-                            <i class="uil uil-apps menu--icon"></i>
-                            <span class="menu--label">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/tugas/"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/tugas') ? 'active' : '' }}"
-                            title="Dashboard">
-                            <i class="uil uil-apps menu--icon"></i>
-                            <span class="menu--label">Tugas</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/dashboard/"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
-                            title="Dashboard">
-                            <i class="uil uil-apps menu--icon"></i>
-                            <span class="menu--label">Kurir</span>
-                        </a>
-                    </li>
-                </ul>
-                @else
-                <ul>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}/dashboard/"
-                            class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
-                            title="Dashboard">
-                            <i class="uil uil-apps menu--icon"></i>
-                            <span class="menu--label">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="/{{ auth()->user()->role }}-produk"
-                            class="menu--link {{ request()->is(auth()->user()->role . '-produk') ? 'active' : '' }}"
-                            title="Courses">
-                            <i class='uil uil-book-alt menu--icon'></i>
-                            <span class="menu--label">Produk Saya</span>
-                        </a>
-                    </li>
-                    {{-- <li class="menu--item"> --}}
-                    {{-- <a href="/ukuran" class="menu--link {{ Request::is('/ukuran') ? 'active' : '' }}" --}}
-                    {{-- title="Analyics"> --}}
-                    {{-- <i class='uil uil-analysis menu--icon'></i> --}}
-                    {{-- <span class="menu--label">Ukuran</span> --}}
-                    {{-- </a> --}}
-                    {{-- </li> --}}
-
-                    @if (auth()->user()->role == 'admin')
+                    <ul>
                         <li class="menu--item">
-                            <a href="/{{ auth()->user()->role }}/kategori"
-                                class="menu--link {{ request()->is(auth()->user()->role . '/kategori') ? 'active' : '' }}"
-                                title="Create Course">
-                                <i class='uil uil-plus-circle menu--icon'></i>
-                                <span class="menu--label">Kategori</span>
+                            <a href="/{{ auth()->user()->role }}/dashboard/"
+                                class="menu--link {{ request()->is(auth()->user()->role . '/kurir') ? 'active' : '' }}"
+                                title="Dashboard">
+                                <i class="uil uil-apps menu--icon"></i>
+                                <span class="menu--label">Dashboard</span>
                             </a>
                         </li>
-                    @endif
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}/tugas/"
+                                class="menu--link {{ request()->is(auth()->user()->role . '/tugas') ? 'active' : '' }}"
+                                title="Dashboard">
+                                <i class="uil uil-apps menu--icon"></i>
+                                <span class="menu--label">Tugas</span>
+                            </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}/dashboard/"
+                                class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                                title="Dashboard">
+                                <i class="uil uil-apps menu--icon"></i>
+                                <span class="menu--label">Kurir</span>
+                            </a>
+                        </li>
+                    </ul>
+                @else
+                    <ul>
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}/dashboard/"
+                                class="menu--link {{ request()->is(auth()->user()->role . '/dashboard') ? 'active' : '' }}"
+                                title="Dashboard">
+                                <i class="uil uil-apps menu--icon"></i>
+                                <span class="menu--label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}-produk"
+                                class="menu--link {{ request()->is(auth()->user()->role . '-produk') ? 'active' : '' }}"
+                                title="Courses">
+                                <i class='uil uil-book-alt menu--icon'></i>
+                                <span class="menu--label">Produk Saya</span>
+                            </a>
+                        </li>
+                        {{-- <li class="menu--item"> --}}
+                        {{-- <a href="/ukuran" class="menu--link {{ Request::is('/ukuran') ? 'active' : '' }}" --}}
+                        {{-- title="Analyics"> --}}
+                        {{-- <i class='uil uil-analysis menu--icon'></i> --}}
+                        {{-- <span class="menu--label">Ukuran</span> --}}
+                        {{-- </a> --}}
+                        {{-- </li> --}}
 
-                    <li class="menu--item">
-                        <a href="/admin.super-kurir" class="menu--link" title="Messages">
-                            <i class='uil uil-comments menu--icon'></i>
-                            <span class="menu--label">Super Kurir</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="instructor_notifications.html" class="menu--link" title="Notifications">
-                            <i class='uil uil-bell menu--icon'></i>
-                            <span class="menu--label">Notifikasi</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="/admin.detail-transaksi" class="menu--link" title="Reviews">
-                            <i class='uil uil-star menu--icon'></i>
-                            <span class="menu--label">Detail Trasaksi</span>
-                        </a>
-                    </li>
-                    <li class="menu--item">
-                        <a href="instructor_earning.html" class="menu--link" title="Earning">
-                            <i class='uil uil-dollar-sign menu--icon'></i>
-                            <span class="menu--label">Pendapatan</span>
-                        </a>
-                    </li>
-                </ul>
+                        @if (auth()->user()->role == 'admin')
+                            <li class="menu--item">
+                                <a href="/{{ auth()->user()->role }}/kategori"
+                                    class="menu--link {{ request()->is(auth()->user()->role . '/kategori') ? 'active' : '' }}"
+                                    title="Create Course">
+                                    <i class='uil uil-plus-circle menu--icon'></i>
+                                    <span class="menu--label">Kategori</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}.super-kurir" class="menu--link" title="Messages">
+                                <i class='uil uil-comments menu--icon'></i>
+                                <span class="menu--label">Super Kurir</span>
+                            </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="instructor_notifications.html" class="menu--link" title="Notifications">
+                                <i class='uil uil-bell menu--icon'></i>
+                                <span class="menu--label">Notifikasi</span>
+                            </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="/{{ auth()->user()->role }}.detail-transaksi" class="menu--link" title="Reviews">
+                                <i class='uil uil-star menu--icon'></i>
+                                <span class="menu--label">Detail Trasaksi</span>
+                            </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="instructor_earning.html" class="menu--link" title="Earning">
+                                <i class='uil uil-dollar-sign menu--icon'></i>
+                                <span class="menu--label">Pendapatan</span>
+                            </a>
+                        </li>
+                    </ul>
 
                 @endif
 
