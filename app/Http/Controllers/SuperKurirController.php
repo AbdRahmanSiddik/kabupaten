@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\SuperKurir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 
 class SuperKurirController extends Controller
@@ -89,18 +90,30 @@ class SuperKurirController extends Controller
 
 
 
-    public function orderkurir(Request $request)
+    public function orderkurir()
     {
 
         $users = User::where("role", "superkurir")
             ->whereNotNull('last_seen')
             ->orderBy('last_seen', 'DESC')
             ->paginate(10);
-
-
-
         // $users = User::where("role", "superkurir")->get();
-
         return view('admin.super_kurir.order_kurir', compact('users'));
+    }
+
+    public function tugasKan(Request $request)
+    {
+
+
+        $data = [
+            "users_id" => auth()->user()->id,
+            "kurir_id" => null,
+            "transactions_id" => null,
+            "status_kirim" => "diantar"
+        ];
+
+        orderkurir::create($data);
+
+        return response()->json("success");
     }
 }

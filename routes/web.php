@@ -132,6 +132,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/mitra.super-kurir', [SuperKurirController::class, 'index']);
         Route::get('/mitra.order_kurir', [SuperKurirController::class, 'orderkurir']);
+        Route::post('/mitra.order_kurir', [SuperKurirController::class, 'tugasKan']);
 
         Route::get('/mitra/foto-produk', [FotoProduksController::class, 'index']);
         Route::post('/mitra/foto-produk/{id}/update', [FotoProduksController::class, 'update']);

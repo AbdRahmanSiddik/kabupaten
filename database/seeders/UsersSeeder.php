@@ -59,7 +59,6 @@ class UsersSeeder extends Seeder
                 "alamat_users" => null,
                 'foto_profile' => null,
                 'deskripsi' => null
-
             ],
             [
                 "username" => "Super_Kurir",
@@ -72,8 +71,8 @@ class UsersSeeder extends Seeder
                 "token_users" => Str::random(100),
                 "alamat_users" => null,
                 'foto_profile' => null,
-                'deskripsi' => null
-
+                'deskripsi' => null,
+                'last_seen' => now()
             ],
             [
                 "username" => "Kurir",

@@ -107,7 +107,7 @@
 
 
                                                     <td class="text-center">
-                                                        <a href="/mitra.order_kurir?id={{ $get->id }}"
+                                                        <a href="/mitra.order_kurir?id={{ $get->token_users }}"
                                                             title="Tugaskan Kurir" class="gray-s"><i
                                                                 class="uil uil-calling"></i></a>
 

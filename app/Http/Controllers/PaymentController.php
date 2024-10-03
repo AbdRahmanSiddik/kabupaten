@@ -206,9 +206,6 @@ class PaymentController extends Controller
         Transaction::where('users_id', $id)->update($data);
 
 
-
-
-
         $roleUser = auth()->user()->role;
 
         if ($roleUser == "customer") {
