@@ -65,7 +65,7 @@
                                                 <th class="text-center" scope="col">Jumlah x Harga </th>
                                                 <th class="text-center" scope="col">Sedekah</th>
                                                 <th class="text-center" scope="col">Total Pembayaran</th>
-                                                <th class="text-center" scope="col">Status</th>
+                                                <th class="text-center" scope="col">Status Pembayaran</th>
                                                 <th class="text-center" scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -104,25 +104,18 @@
                                                             </div>
                                                         @endif
                                                     </td>
-
-
                                                     <td class="text-center">
-                                                        <a href="/mitra.order_kurir?id={{ $get->token_users }}"
+                                                        <a href="/mitra.order_kurir?token={{ $get->snap_token }}"
                                                             title="Tugaskan Kurir" class="gray-s"><i
                                                                 class="uil uil-calling"></i></a>
-
                                                         <a role="button" data-bs-toggle="modal"
                                                             data-bs-target="#editModal{{ $get->id_produks }}"
                                                             title="Edit" class="gray-s"><i
                                                                 class="uil uil-edit-alt"></i></a>
-
-
-
                                                         <a role="button" title="Delete" data-bs-toggle="modal"
                                                             data-bs-target="#staticBackdrop{{ $get->id_produks }}"
                                                             class="gray-s"><i class="uil uil-trash-alt"></i></a>
                                                     </td>
-
                                                 </tr>
 
                                                 <div class="modal fade" id="editModal{{ $get->id_produks }}"
@@ -133,7 +126,7 @@
                                                             <div class="modal-header">
                                                                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit
                                                                     Produk</h1>
-                                                                <button type="button" class="btn-close"
+                                                                index <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body d-flex justify-content-around">

@@ -118,12 +118,7 @@
                             </li>
                         @endif
 
-                        <li class="menu--item">
-                            <a href="/{{ auth()->user()->role }}.super-kurir" class="menu--link" title="Messages">
-                                <i class='uil uil-comments menu--icon'></i>
-                                <span class="menu--label">Super Kurir</span>
-                            </a>
-                        </li>
+
                         <li class="menu--item">
                             <a href="instructor_notifications.html" class="menu--link" title="Notifications">
                                 <i class='uil uil-bell menu--icon'></i>
@@ -142,6 +137,7 @@
                                 <span class="menu--label">Pendapatan</span>
                             </a>
                         </li>
+
                     </ul>
 
                 @endif
@@ -149,6 +145,12 @@
             </div>
             <div class="left_section pt-2">
                 <ul>
+                    <li class="menu--item">
+                        <a href="/{{ auth()->user()->role }}.super-kurir" class="menu--link" title="Messages">
+                            <i class='uil uil-comments menu--icon'></i>
+                            <span class="menu--label">Super Kurir</span>
+                        </a>
+                    </li>
                     <li class="menu--item">
                         <a href="/settings" class="menu--link" title="Setting">
                             <i class='uil uil-cog menu--icon'></i>

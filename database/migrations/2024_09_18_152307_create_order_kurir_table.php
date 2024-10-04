@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('order_kurir', function (Blueprint $table) {
             $table->id('id_order_kurir');
-            $table->foreignId('users_id')->constrained();
+            // $table->foreignId('users_id')->constrained();
             $table->unsignedBigInteger('kurir_id')->nullable();
             $table->unsignedBigInteger('transactions_id')->nullable();
             $table->enum('status_kirim', ['packing', 'diantar', 'selesai', 'gagal']);

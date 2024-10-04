@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderKurir extends Model
 {
     use HasFactory;
-    protected $table = 'order_kurir';
+    protected $table = "order_kurir";
     protected $guarded = [];
 
     public function transaksi()
@@ -20,5 +20,4 @@ class OrderKurir extends Model
     {
         return $this->belongsTo(Kurir::class, 'kurir_id', 'id_kurirs');
     }
-
 }

@@ -32,7 +32,7 @@
                                     aria-selected="true"><i class="uil uil-book-alt"></i>Kurir</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-my-purchases-tab" data-bs-toggle="pill"
+                                <a class="nav-link" id="pills-my-purchases-tab" data-bs-toggle="pill" d
                                     href="#pills-my-purchases" role="tab" aria-controls="pills-my-purchases"
                                     aria-selected="false"><i class="uil uil-download-alt"></i>Histori </a>
                             </li>

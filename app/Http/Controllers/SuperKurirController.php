@@ -7,6 +7,8 @@ use App\Models\Kurir;
 use App\Models\OrderKurir;
 use App\Models\User;
 use App\Models\SuperKurir;
+use App\Models\Transaction;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redis;
@@ -85,6 +87,7 @@ class SuperKurirController extends Controller
                 ->get(),
         ];
 
+
         return view('admin.super_kurir.tugas', $data);
     }
 
@@ -93,27 +96,46 @@ class SuperKurirController extends Controller
     public function orderkurir()
     {
 
-        $users = User::where("role", "superkurir")
-            ->whereNotNull('last_seen')
-            ->orderBy('last_seen', 'DESC')
-            ->paginate(10);
-        // $users = User::where("role", "superkurir")->get();
+        // $users = Transaction::join("users", "transactions.users_id", "=", "users.id")->where("users.role", "superkurir")
+        // ->whereNotNull('last_seen')
+        // ->orderBy('last_seen', 'DESC')
+        // ->paginate(10);
+        $users = User::where("role", "superkurir")->get();
         return view('admin.super_kurir.order_kurir', compact('users'));
     }
 
-    public function tugasKan(Request $request)
+    public function tugasKan()
+    {
+
+        $id  = $_GET['id'];
+
+        $data = [
+            "super_kurir_id" => $id
+        ];
+        $token = $_GET["token"];
+
+        $getIdTRansaction = Transaction::where("snap_token", $token)->first();
+
+
+        $dataOrder = [
+            "kurir_id" => 1,
+            "transactions_id" => $getIdTRansaction->id,
+            "status_kirim" => "packing"
+        ];
+
+        // dd($dataOrder);
+
+        orderkurir::create($dataOrder);
+        Transaction::where("snap_token", $token)->update($data);
+
+        // Alert()->success("Yess", "");
+        return response()->json("success");
+    }
+
+    public function list_kurir()
     {
 
 
-        $data = [
-            "users_id" => auth()->user()->id,
-            "kurir_id" => null,
-            "transactions_id" => null,
-            "status_kirim" => "diantar"
-        ];
-
-        orderkurir::create($data);
-
-        return response()->json("success");
+        return redirect("list-kurir");
     }
 }

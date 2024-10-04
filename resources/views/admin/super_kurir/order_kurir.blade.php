@@ -99,7 +99,8 @@
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Tugaskan Super Kurir</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        Tugaskan Super Kurir</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
                                                                         aria-label="Close"></button>
@@ -112,7 +113,7 @@
                                                                         data-bs-dismiss="modal">Kembali</button>
 
                                                                     <form
-                                                                        action="/mitra.order_kurir?id={{ $item->id }}"
+                                                                        action="/mitra.order_kurir?id={{ $item->id }}&token={{ $_GET['token'] }}"
                                                                         method="POST">
                                                                         @csrf
                                                                         <button type="submit"
