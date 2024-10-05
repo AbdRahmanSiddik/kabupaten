@@ -134,8 +134,9 @@ class SuperKurirController extends Controller
 
     public function list_kurir()
     {
+        
 
 
-        return redirect("list-kurir");
+        return view('admin.kurir.kurir');
     }
 }

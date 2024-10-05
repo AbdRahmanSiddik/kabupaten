@@ -78,9 +78,10 @@
                                                         <td>{{ $item->transaksi->produk->user->alamat_users }}</td>
                                                         <td>{{ $item->transaksi->pemesan->alamat_users }}</td>
                                                         <td>
-                                                            <a href="/list-kurir?id={{ $item->id }}" type="button"
-                                                                class="btn btn-warning">Tugaskan
-                                                                Kurir</a>
+                                                            <a href="/superkurir/list-kurir?id={{ $item->transaksi->id }}"
+                                                                type="button" class="btn btn-warning">Tugaskan
+                                                                Kurir
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 @endif

@@ -191,7 +191,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // menugaskan kurir untuk mengantarkan pesanan
         Route::get('/superkurir/tugas', [SuperkurirController::class, 'tugas']);
-        Route::get('/list-kurir', [SuperkurirController::class, 'list_kurir']);
+        Route::get('/superkurir/list-kurir', [SuperkurirController::class, 'list_kurir']);
     });
 
 
