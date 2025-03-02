@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kurir;
 use Illuminate\Http\Request;
 
 class KurirController extends Controller
 {
     public function index()
     {
-
-        return view('admin.super_kurir.super_kurir');
+        $data = [
+            'datakurir' => Kurir::get(),
+        ];
+        return view('admin.super_kurir.super_kurir', $data);
     }
 
     public function create()

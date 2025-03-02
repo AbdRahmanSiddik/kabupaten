@@ -67,7 +67,7 @@
                                         <tbody>
                                             @foreach ($datakurir as $item)
                                                 <tr>
-                                                    <td class="text-center">{{ $item->username }}</td>
+                                                    <td class="text-center">{{ $item->user->username }}</td>
 
                                                     <td class="text-center">{{ $item->status_kurir }}</td>
 
